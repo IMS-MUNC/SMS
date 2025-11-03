@@ -6,15 +6,15 @@
     color: #333;
 }
 
-.sidebar {
+.navbar {
     display: flex;
-    align-items: center;
-    padding: 10px;
-    box-sizing: border-box;
+    justify-content: end;
+    width: 100%;
+    height: 50px;
 }
 
 .sidebar-left {
-    width: 20%;
+    width: 15%;
     height: 100vh;
     position: fixed;
     top: 0;
@@ -24,10 +24,11 @@
 }
 
 .sidebar-right {
-    width: 80%;
-    height: 100vh;
-    position: fixed;
-    top: 0;
+    width: 85%;
+    height: auto;
+    overflow-y: auto;
+    position: absolute;
+    top: 40;
     right: 0;
     padding-top: 20px;
 }
@@ -39,4 +40,6 @@
 
 .overview-head {
 
+    padding: 20px;
+    background-color: #f4f4f4;
 }
