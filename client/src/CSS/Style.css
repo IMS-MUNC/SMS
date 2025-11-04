@@ -46,12 +46,11 @@
     position: fixed;
     top: 0;
     left: 0;
-    padding-top: 20px;
     background-color: #343C4D;
 }
 
 .pages-linkage {
-    height: 85vh;
+    height: 90vh;
     overflow-y: auto;
 }
 

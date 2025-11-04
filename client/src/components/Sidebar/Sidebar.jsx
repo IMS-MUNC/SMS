@@ -48,11 +48,13 @@ function Sidebar() {
     <>
     {/* Left side */}
     <div className="h-100">
-      <div className="d-flex justify-content-center align-items-center">
-        <img src={Logo} alt="logo" className="img-fluid p-3" />
+      <div className="d-flex justify-content-center align-items-center p-3">
+        <div style={{width:'200px',height:'35px'}}>
+          <img src={Logo} alt="logo" style={{display:'flex',justifyContent:'center',alignItems:'center',width:'100%',height:'100%',objectFit:'contain',}} />
+        </div>
       </div>
 
-      <div className="d-flex flex-column gap-2 mt-4 px-3 pages-linkage">
+      <div className="d-flex flex-column gap-2 mt-3 px-3 pages-linkage">
         {navItems.map((item, index) => (
           <NavLink
             key={index}
