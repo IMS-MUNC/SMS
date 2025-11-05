@@ -5,8 +5,13 @@ import { FaSchool } from "react-icons/fa";
 import { FaSchoolFlag } from "react-icons/fa6";
 import { TfiFilter } from "react-icons/tfi";
 import { LuCloudDownload } from "react-icons/lu";
+import { PiDotsThreeVertical } from "react-icons/pi";
+import { MdOutlineIndeterminateCheckBox } from "react-icons/md";
+import { Link } from "react-router-dom";
+import { FaAngleLeft } from "react-icons/fa6";
+import { FaChevronRight } from "react-icons/fa";
 
-const StudentDashboard = () => {
+const Students = () => {
   const [students] = useState([
     {
       id: 1,
@@ -33,7 +38,7 @@ const StudentDashboard = () => {
       contact: "9123456780",
       status: "Transferred",
       teacher: "Rakesh Sharma",
-      fee: "Due",
+      fee: "Pending",
       attendance: "59%",
     },
     {
@@ -47,7 +52,7 @@ const StudentDashboard = () => {
       contact: "9811223344",
       status: "Drop Out",
       teacher: "Pooja Nair",
-      fee: "Paid",
+      fee: "Overdue",
       attendance: "59%",
     },
     {
@@ -61,7 +66,7 @@ const StudentDashboard = () => {
       contact: "9765432190",
       status: "Alumni",
       teacher: "Sandeep Verma",
-      fee: "Due",
+      fee: "Cancelled",
       attendance: "59%",
     },
     {
@@ -75,27 +80,28 @@ const StudentDashboard = () => {
       contact: "9090909090",
       status: "Inactive",
       teacher: "Neelam Gupta",
-      fee: "Paid",
+      fee: "UnderReview",
       attendance: "59%",
     },
   ]);
+    const [showLowAttendance, setShowLowAttendance] = useState(false);
 
-  const getBadgeColor = (status) => {
-    switch (status) {
-      case "Active":
-        return "success";
-      case "Transferred":
-        return "secondary";
-      case "Drop Out":
-        return "danger";
-      case "Alumni":
-        return "info";
-      case "Inactive":
-        return "warning";
-      default:
-        return "light";
-    }
-  };
+  // const getBadgeColor = (status) => {
+  //   switch (status) {
+  //     case "Active":
+  //       return "success";
+  //     case "Transferred":
+  //       return "secondary";
+  //     case "Drop Out":
+  //       return "danger";
+  //     case "Alumni":
+  //       return "info";
+  //     case "Inactive":
+  //       return "warning";
+  //     default:
+  //       return "light";
+  //   }
+  // };
 
   const overviewCards = [
     { title: "Total Students", value: 6000, color: "#c79d7c" },
@@ -106,23 +112,52 @@ const StudentDashboard = () => {
     { title: "Low Attendance Students", value: 6000, color: "#ec8a8a" },
   ];
 
+  const feeColors = {
+    Paid: { bg: "#ECFDF3", color: "#00B515" },
+    Refunded: { bg: "#E4EFFF", color: "#2865C0" },
+    Pending: { bg: "#FDECEC", color: "#911808" },
+    Overdue: { bg: "#FF9999", color: "#911808" },
+    "Partially Paid": { bg: "#FDECEC", color: "#911808" },
+    Cancelled: { bg: "#F2EEC2", color: "#696103" },
+    UnderReview: { bg: "#FEE9FA", color: "#FF50D3" },
+    "Payment Failed": { bg: "#FF9999", color: "#911808" },
+  };
+
+   const handleCardClick = (title) => {
+    if (title === "Low Attendance Students") {
+      setShowLowAttendance(true);
+    }
+  };
+
   return (
     <div
       className="container-fluid bg-light p-4"
       style={{ minHeight: "100vh", backgroundColor: "#f2f7fa" }}
     >
-
       {/*  Student Overview Section */}
       <Card className="shadow border-0 mb-4  rounded-4">
-        <Card.Body >
+        <Card.Body>
+           <div className="d-flex justify-content-between align-items-center mb-4">
           <h3 className="fw-semibold mb-4">📊 Student Overview</h3>
+           {showLowAttendance && (
+              <button
+                className="btn btn-sm btn-outline-primary rounded-3"
+                onClick={() => setShowLowAttendance(false)}
+              >
+                ← Back
+              </button>
+            )}
+            </div>
+
+             {!showLowAttendance ? (
           <div className="d-flex flex-wrap gap-4">
             {overviewCards.map((card, index) => (
               <Card
                 key={index}
+                  onClick={() => handleCardClick(card.title)}
                 className="shadow-sm rounded-4 d-flex flex-row align-items-center position-relative"
                 style={{
-                  width: "234px",
+                  width: "232px",
                   height: "108px",
                   backgroundColor: "#fff",
                   border: "1px solid #E3E3E3",
@@ -158,7 +193,7 @@ const StudentDashboard = () => {
                     className="d-flex flex-column align-items-center justify-content-center ps-3"
                     style={{ borderLeft: "1px solid #E3E3E3" }}
                   >
-                    < FaSchool style={{ fontSize: "2rem", color: card.color }} />
+                    <FaSchool style={{ fontSize: "2rem", color: card.color }} />
                     <div
                       className="mt-2 px-2 py-1 rounded-pill text-success fw-semibold"
                       style={{
@@ -174,24 +209,54 @@ const StudentDashboard = () => {
               </Card>
             ))}
           </div>
+           ) : (
+            <LowAttendanceDashboard />
+          )}
         </Card.Body>
       </Card>
 
       {/* 👩‍🎓 Students Table */}
       <Card className="shadow border-0 rounded-3 bg-white">
         <Card.Header className="d-flex justify-content-between align-items-center bg-white border-0 rounded-3 py-3">
-          <div className="d-flex gap-2"><h5 className="mb-0  fw-semibold">Students</h5> <span  style={{"backgroundColor":"#F7FAFF", "color":"#0070FF","marginTop":"2px"}} >40</span></div>
-          <div className="d-flex gap-2">
-            
-            <Button variant="outline-secondary" size="sm">
-             <LuCloudDownload /> Export
+          <div className="d-flex gap-2 ms-1">
+            <h5 className="mb-0  fw-semibold">Students</h5>{" "}
+            <span
+              style={{
+                backgroundColor: "#F7FAFF",
+                color: "#0070FF",
+                marginTop: "2px",
+              }}
+            >
+              40
+            </span>
+          </div>
+          <div className="d-flex gap-3">
+            <Button
+              className="rounded-3 "
+              variant="outline-secondary"
+              size="sm"
+              style={{ padding: "4px 14px", border: "1px solid #1C1C1C29" }}
+            >
+              <LuCloudDownload /> &nbsp; Export
             </Button>
-            <Button variant="outline-secondary" size="sm">
-             <TfiFilter /> Filter 
+            <Button
+              className="rounded-3 "
+              variant="outline-secondary"
+              size="sm"
+              style={{ padding: "4px 14px", border: "1px solid #1C1C1C29" }}
+            >
+              <TfiFilter /> &nbsp; Filter
             </Button>
-            <Button className="rounded" variant="primary" size="sm">
-              +  Add
-            </Button>
+            <Link to="/addstudents" style={{ textDecoration: "none" }}>
+              <Button
+                className="rounded-3 "
+                variant="primary"
+                size="sm"
+                style={{ padding: "4px 18px" }}
+              >
+                + &nbsp; Add
+              </Button>
+            </Link>
           </div>
         </Card.Header>
 
@@ -199,23 +264,30 @@ const StudentDashboard = () => {
           <Table hover responsive className="align-middle mb-0">
             <thead className="table-light">
               <tr>
+                <th style={{ fontSize: "20px", color: "#007AFF" }}>
+                  <MdOutlineIndeterminateCheckBox />
+                </th>
                 <th>S.N.</th>
                 <th>Photo</th>
                 <th>Student Name</th>
                 <th>Class</th>
                 <th>Section</th>
-                <th>DOA</th>
+                <th>DOB</th>
                 <th>Admission No.</th>
                 <th>Parent Contact</th>
                 <th>Status</th>
                 <th>Class Teacher</th>
                 <th>Fee Status</th>
                 <th>Att %</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
               {students.map((s) => (
                 <tr key={s.id}>
+                  <td>
+                    <input type="checkbox" name="" id="" />
+                  </td>
                   <td>{s.id}</td>
                   <td>
                     <img
@@ -233,15 +305,39 @@ const StudentDashboard = () => {
                   <td>{s.admissionNo}</td>
                   <td>{s.contact}</td>
                   <td>
-                    <Badge bg={getBadgeColor(s.status)}>{s.status}</Badge>
+                    {s.status}
+                    {/* <Badge bg={getBadgeColor(s.status)}>{s.status}</Badge> */}
                   </td>
                   <td>{s.teacher}</td>
                   <td>
-                    <Badge bg={s.fee === "Paid" ? "success" : "danger"}>
+                    {/* <Badge
+                    //  bg={s.fee === "Paid" ? "success" : "danger"}
+                    style={{
+    backgroundColor: feeColors[s.fee]?.bg || "#ccc",
+    color: feeColors[s.fee]?.color || "#000",
+  }}
+                     
+                     >
                       {s.fee}
-                    </Badge>
+                    </Badge> */}
+                    <span
+                      style={{
+                        display: "inline-block",
+                        backgroundColor: feeColors[s.fee]?.bg || "#ccc",
+                        color: feeColors[s.fee]?.color || "#000",
+                        padding: "2px 8px",
+                        borderRadius: "8px",
+                        fontWeight: "500",
+                        fontSize: "0.85rem",
+                      }}
+                    >
+                      {s.fee}
+                    </span>
                   </td>
                   <td>{s.attendance}</td>
+                  <td>
+                    <PiDotsThreeVertical />
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -249,12 +345,22 @@ const StudentDashboard = () => {
         </Card.Body>
 
         <Card.Footer className=" d-flex justify-content-between align-items-center">
-          <Button variant="outline-secondary" size="sm">
-            ‹ Back
+          <Button
+            className="rounded-3 "
+            variant="outline-secondary"
+            size="sm"
+            style={{ border: "1px solid #1C1C1C29" }}
+          >
+            <FaAngleLeft /> Back
           </Button>
           <span className="text-muted">Page 101 of 1250</span>
-          <Button variant="outline-secondary" size="sm">
-            Next ›
+          <Button
+            className="rounded-3 "
+            variant="outline-secondary"
+            size="sm"
+            style={{ border: "1px solid #1C1C1C29" }}
+          >
+            Next <FaChevronRight />
           </Button>
         </Card.Footer>
       </Card>
@@ -262,4 +368,64 @@ const StudentDashboard = () => {
   );
 };
 
-export default StudentDashboard;
+export default Students;
+
+
+const LowAttendanceDashboard = () => {
+   const birthdays = [
+    {
+      date: "02 July",
+      name: "Priya Verma",
+      detail: "8C",
+      bgColor: "#f3e8ff",
+    },
+    {
+      date: "02 July",
+      name: "Priya Verma",
+      detail: "8C",
+      bgColor: "#fff4d6",
+    },
+    {
+      date: "02 July",
+      name: "Priya Verma",
+      detail: "Primary Art Teacher",
+      bgColor: "#e6ffed",
+    },
+  ];
+  return (
+    <div className="card shadow-sm border-0 rounded-4 p-3">
+      <div className="d-flex justify-content-between align-items-center mb-3">
+        <h6 className="fw-bold mb-0">Birthday This Month</h6>
+        <a href="#" className="text-decoration-none small text-primary fw-semibold">
+          View All
+        </a>
+      </div>
+
+      <div className="d-flex flex-column gap-3">
+        {birthdays.map((b, index) => (
+          <div
+            key={index}
+            className="rounded-3 d-flex justify-content-between align-items-center p-3"
+            style={{ backgroundColor: b.bgColor }}
+          >
+            <div className="d-flex align-items-center gap-3">
+              <div className="text-center">
+                <div className="fw-bold small">{b.date}</div>
+              </div>
+              <div>
+                <div className="fw-bold">{b.name}</div>
+                <div className="text-secondary small">{b.detail}</div>
+              </div>
+            </div>
+            <a href="#" className="text-decoration-none small fw-semibold text-primary">
+              Send Wishes
+            </a>
+          </div>
+        ))}
+      </div>
+
+     
+      
+    </div>
+  );
+};
