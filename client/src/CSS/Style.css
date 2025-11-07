@@ -127,6 +127,8 @@
     height: 100vh;
 }
 
+/* ================================ DASHBOARD ====================================== */
+
 .dashboard {
  padding: 20px;
 }
@@ -164,10 +166,6 @@
     transform: scale(1.1); 
 }
 
-.box-group{
-    
-}
-
 .box-first {
     color: #1C212D;
     font-weight: 700;
@@ -198,7 +196,7 @@
   background-color: transparent !important;
   border: none !important;
   box-shadow: none !important;
-  color: inherit !important; /* inherits text color of th */
+ /* color: inherit !important;  inherits text color of th */
   padding-left: 0 !important; /* optional: aligns text better */
   appearance: none; /* hides default arrow on some browsers */
 }
@@ -206,6 +204,35 @@
 .table-select:focus {
   outline: none !important;
   box-shadow: none !important;
+}
+
+.dtpkr input:focus {
+  outline: none !important;  
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.img{
+    background-color: #343C4D;
+}
+
+.w-65 {
+    width: 70%;
+}
+
+.w-35 {
+    width: 30%;
+}
+
+.dashboard-member {
+    font-size: 12px;
+}
+
+.holiday {
+    color: #1C212D;
+    font-style: bold;
+    font-size: 20px;
+    
 }
 
 

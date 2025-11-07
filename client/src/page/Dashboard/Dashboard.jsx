@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 import { HiOutlineUserGroup } from "react-icons/hi2";
-import { IoMdArrowUp, IoMdArrowDown } from "react-icons/io";
-import { IoIosArrowDown } from "react-icons/io";
+import { IoMdArrowUp, IoMdArrowDown, IoIosArrowDown, IoIosMore } from "react-icons/io";
 import { Bar, Doughnut, Line } from "react-chartjs-2";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import Calendar from 'react-calendar';
+import "react-calendar/dist/Calendar.css";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -29,11 +32,22 @@ ChartJS.register(
   Filler
 );
 
+
+  /* ================== images ===================== */
+
+import DashboardGoPremium from "../../assets/images/dashboard-go-premium.png";
+
 const Dashboard = () => {
   const [open, setOpen] = useState(false);
   const [year, setYear] = useState(2025);
   const [showModal, setShowModal] = useState(false);
   const [attendanceType, setAttendanceType] = useState("teacher");
+  const [selectedClass, setSelectedClass] = useState("");
+  const [selectedClassPending, setSelectedClassPending] = useState("");
+  const [selectedSection, setSelectedSection] = useState("");
+  const [filterClass, setFilterClass] = useState("");
+  const [value, setValue] = useState(new Date());
+  
 
   const handleToggle = () => setOpen(!open);
   const handleSelect = (option) => {
@@ -336,8 +350,118 @@ const Dashboard = () => {
     },
   };
 
+  const pendingFeesData = [
+    {
+      id: 1,
+      name: "Raj",
+      class: "6",
+      amount: "Rs. 3,000",
+      dueDate: "10th July 25",
+      contact: "9866******",
+    },
+    {
+      id: 2,
+      name: "Manshi",
+      class: "7",
+      amount: "Rs. 3,000",
+      dueDate: "10th July 25",
+      contact: "9866******",
+    },
+    {
+      id: 3,
+      name: "Nikita",
+      class: "9",
+      amount: "Rs. 3,000",
+      dueDate: "10th July 25",
+      contact: "9866******",
+    },
+    {
+      id: 4,
+      name: "Prerna",
+      class: "8",
+      amount: "Rs. 3,000",
+      dueDate: "10th July 25",
+      contact: "9866******",
+    },
+    {
+      id: 5,
+      name: "Raju",
+      class: "6",
+      amount: "Rs. 3,000",
+      dueDate: "10th July 25",
+      contact: "9866******",
+    },
+    {
+      id: 6,
+      name: "Raja",
+      class: "10",
+      amount: "Rs. 3,000",
+      dueDate: "10th July 25",
+      contact: "9866******",
+    },
+  ];
+
+  // ======topStudent 
+
+  const topStudentsData = [
+    {
+      id: 1,
+      name: "Raj",
+      class: "6A",
+      field: "Academic",
+      gpa: "99.6 %",
+      rank: 1,
+    },
+    {
+      id: 2,
+      name: "Manshi",
+      class: "12B",
+      field: "Swimming",
+      gpa: "99.6 %",
+      rank: 1,
+    },
+    {
+      id: 3,
+      name: "Nikita",
+      class: "12B",
+      field: "Basket Ball",
+      gpa: "99.6 %",
+      rank: 1,
+    },
+    {
+      id: 4,
+      name: "Prerna",
+      class: "12B",
+      field: "Cricket",
+      gpa: "99.6 %",
+      rank: 1,
+    },
+    {
+      id: 5,
+      name: "Nikita",
+      class: "12B",
+      field: "Badminton",
+      gpa: "99.6 %",
+      rank: 1,
+    },
+  ];
+
   // === Select based on attendanceType ===
   const selected = attendanceDataSets[attendanceType];
+
+  // === Select based on class ===
+  const selectedClasspending = pendingFeesData[selectedClassPending];
+
+  // Filter Pending Fees based on selected Class & Section
+  const filteredPendingFees = pendingFeesData.filter((item) => {
+    const classMatch = selectedClassPending
+      ? item.class === selectedClassPending
+      : true;
+    const sectionMatch = selectedSection
+      ? item.section === selectedSection
+      : true;
+    return classMatch && sectionMatch;
+  });
 
   const donutStats = {
     present: selected.donut[0],
@@ -437,6 +561,16 @@ const Dashboard = () => {
   //     x: { grid: { display: false } },
   //   },
   // };
+
+  const classList = [...new Set(pendingFeesData.map((item) => item.class))];
+
+  // Filter table data based on selected class
+  const filteredData = filterClass
+    ? pendingFeesData.filter((item) => item.class === filterClass)
+    : pendingFeesData;
+
+
+    
 
   return (
     <div className="dashboard">
@@ -560,7 +694,7 @@ const Dashboard = () => {
 
       {/* === Charts Section === */}
       <div className="d-flex gap-4 mt-4">
-        <div className="w-75">
+        <div className="w-65">
           {/* Earnings Chart */}
           <div className="p-4 bg-white rounded shadow mb-4">
             <div className="d-flex justify-content-between align-items-center ">
@@ -636,29 +770,31 @@ const Dashboard = () => {
                 </select> */}
 
                 <div
-  className="border border-2 rounded px-2 py-1 d-flex align-items-center justify-content-center fw-semibold"
-  style={{
-    width: "150px",
-    cursor: "pointer",
-  }}
-  onClick={() => document.getElementById("datePicker").showPicker()} // 👈 opens calendar
->
-  <input
-    id="datePicker"
-    type="date"
-    className="form-control form-control-sm bg-transparent border-0 fw-semibold text-center p-0"
-    style={{
-      width: "100%",
-      cursor: "pointer",
-    }}
-    value={years}
-    onChange={(e) => setYear(e.target.value)}
-  />
-</div>
-
+                  className="dtpkr border border-2 rounded px-2 py-1 d-flex align-items-center justify-content-center fw-semibold "
+                  style={{
+                    width: "150px",
+                    cursor: "pointer",
+                  }}
+                  onClick={() =>
+                    document.getElementById("DatePicker").showPicker()
+                  }
+                >
+                  <DatePicker
+                    id="DatePicker"
+                    type="date"
+                    className="form-control form-control-sm bg-transparent border-0 fw-semibold text-center p-0"
+                    style={{
+                      width: "100%",
+                      cursor: "pointer",
+                    }}
+                    value={years}
+                    onChange={(e) => setYear(e.target.value)}
+                  />
+                  <IoIosArrowDown />
+                </div>
 
                 <button
-                  className="btn btn-outline-primary border border-2 fw-semibold"
+                  className="btn border border-2 fw-semibold p-2 bg-primary text-white"
                   onClick={() => setShowModal(true)}
                 >
                   View Details
@@ -758,11 +894,16 @@ const Dashboard = () => {
                           className="form-select form-select-sm table-select fw-bold fs-6"
                           value={attendanceType}
                           onChange={(e) => setAttendanceType(e.target.value)}
-                          
                         >
-                          <option value="teacher" className="fw-bold fs-6">Absentees(Teacher)</option>
-                          <option value="staff" className="fw-bold fs-6">Absentees(Staff)</option>
-                          <option value="student" className="fw-bold fs-6">Absentees(Teacher)</option>
+                          <option value="teacher" className="fw-bold fs-6">
+                            Absentees(Teacher)
+                          </option>
+                          <option value="staff" className="fw-bold fs-6">
+                            Absentees(Staff)
+                          </option>
+                          <option value="student" className="fw-bold fs-6">
+                            Absentees(Teacher)
+                          </option>
                         </select>
                       </th>
                       <th>Class Teacher</th>
@@ -784,12 +925,221 @@ const Dashboard = () => {
               <div></div>
             </div>
           </div>
+
+          <div className="p-4 bg-white rounded shadow-sm mt-4">
+            {/* ===== Pending Fees Table ===== */}
+            <div className="mb-5">
+              <div className="d-flex justify-content-between align-items-center mb-3">
+                <h5 className="fw-bold mb-0">Pending Fees List</h5>
+                <div className="d-flex gap-2">
+                  <select
+                    className="dtpkr border border-2 rounded px-2 py-1 d-flex align-items-center justify-content-center bg-transparent"
+                    value={selectedClasspending}
+                    onChange={(e) => setSelectedClassPending(e.target.value)}
+                    style={{ width: "120px" }}
+                  >
+                    <option value="" className="">
+                      Class
+                    </option>
+                    <option value="1">Class 1</option>
+                    <option value="2">Class 2</option>
+                    <option value="3">Class 3</option>
+                    <option value="4">Class 4</option>
+                    <option value="5">Class 5</option>
+                    <option value="6">Class 6</option>
+                    <option value="7">Class 7</option>
+                    <option value="8">Class 8</option>
+                    <option value="9">Class 9</option>
+                    <option value="10">Class 10</option>
+                  </select>
+
+                  <select
+                    className="dtpkr border border-2 rounded px-2 py-1 d-flex align-items-center justify-content-center"
+                    value={selectedSection}
+                    onChange={(e) => setSelectedSection(e.target.value)}
+                    style={{ width: "120px" }}
+                  >
+                    <option value="">Section</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="B">C</option>
+                    <option value="B">D</option>
+                  </select>
+
+                  <button className="btn btn-dark fw-semibold btn-sm px-3">
+                    View All
+                  </button>
+                </div>
+              </div>
+              <div className="table">
+                <table className="table table-border-bottom align-middle text-center">
+                  <thead className="table-light border-bottom">
+                    <tr>
+                      <th>S.N</th>
+                      <th className="text-start">Student Name</th>
+                      <th>
+                        <select
+                          className="dtpkr px-2 py-1 d-flex align-items-center justify-content-center bg-transparent border border-0 fw-bold"
+                          value={selectedClasspending}
+                          onChange={(e) =>
+                            setSelectedClassPending(e.target.value)
+                          }
+                        >
+                          <option value="">Class</option>
+                          <option value="1">Class 1</option>
+                          <option value="2">Class 2</option>
+                          <option value="3">Class 3</option>
+                          <option value="4">Class 4</option>
+                          <option value="5">Class 5</option>
+                          <option value="6">Class 6</option>
+                          <option value="7">Class 7</option>
+                          <option value="8">Class 8</option>
+                          <option value="9">Class 9</option>
+                          <option value="10">Class 10</option>
+                        </select>
+                      </th>
+                      <th>Amount Due</th>
+                      <th>Last Due Date</th>
+                      <th>Parent Contact</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {filteredPendingFees.length > 0 ? (
+                      filteredPendingFees.map((item) => (
+                        <tr key={item.id}>
+                          <td>{item.id}</td>
+                          <td className="text-start">{item.name}</td>
+                          <td>Class {item.class}</td>
+                          <td>{item.amount}</td>
+                          <td>{item.dueDate}</td>
+                          <td>{item.contact}</td>
+                          <td>
+                            <IoIosMore size={18} />
+                          </td>
+                        </tr>
+                      ))
+                    ) : (
+                      <tr>
+                        <td
+                          colSpan="7"
+                          className="text-center text-secondary py-3"
+                        >
+                          No pending fees for this selection.
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* ===== Top Performing Students Table ===== */}
+            <div>
+              <div className="d-flex justify-content-between align-items-center mb-3">
+                <h5 className="fw-bold mb-0">Top Performing Students</h5>
+                <div className="d-flex gap-2">
+                  <select
+                    className="dtpkr border border-2 rounded px-2 py-1 d-flex align-items-center justify-content-center"
+                    value={selectedClass}
+                    onChange={(e) => setSelectedClass(e.target.value)}
+                    style={{ width: "120px" }}
+                  >
+                    <option value="">Class</option>
+                    <option value="6A">6A</option>
+                    <option value="12B">12B</option>
+                  </select>
+
+                  <select
+                    className="dtpkr border border-2 rounded px-2 py-1 d-flex align-items-center justify-content-center"
+                    value={selectedSection}
+                    onChange={(e) => setSelectedSection(e.target.value)}
+                    style={{ width: "120px" }}
+                  >
+                    <option value="">Section</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                  </select>
+
+                  <button className="btn btn-dark fw-semibold btn-sm px-3">
+                    View All
+                  </button>
+                </div>
+              </div>
+
+              <div className="table-responsive">
+                <table className="table table-border-bottom align-middle text-center">
+                  <thead className="table-light border-bottom">
+                    <tr>
+                      <th>S.N</th>
+                      <th className="text-start">Student Name</th>
+                      <th>Class</th>
+                      <th>Field</th>
+                      <th>GPA/Score</th>
+                      <th>Rank</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {topStudentsData.map((item) => (
+                      <tr key={item.id}>
+                        <td>{item.id}</td>
+                        <td className="text-start">{item.name}</td>
+                        <td>{item.class}</td>
+                        <td>{item.field}</td>
+                        <td>{item.gpa}</td>
+                        <td>{item.rank}</td>
+                        <td>
+                          <IoIosMore size={18} />
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
+        {/* ===================== Right Side Code ================== */}
+        <div className="bg-white rounded w-35 p-3">
+          <div className="img d-flex rounded justify-content-between p-4">
+            <div className="text-white">
+              <span className="fs-6">Mun_C</span>
+              <div className="mt-4">
+                <span className="fs-6">Go Premium</span>
+              </div>
+              <div className="dashboard-member mt-1">
+                <span>Explore 25k+ Feature With life time membership</span>
+              </div>
+              <div className="mt-4">
+                <div className="btn btn-primary px-4 d-flex align-items-center justify-content-center" style={{height:'30px'}}>
+                  <span className="dashboard-member">Get Full Access</span>
+                </div>
+              </div>
+            </div>
+            <div className="" style={{width:'220px', height:'180px'}}>
+              <img className="" src={DashboardGoPremium} alt="" style={{ width:'100%',height:'100%',objectFit:'contain'}} />
+            </div>
+          </div>
+          {/* ============================= Holiday Calender ============================ */}
+        <div className="mt-2 ">
+          <div className="d-flex justify-content-between">
+            <span className="holiday fw-bold">Holiday Calender </span>
+            <span className="dtpkr btn ">
+              <button>view All</button>
+            </span>
+          </div>
 
-        <div className="p-4 bg-white rounded w-25"></div>
+          <div className="mt-3">
+            <div>
+      <Calendar onChange={setValue} value={value} />
+    </div>
+          </div>
+        </div>
+        </div>
       </div>
-
-      {/* === Modal === */}
+      
+      {/* ========================= Modal =========================== */}
       {showModal && (
         <div
           className="modal fade show"
