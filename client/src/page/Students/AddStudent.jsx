@@ -327,7 +327,7 @@ function AddStudent() {
             </div>
             <div className="p-3">
               <div
-                className=" border-primary border-2 border-dashed rounded-3 mt-2 p-5 text-center"
+                className=" border-primary border-2 border-dashed rounded-3  mt-2 p-5 ms-4 text-center"
                 style={{
                   backgroundColor: "#ECF0FA",
                   borderStyle: "dashed",
@@ -808,14 +808,14 @@ function AddStudent() {
                         Student’s Passport Size Photos (5)
                       </label>
                     </div>
-                   
+
                     <div className="form-check mb-3">
                       <input className="form-check-input" type="checkbox" />
                       <label className="form-check-label">
                         Sibling Certificate(For sibling-based admissions or fee
                         concessions)
                       </label>
-                    </div>  
+                    </div>
                   </div>
                   <div className="col-md-4">
                     <div className="form-check mb-2">
@@ -824,7 +824,7 @@ function AddStudent() {
                         Passport (if applicable)
                       </label>
                     </div>
-                     <div className="form-check mb-4">
+                    <div className="form-check mb-4">
                       <input className="form-check-input" type="checkbox" />
                       <label className="form-check-label">
                         Sports / Extra-Curricular Certificates
@@ -861,16 +861,15 @@ function AddStudent() {
                         Character Certificate
                       </label>
                     </div>
-                   
                   </div>
                   <div className="col-md-4">
-                   <div className="form-check mb-2">
+                    <div className="form-check mb-2">
                       <input className="form-check-input" type="checkbox" />
                       <label className="form-check-label">
                         Migration Certificate
                       </label>
                     </div>
-                    </div>
+                  </div>
                 </div>
 
                 {/* Medical & Health Records */}
@@ -901,23 +900,21 @@ function AddStudent() {
                         Disability Certificate (if applicable)
                       </label>
                     </div>
-                    
                   </div>
                   <div className="col-md-3">
-
-                  <div className="form-check mb-2">
+                    <div className="form-check mb-2">
                       <input className="form-check-input" type="checkbox" />
                       <label className="form-check-label">
                         Allergy/Chronic Illness Declaration
                       </label>
                     </div>
-                    </div>
+                  </div>
                 </div>
               </div>
             </div>
             <div className="p-3">
               <div
-                className=" border-primary border-2 border-dashed rounded-3 mt-2 p-5 text-center"
+                className=" border-primary border-2 border-dashed rounded-3 mt-2 p-5 text-center ms-4"
                 style={{
                   backgroundColor: "#ECF0FA",
                   borderStyle: "dashed",
@@ -1181,7 +1178,7 @@ function AddStudent() {
             </div>
           </div>
         )}
-         {/* parents guardian details  */}
+        {/* parents guardian details  */}
         {activeTab === "parents-guardian-details" && (
           <div className="d-flex text-secondary">
             <div style={{ width: "100%" }}>
@@ -1238,7 +1235,7 @@ function AddStudent() {
                   </div>
                   <div className="col-md-4">
                     <label>Mother's Occupation </label>
-                     <input
+                    <input
                       type="text"
                       name="mothersoccupation"
                       className="form-control"
@@ -1274,7 +1271,7 @@ function AddStudent() {
                   </div>
                   <div className="col-md-4">
                     <label>Guardian's Relation</label>
-                     <input
+                    <input
                       type="text"
                       name="guardianRelation"
                       className="form-control"
@@ -1283,7 +1280,7 @@ function AddStudent() {
                       placeholder="Massi"
                     />
                   </div>
-                 
+
                   <div className="col-md-4">
                     <label>Guardian's Contact No.</label>
                     <input
@@ -1310,7 +1307,7 @@ function AddStudent() {
 
                   <div className="col-md-4">
                     <label>Mother's Email Address</label>
-                     <input
+                    <input
                       type="email"
                       name="motherEmail"
                       className="form-control"
@@ -1334,14 +1331,15 @@ function AddStudent() {
             <input type="file" multiple className="form-control" />
           </div> */}
                 </div>
-               
               </form>
 
               <div className="mt-4">
                 <h5 className="fw-semibold mb-3">Document Check List</h5>
 
                 {/* Birth & Identity Proof */}
-                <h6 className="fw-semibold mt-4">Parent/Guardian Related Documents</h6>
+                <h6 className="fw-semibold mt-4">
+                  Parent/Guardian Related Documents
+                </h6>
                 <div className="row mt-2">
                   <div className="col-md-2">
                     <div className="form-check mb-2">
@@ -1356,7 +1354,7 @@ function AddStudent() {
                     <div className="form-check mb-2">
                       <input className="form-check-input" type="checkbox" />
                       <label className="form-check-label">
-                       Father's Employment Certificate
+                        Father's Employment Certificate
                       </label>
                     </div>
                   </div>
@@ -1364,7 +1362,9 @@ function AddStudent() {
                   <div className="col-md-3">
                     <div className="form-check mb-2">
                       <input className="form-check-input" type="checkbox" />
-                      <label className="form-check-label">Mother's Aadhar Card</label>
+                      <label className="form-check-label">
+                        Mother's Aadhar Card
+                      </label>
                     </div>
                     <div className="form-check mb-2">
                       <input className="form-check-input" type="checkbox" />
@@ -1381,13 +1381,13 @@ function AddStudent() {
                         Guardian's Aadhar Card
                       </label>
                     </div>
-                   
+
                     <div className="form-check mb-2">
                       <input className="form-check-input" type="checkbox" />
                       <label className="form-check-label">
                         Passport/Visa (For International Students)
                       </label>
-                    </div>  
+                    </div>
                   </div>
                   <div className="col-md-4">
                     <div className="form-check mb-2">
@@ -1396,7 +1396,6 @@ function AddStudent() {
                         Passport size Photgraph(1 Each)
                       </label>
                     </div>
-                     
                   </div>
                 </div>
 
@@ -1416,7 +1415,7 @@ function AddStudent() {
             </div>
             <div className="p-3">
               <div
-                className=" border-primary border-2 border-dashed rounded-3 mt-2 p-5 text-center"
+                className=" border-primary border-2 border-dashed rounded-3 mt-2 p-5 text-center ms-4"
                 style={{
                   backgroundColor: "#ECF0FA",
                   borderStyle: "dashed",
@@ -1488,7 +1487,7 @@ function AddStudent() {
                         style={{
                           width: "90%",
                           background:
-                           "linear-gradient(to right, #1570EF, #2E90FA)",
+                            "linear-gradient(to right, #1570EF, #2E90FA)",
                         }}
                       ></div>
                     </div>
@@ -1689,7 +1688,7 @@ function AddStudent() {
                 <div className="row mt-0">
                   <div className="col-md-4">
                     <label>Fee Category</label>
-                     <select
+                    <select
                       className="form-select"
                       name="feeCategory"
                       onChange={handleChange}
@@ -1710,7 +1709,9 @@ function AddStudent() {
                     >
                       <option value="standard">Standard</option>
                       <option value="customized">Customized</option>
-                      <option value="scholarship-based">Scholarship-based</option>
+                      <option value="scholarship-based">
+                        Scholarship-based
+                      </option>
                       <option value="others"> Others</option>
                     </select>
                   </div>
@@ -1743,7 +1744,7 @@ function AddStudent() {
                   </div>
                   <div className="col-md-4">
                     <label>Discount / Concession Amount </label>
-                     <input
+                    <input
                       type="number"
                       name="discountAmount"
                       className="form-control"
@@ -1777,7 +1778,6 @@ function AddStudent() {
                       placeholder="Scholarship Name"
                     />
                   </div>
-                  
                 </div>
 
                 <h5 className="mt-4">Payment Details</h5>
@@ -1785,7 +1785,7 @@ function AddStudent() {
                 <div className="row mt-0">
                   <div className="col-md-4">
                     <label>Fee Payment Mode</label>
-                     <select
+                    <select
                       className="form-select"
                       name="feePaymentMode"
                       onChange={handleChange}
@@ -1835,12 +1835,11 @@ function AddStudent() {
                       <option value="Sibling">Paid</option>
                       <option value="StaffChild">Unpaid</option>
                       <option value="Merit-based">Partilly Paid</option>
-                      
                     </select>
                   </div>
                   <div className="col-md-4">
                     <label>Last Payment Date</label>
-                     <input
+                    <input
                       type="date"
                       name="lastPaymentDate"
                       className="form-control"
@@ -1868,31 +1867,29 @@ function AddStudent() {
                   <div className="col-md-4">
                     <label>Late Fee Applicable</label>
                     <div className="col-md-4 d-flex gap-5">
-                    
-                    
-                    <div className="form-check form-check-inline">
-                      <input
-                        className="form-check-input"
-                        type="radio"
-                        name="gender"
-                        value="Female"
-                        onChange={handleChange}
-                      />
-                      <label className="form-check-label">Yes</label>
-                    </div>
-                    <div className="form-check form-check-inline">
-                      <input
-                        className="form-check-input"
-                        type="radio"
-                        name="gender"
-                        value="Others"
-                        onChange={handleChange}
-                      />
-                      <label className="form-check-label">No</label>
+                      <div className="form-check form-check-inline">
+                        <input
+                          className="form-check-input"
+                          type="radio"
+                          name="gender"
+                          value="Female"
+                          onChange={handleChange}
+                        />
+                        <label className="form-check-label">Yes</label>
+                      </div>
+                      <div className="form-check form-check-inline">
+                        <input
+                          className="form-check-input"
+                          type="radio"
+                          name="gender"
+                          value="Others"
+                          onChange={handleChange}
+                        />
+                        <label className="form-check-label">No</label>
+                      </div>
                     </div>
                   </div>
-                  </div>
-                  
+
                   <div className="col-md-4">
                     <label>Late Fee Amount</label>
                     <input
@@ -1906,12 +1903,12 @@ function AddStudent() {
                   </div>
                 </div>
 
-                  <h5 className="mt-4">Additional Info</h5>
+                <h5 className="mt-4">Additional Info</h5>
 
                 <div className="row mt-0">
                   <div className="col-md-4">
                     <label>Outstanding Fees</label>
-                     <input
+                    <input
                       type="number"
                       name="outstandingFees"
                       className="form-control"
@@ -1943,16 +1940,15 @@ function AddStudent() {
                     />
                   </div>
                 </div>
-
-                
-               
               </form>
 
               <div className="mt-4">
                 <h5 className="fw-semibold mb-3">Document Check List</h5>
 
                 {/* Birth & Identity Proof */}
-                <h6 className="fw-semibold mt-4">Admission Application Documents</h6>
+                <h6 className="fw-semibold mt-4">
+                  Admission Application Documents
+                </h6>
                 <div className="row mt-2">
                   <div className="col-md-3">
                     <div className="form-check mb-2">
@@ -1964,15 +1960,15 @@ function AddStudent() {
                         Duly Filled Admission Form
                       </label>
                     </div>
-                    
                   </div>
 
                   <div className="col-md-3">
                     <div className="form-check mb-2">
                       <input className="form-check-input" type="checkbox" />
-                      <label className="form-check-label">Fee Payment Receipt</label>
+                      <label className="form-check-label">
+                        Fee Payment Receipt
+                      </label>
                     </div>
-                    
                   </div>
 
                   <div className="col-md-4">
@@ -1982,19 +1978,13 @@ function AddStudent() {
                         Scholarship Application Form (if applicable)
                       </label>
                     </div>
-                   
-                     
                   </div>
-
                 </div>
-
-                
-                
               </div>
             </div>
             <div className="p-3">
               <div
-                className=" border-primary border-2 border-dashed rounded-3 mt-2 p-5 text-center"
+                className=" border-primary border-2 border-dashed rounded-3 mt-2 p-5 text-center ms-4"
                 style={{
                   backgroundColor: "#ECF0FA",
                   borderStyle: "dashed",
@@ -2066,7 +2056,7 @@ function AddStudent() {
                         style={{
                           width: "90%",
                           background:
-                           "linear-gradient(to right, #1570EF, #2E90FA)",
+                            "linear-gradient(to right, #1570EF, #2E90FA)",
                         }}
                       ></div>
                     </div>
@@ -2262,7 +2252,16 @@ function AddStudent() {
           <div className="d-flex text-secondary">
             <div style={{ width: "100%" }}>
               <form onSubmit={handleSubmit} className=" p-4">
-                <h5>RFID Card Services Provided </h5>
+                <div className="d-flex gap-3">
+               <div> <h5>RFID Card Services Provided </h5> </div>
+                <div class="form-check form-switch  fs-5">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      role="switch"
+                      id="flexSwitchCheckDefault"
+                    />
+                  </div></div>
 
                 <div className="row mt-0">
                   <div className="col-md-4">
@@ -2316,7 +2315,7 @@ function AddStudent() {
                   </div>
                   <div className="col-md-4">
                     <label>Replacement Status</label>
-                     <select
+                    <select
                       className="form-select"
                       name="replacementStatus"
                       onChange={handleChange}
@@ -2344,7 +2343,7 @@ function AddStudent() {
                 <div className="row mt-3">
                   <div className="col-md-4">
                     <label>RFID Card Type</label>
-                     <select
+                    <select
                       className="form-select"
                       name="rfidCardType"
                       onChange={handleChange}
@@ -2352,7 +2351,6 @@ function AddStudent() {
                       <option value="Active">Basic ID</option>
                       <option value="Inactive">Access Control</option>
                       <option value="Lost">Attendance Tracking</option>
-                      
                     </select>
                   </div>
                   <div className="col-md-4">
@@ -2368,12 +2366,11 @@ function AddStudent() {
                       <option value="Dormitory">Dormitory</option>
                       <option value="Canteen">Canteen</option>
                       <option value="Others">Others</option>
-                      
                     </select>
                   </div>
                   <div className="col-md-4">
                     <label>Remarks</label>
-                     <input
+                    <input
                       type="text"
                       name="outstandingFees"
                       className="form-control"
@@ -2382,21 +2379,31 @@ function AddStudent() {
                       placeholder="Any additional note related to RFID card"
                     />
                   </div>
-                  
                 </div>
-
-                <h5 className="mt-4">Transport Service Opted</h5>
+                <div className="d-flex mt-4 gap-3 ">
+              <div>
+                <h5 >Transport Service Opted</h5></div>
+                <div class="form-check form-switch  fs-5">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      role="switch"
+                      id="flexSwitchCheckDefault"
+                    />
+                  </div></div>
 
                 <div className="row mt-0">
                   <div className="col-md-4">
                     <label>Pickup Point/ Bus Stop</label>
-                     <select
+                    <select
                       className="form-select"
                       name="pickupPoint"
                       onChange={handleChange}
                     >
                       <option value="">Select</option>
-                      <option value="Cheque">Predefined stops or custom pickup points</option>
+                      <option value="Cheque">
+                        Predefined stops or custom pickup points
+                      </option>
                       <option value="BankTransfer">Bank Transfer</option>
                       <option value="UPI">UPI</option>
                       <option value="Card">Card</option>
@@ -2442,12 +2449,11 @@ function AddStudent() {
                       <option value="Sibling">Vehicle assigned</option>
                       <option value="StaffChild">Unpaid</option>
                       <option value="Merit-based">Partilly Paid</option>
-                      
                     </select>
                   </div>
                   <div className="col-md-4">
                     <label>Driver's Name</label>
-                     <select
+                    <select
                       className="form-select"
                       name="discountType"
                       onChange={handleChange}
@@ -2455,7 +2461,6 @@ function AddStudent() {
                       <option value="Sibling">Driver assigned</option>
                       <option value="StaffChild">Unpaid</option>
                       <option value="Merit-based">Partilly Paid</option>
-                      
                     </select>
                   </div>
                   <div className="col-md-4">
@@ -2474,7 +2479,7 @@ function AddStudent() {
                 <div className="row mt-3">
                   <div className="col-md-4">
                     <label>Pickup Time</label>
-                     <input
+                    <input
                       type="time"
                       name="receiptNumber"
                       className="form-control"
@@ -2485,7 +2490,7 @@ function AddStudent() {
                   </div>
                   <div className="col-md-4">
                     <label>Transport Fee Payment Status</label>
-                     <select
+                    <select
                       className="form-select"
                       name="discountType"
                       onChange={handleChange}
@@ -2493,7 +2498,6 @@ function AddStudent() {
                       <option value="Sibling">Paid</option>
                       <option value="StaffChild">Unpaid</option>
                       <option value="Merit-based">Partilly Paid</option>
-                      
                     </select>
                   </div>
                   <div className="col-md-4">
@@ -2509,15 +2513,24 @@ function AddStudent() {
                   </div>
                 </div>
 
-                <h5 className="mt-4">Hostel/Dormitory Services </h5> 
-                <div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"/> 
-</div>
+                <div className="d-flex mt-4 gap-3">
+                  <div>
+                    <h5>Hostel/Dormitory Services </h5>{" "}
+                  </div>
+                  <div class="form-check form-switch  fs-5">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      role="switch"
+                      id="flexSwitchCheckDefault"
+                    />
+                  </div>
+                </div>
 
                 <div className="row mt-0">
                   <div className="col-md-4">
                     <label>Hostel Name / Building</label>
-                      <input
+                    <input
                       type="text"
                       name="receiptNumber"
                       className="form-control"
@@ -2526,7 +2539,7 @@ function AddStudent() {
                       placeholder="Hostel/Dormitory Name"
                     />
                   </div>
-                  
+
                   <div className="col-md-4">
                     <label>Room Number / Bed Number</label>
                     <input
@@ -2553,7 +2566,7 @@ function AddStudent() {
                 <div className="row mt-3">
                   <div className="col-md-4">
                     <label>Hostel Fees</label>
-                      <input
+                    <input
                       type="number"
                       name="receiptNumber"
                       className="form-control"
@@ -2562,10 +2575,10 @@ function AddStudent() {
                       placeholder="Fees for accommodation"
                     />
                   </div>
-                  
+
                   <div className="col-md-4">
                     <label>Fee Payment Status</label>
-                    
+
                     <select
                       className="form-select"
                       name="discountType"
@@ -2574,7 +2587,6 @@ function AddStudent() {
                       <option value="Sibling">Paid</option>
                       <option value="StaffChild">Unpaid</option>
                       <option value="Merit-based">Partilly Paid</option>
-                      
                     </select>
                   </div>
                   <div className="col-md-4">
@@ -2592,7 +2604,7 @@ function AddStudent() {
                 <div className="row mt-3">
                   <div className="col-md-4">
                     <label>Warden's Contact Number</label>
-                      <input
+                    <input
                       type="text"
                       name="receiptNumber"
                       className="form-control"
@@ -2601,11 +2613,11 @@ function AddStudent() {
                       placeholder="for emergency purposes"
                     />
                   </div>
-                  
+
                   <div className="col-md-4">
                     <label>Check-In Date</label>
-                    
-                     <input
+
+                    <input
                       type="date"
                       name="receiptNumber"
                       className="form-control"
@@ -2629,19 +2641,18 @@ function AddStudent() {
                 <div className="row mt-3">
                   <div className="col-md-4">
                     <label>Visitor List / Guardian for Hostel Visit</label>
-                      <input
+                    <input
                       type="text"
                       name="receiptNumber"
                       className="form-control"
                       value={formData.netPayableFee}
                       onChange={handleChange}
-                      
                     />
                   </div>
-                  
+
                   <div className="col-md-4">
                     <label>Food Preference</label>
-                    
+
                     <select
                       className="form-select"
                       name="discountType"
@@ -2650,7 +2661,6 @@ function AddStudent() {
                       <option value="Sibling">Vegetarian</option>
                       <option value="StaffChild">NOon-Vegetarian</option>
                       <option value="Merit-based">Special Diat</option>
-                      
                     </select>
                   </div>
                   <div className="col-md-4">
@@ -2668,7 +2678,7 @@ function AddStudent() {
                 <div className="row mt-3">
                   <div className="col-md-4">
                     <label>Emergency Hostel Contact</label>
-                      <input
+                    <input
                       type="text"
                       name="receiptNumber"
                       className="form-control"
@@ -2677,10 +2687,10 @@ function AddStudent() {
                       placeholder="Emergency contact specific for hostel stays"
                     />
                   </div>
-                  
+
                   <div className="col-md-4">
                     <label>Hostel Attendence Required</label>
-                    
+
                     <select
                       className="form-select"
                       name="discountType"
@@ -2688,8 +2698,6 @@ function AddStudent() {
                     >
                       <option value="Sibling">Yes</option>
                       <option value="StaffChild">No</option>
-                      
-                      
                     </select>
                   </div>
                   <div className="col-md-4">
@@ -2704,18 +2712,15 @@ function AddStudent() {
                     />
                   </div>
                 </div>
-
-                
-
-                
-               
               </form>
 
               <div className="mt-4">
                 <h5 className="fw-semibold mb-3">Document Check List</h5>
 
                 {/* Birth & Identity Proof */}
-                <h6 className="fw-semibold mt-4">RFID Card Services-Documents Required</h6>
+                <h6 className="fw-semibold mt-4">
+                  RFID Card Services-Documents Required
+                </h6>
                 <div className="row mt-2">
                   <div className="col-md-3">
                     <div className="form-check mb-2">
@@ -2738,7 +2743,9 @@ function AddStudent() {
                   <div className="col-md-3">
                     <div className="form-check mb-2">
                       <input className="form-check-input" type="checkbox" />
-                      <label className="form-check-label">Student ID Proof</label>
+                      <label className="form-check-label">
+                        Student ID Proof
+                      </label>
                     </div>
                     <div className="form-check mb-2">
                       <input className="form-check-input" type="checkbox" />
@@ -2755,8 +2762,6 @@ function AddStudent() {
                         Parent/Guardian Signature
                       </label>
                     </div>
-                   
-                     
                   </div>
                   <div className="col-md-3">
                     <div className="form-check mb-2">
@@ -2765,12 +2770,13 @@ function AddStudent() {
                         Application Form
                       </label>
                     </div>
-                    
                   </div>
                 </div>
 
                 {/* TransPort Service-Documents Required */}
-                <h6 className="fw-semibold ">TransPort Service-Documents Required</h6>
+                <h6 className="fw-semibold ">
+                  TransPort Service-Documents Required
+                </h6>
                 <div className="row mt-2">
                   <div className="col-md-3">
                     <div className="form-check mb-2">
@@ -2785,7 +2791,7 @@ function AddStudent() {
                     <div className="form-check mb-2">
                       <input className="form-check-input" type="checkbox" />
                       <label className="form-check-label">
-                        Recent Address proof 
+                        Recent Address proof
                       </label>
                     </div>
                   </div>
@@ -2793,24 +2799,23 @@ function AddStudent() {
                   <div className="col-md-3">
                     <div className="form-check mb-2">
                       <input className="form-check-input" type="checkbox" />
-                      <label className="form-check-label">
-                        Student Photo
-                      </label>
+                      <label className="form-check-label">Student Photo</label>
                     </div>
-                   
                   </div>
                   <div className="col-md-3">
-                   <div className="form-check mb-2">
+                    <div className="form-check mb-2">
                       <input className="form-check-input" type="checkbox" />
                       <label className="form-check-label">
                         Payment Slip / Receipt
                       </label>
                     </div>
-                    </div>
+                  </div>
                 </div>
 
                 {/* Medical & Health Records */}
-                <h6 className="fw-semibold mt-2">Hostel/Dormitory Services - Documents Required </h6>
+                <h6 className="fw-semibold mt-2">
+                  Hostel/Dormitory Services - Documents Required{" "}
+                </h6>
                 <div className="row mt-2">
                   <div className="col-md-3">
                     <div className="form-check mb-2">
@@ -2837,23 +2842,21 @@ function AddStudent() {
                         Medical Certificate/Health Declaration
                       </label>
                     </div>
-                    
                   </div>
                   <div className="col-md-3">
-
-                  <div className="form-check mb-2">
+                    <div className="form-check mb-2">
                       <input className="form-check-input" type="checkbox" />
                       <label className="form-check-label">
                         Fee Payment Receipt
                       </label>
                     </div>
-                    </div>
+                  </div>
                 </div>
               </div>
             </div>
             <div className="p-3">
               <div
-                className=" border-primary border-2 border-dashed rounded-3 mt-2 p-5 text-center"
+                className=" border-primary border-2 border-dashed rounded-3 mt-2 p-5 text-center ms-4"
                 style={{
                   backgroundColor: "#ECF0FA",
                   borderStyle: "dashed",
@@ -2925,7 +2928,7 @@ function AddStudent() {
                         style={{
                           width: "90%",
                           background:
-                           "linear-gradient(to right, #1570EF, #2E90FA)",
+                            "linear-gradient(to right, #1570EF, #2E90FA)",
                         }}
                       ></div>
                     </div>
@@ -3115,6 +3118,286 @@ function AddStudent() {
                 </div>
               </div>
             </div>
+          </div>
+        )}
+        {activeTab === "contact-details" && (
+          <div className="d-flex text-secondary">
+            <div style={{ width: "100%" }}>
+              <form onSubmit={handleSubmit} className=" p-4">
+                {/* <h5>Basic FeeDetails</h5> */}
+
+                <div className="row mt-0">
+                  <div className="col-md-4">
+                    <label>Student's Contact No.</label>
+                    <input
+                      type="number"
+                      name="totalFees"
+                      className="form-control"
+                      value={formData.fathercontact}
+                      onChange={handleChange}
+                      placeholder="N/A"
+                    />
+                  </div>
+                  <div className="col-md-4">
+                    <label>Father's Contact No.</label>
+                    <input
+                      type="number"
+                      name="totalFees"
+                      className="form-control"
+                      value={formData.fathercontact}
+                      onChange={handleChange}
+                      placeholder="+91 9876543210"
+                    />
+                  </div>
+                  <div className="col-md-4">
+                    <label>Mother's Contact No.</label>
+                    <input
+                      type="number"
+                      name="totalFees"
+                      className="form-control"
+                      value={formData.fathercontact}
+                      onChange={handleChange}
+                      placeholder="+91 9876543210"
+                    />
+                  </div>
+                </div>
+
+                <div className="row mt-3">
+                  <div className="col-md-4">
+                    <label>Father's Email Address</label>
+                   <input
+                      type="email"
+                      name="totalFees"
+                      className="form-control"
+                      value={formData.fathercontact}
+                      onChange={handleChange}
+                      placeholder="Rajesh@gmail.com"
+                    />
+                  </div>
+                  <div className="col-md-4">
+                    <label>Mother's Email Address</label>
+                    <input
+                      type="email"
+                      name="discountAmount"
+                      className="form-control"
+                      value={formData.discountAmount}
+                      onChange={handleChange}
+                      placeholder="Rajesh@gmail.com"
+                    />
+                  </div>
+                  <div className="col-md-4">
+                    <label>Guardian's Email Address</label>
+                    <input
+                      type="email"
+                      name="netPayableFee"
+                      className="form-control"
+                      value={formData.netPayableFee}
+                      onChange={handleChange}
+                      placeholder="abc@gmail.com"
+                    />
+                  </div>
+                </div>
+
+                
+
+                <h5 className="mt-4">Current Address</h5>
+
+                <div className="row mt-0">
+                  <div className="col-md-4">
+                    <label>Current Address</label>
+                    <input
+                      type="text"
+                      name="netPayableFee"
+                      className="form-control"
+                      value={formData.netPayableFee}
+                      onChange={handleChange}
+                      placeholder="village , street , area"
+                    />
+                  </div>
+                  <div className="col-md-4">
+                    <label>Street Area</label>
+                    <input
+                      type="text"
+                      name="netPayableFee"
+                      className="form-control"
+                      value={formData.netPayableFee}
+                      onChange={handleChange}
+                      placeholder="Civil Lines"
+                    />
+                  </div>
+                  <div className="col-md-4">
+                    <label>City</label>
+                    <input
+                      type="text"
+                      name="installmentDueDates"
+                      className="form-control"
+                      value={formData.fathercontact}
+                      onChange={handleChange}
+                      placeholder="Mumbai"
+                    />
+                  </div>
+                </div>
+
+                <div className="row mt-3">
+                  <div className="col-md-4">
+                    <label>State</label>
+                    <input
+                      type="text"
+                      name="installmentDueDates"
+                      className="form-control"
+                      value={formData.fathercontact}
+                      onChange={handleChange}
+                      placeholder="Mumbai"
+                    />
+                  </div>
+                  <div className="col-md-4">
+                    <label>Country</label>
+                    <input
+                      type="text"
+                      name="lastPaymentDate"
+                      className="form-control"
+                      value={formData.discountAmount}
+                      onChange={handleChange}
+                      placeholder="India"
+                    />
+                  </div>
+                  <div className="col-md-4">
+                    <label>Pincode</label>
+                    <input
+                      type="number"
+                      name="receiptNumber"
+                      className="form-control"
+                      value={formData.netPayableFee}
+                      onChange={handleChange}
+                      placeholder="254525"
+                    />
+                  </div>
+                </div>
+                <div className="d-flex gap-2 mt-4">
+                <div><h5 className="">Permanent Address</h5></div>
+                <div className="form-check form-check-inline">
+                        <input
+                          className="form-check-input"
+                          type="radio"
+                          name="gender"
+                          value="Female"
+                          onChange={handleChange}
+                        />
+                        <label className="form-check-label">Same as Above</label>
+                      </div></div>
+
+                 <div className="row mt-0">
+                  <div className="col-md-4">
+                    <label>Current Address</label>
+                    <input
+                      type="text"
+                      name="netPayableFee"
+                      className="form-control"
+                      value={formData.netPayableFee}
+                      onChange={handleChange}
+                      placeholder="village , street , area"
+                    />
+                  </div>
+                  <div className="col-md-4">
+                    <label>Street Area</label>
+                    <input
+                      type="text"
+                      name="netPayableFee"
+                      className="form-control"
+                      value={formData.netPayableFee}
+                      onChange={handleChange}
+                      placeholder="Civil Lines"
+                    />
+                  </div>
+                  <div className="col-md-4">
+                    <label>City</label>
+                    <input
+                      type="text"
+                      name="installmentDueDates"
+                      className="form-control"
+                      value={formData.fathercontact}
+                      onChange={handleChange}
+                      placeholder="Mumbai"
+                    />
+                  </div>
+                </div>
+                <div className="row mt-3">
+                  <div className="col-md-4">
+                    <label>State</label>
+                    <input
+                      type="text"
+                      name="installmentDueDates"
+                      className="form-control"
+                      value={formData.fathercontact}
+                      onChange={handleChange}
+                      placeholder="Mumbai"
+                    />
+                  </div>
+                  <div className="col-md-4">
+                    <label>Country</label>
+                    <input
+                      type="text"
+                      name="lastPaymentDate"
+                      className="form-control"
+                      value={formData.discountAmount}
+                      onChange={handleChange}
+                      placeholder="India"
+                    />
+                  </div>
+                  <div className="col-md-4">
+                    <label>Pincode</label>
+                    <input
+                      type="number"
+                      name="receiptNumber"
+                      className="form-control"
+                      value={formData.netPayableFee}
+                      onChange={handleChange}
+                      placeholder="254525"
+                    />
+                  </div>
+                </div>
+
+                <div
+                className="d-flex gap-3 mb-3 justify-content-end "
+                style={{ marginTop: "20rem" }}
+              >
+                <div className="mt-4 text-end ">
+                  <button
+                    type="submit"
+                    className="btn btn-outline-secondary "
+                    style={{ width: "95px" }}
+                  >
+                    Cancel
+                  </button>
+                </div>
+                <div className="mt-4 text-end">
+                  <button
+                    type="submit"
+                    className="btn btn-outline-primary"
+                    style={{ width: "95px" }}
+                  >
+                    Save
+                  </button>
+                </div>
+                <div className="mt-4 text-end">
+                  <button
+                    type="submit"
+                    className="btn btn-primary"
+                    style={{ width: "95px" }}
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+
+                
+
+               
+              </form>
+
+              
+            </div>
+            
           </div>
         )}
       </div>
