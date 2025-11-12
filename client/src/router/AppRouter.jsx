@@ -20,6 +20,7 @@ import AdminModule from "../page/Admic-Module/AdmicModule";
 import Settings from "../page/Settings/Settings";
 import Reports from "../page/Reports/Reports";
 import AddStudent from "../page/Students/AddStudent";
+import StudentTable from "../page/Students/StudentTable";
 
 
 function AppRouter() {
@@ -32,6 +33,8 @@ function AppRouter() {
           <Route path="campus-setup" element={<CampusSetup/>} />
           <Route path="user-management-system" element={<UserManagement/>} />
           <Route path="students" element={<Students />} />
+          <Route path="studentTable" element={<StudentTable />} />
+
           <Route path="addstudents" element={<AddStudent/>} />
           <Route path="teachers" element={<Teachers />} />
           <Route path="academic-setup" element={<AcademicSetup />} />

@@ -7,12 +7,11 @@ import { TfiFilter } from "react-icons/tfi";
 import { LuCloudDownload } from "react-icons/lu";
 import { PiDotsThreeVertical } from "react-icons/pi";
 import { MdOutlineIndeterminateCheckBox } from "react-icons/md";
-import { Link , useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaAngleLeft } from "react-icons/fa6";
 import { FaChevronRight } from "react-icons/fa";
 
 const Students = () => {
-  const navigate = useNavigate();
   const [students] = useState([
     {
       id: 1,
@@ -85,16 +84,37 @@ const Students = () => {
       attendance: "59%",
     },
   ]);
-    const [showLowAttendance, setShowLowAttendance] = useState(false);
 
-  
+  const birthdays = [
+    {
+      date: "02 July",
+      name: "Priya Verma",
+      detail: "8C",
+      bgColor: "#f3e8ff",
+    },
+    {
+      date: "02 July",
+      name: "Priya Verma",
+      detail: "8C",
+      bgColor: "#fff4d6",
+    },
+    {
+      date: "02 July",
+      name: "Priya Verma",
+      detail: "Primary Art Teacher",
+      bgColor: "#e6ffed",
+    },
+  ];
+  const [showLowAttendance, setShowLowAttendance] = useState(false);
 
   const overviewCards = [
     { title: "Total Students", value: 6000, color: "#c79d7c" },
     { title: "Active Students", value: 6000, color: "#d8c26a" },
     { title: "Pending Fees", value: 6000, color: "#e18bd9" },
+    { title: "Pending Fees", value: 6000, color: "#e18bd9" },
     { title: "Students Not Assigned Class Yet", value: 6000, color: "#8DDE6F" },
     { title: "Inactive/Transferred Students", value: 6000, color: "#7fb5f0" },
+    { title: "Low Attendance Students", value: 6000, color: "#ec8a8a" },
     { title: "Low Attendance Students", value: 6000, color: "#ec8a8a" },
   ];
 
@@ -109,9 +129,9 @@ const Students = () => {
     "Payment Failed": { bg: "#FF9999", color: "#911808" },
   };
 
-   const handleCardClick = (title) => {
+  const handleCardClick = (title) => {
     if (title === "Low Attendance Students") {
-       navigate("/studentTable");
+      setShowLowAttendance(true);
     }
   };
 
@@ -121,83 +141,125 @@ const Students = () => {
       style={{ minHeight: "100vh", backgroundColor: "#f2f7fa" }}
     >
       {/*  Student Overview Section */}
-      <Card className="shadow border-0 mb-4  rounded-4">
+      <div className="row g-4 ">
+        <div className="col-12 col-lg-9">
+      <Card className="shadow border-0 mb-4  rounded-4 w-100">
         <Card.Body>
-           <div className="d-flex justify-content-between align-items-center mb-4">
-          <h3 className="fw-semibold mb-4">📊 Student Overview</h3>
-           
-            </div>
-       
-
-             
-          <div className="d-flex flex-wrap gap-4">
-            {overviewCards.map((card, index) => (
-              <Card
-                key={index}
+          <div className="d-flex justify-content-between align-items-center ">
+            <h3 className="fw-semibold mb-3">📊 Student Overview</h3>
+          </div>
+          
+            <div className="d-flex  flex-wrap gap-5">
+              {overviewCards.map((card, index) => (
+                <Card
+                  key={index}
                   onClick={() => handleCardClick(card.title)}
-                className="shadow-sm rounded-4 d-flex flex-row align-items-center position-relative"
-                style={{
-                  width: "232px",
-                  height: "108px",
-                  backgroundColor: "#fff",
-                  border: "1px solid #E3E3E3",
-                  overflow: "hidden",
-                }}
-              >
-                {/* Left Color Strip */}
-                <div
+                  className="shadow-sm rounded-4 d-flex flex-row align-items-center position-relative"
                   style={{
-                    width: "8px",
-                    height: "100%",
-                    backgroundColor: card.color,
-                    borderTopLeftRadius: "12px",
-                    borderBottomLeftRadius: "12px",
-                    position: "absolute",
-                    left: 0,
-                    top: 0,
+                    width: "232px",
+                    height: "108px",
+                    backgroundColor: "#fff",
+                    border: "1px solid #E3E3E3",
+                    overflow: "hidden",
                   }}
-                ></div>
-
-                {/* Content Area */}
-                <div className="d-flex justify-content-between align-items-center w-100 px-3 py-3">
-                  {/* Left Text Section */}
-                  <div className="text-start">
-                    <Card.Title className="fs-6 fw-semibold text-dark mb-1">
-                      {card.title}
-                    </Card.Title>
-                    <h4 className="fw-semibold mb-0 ms-4">{card.value}</h4>
-                  </div>
-
-                  {/* Divider + Right Icon */}
+                >
+                  {/* Left Color Strip */}
                   <div
-                    className="d-flex flex-column align-items-center justify-content-center ps-3"
-                    style={{ borderLeft: "1px solid #E3E3E3" }}
-                  >
-                    <FaSchool style={{ fontSize: "2rem", color: card.color }} />
+                    style={{
+                      width: "8px",
+                      height: "100%",
+                      backgroundColor: card.color,
+                      borderTopLeftRadius: "12px",
+                      borderBottomLeftRadius: "12px",
+                      position: "absolute",
+                      left: 0,
+                      top: 0,
+                    }}
+                  ></div>
+
+                  {/* Content Area */}
+                  <div className="d-flex justify-content-between align-items-center w-100 px-3 py-3">
+                    {/* Left Text Section */}
+                    <div className="text-start">
+                      <Card.Title className="fs-6 fw-semibold text-dark mb-1">
+                        {card.title}
+                      </Card.Title>
+                      <h4 className="fw-semibold mb-0 ms-4">{card.value}</h4>
+                    </div>
+
+                    {/* Divider + Right Icon */}
                     <div
-                      className="mt-2 px-2 py-1 rounded-pill text-success fw-semibold"
-                      style={{
-                        backgroundColor: "#FAF5F5",
-                        fontSize: "0.75rem",
-                        width: "50px",
-                      }}
+                      className="d-flex flex-column align-items-center justify-content-center ps-3"
+                      style={{ borderLeft: "1px solid #E3E3E3" }}
                     >
-                      20% ↑
+                      <FaSchool
+                        style={{ fontSize: "2rem", color: card.color }}
+                      />
+                      <div
+                        className="mt-2 px-2 py-1 rounded-pill text-success fw-semibold"
+                        style={{
+                          backgroundColor: "#FAF5F5",
+                          fontSize: "0.75rem",
+                          width: "50px",
+                        }}
+                      >
+                        20% ↑
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Card>
-            ))}
-          </div>
-           
+                </Card>
+              ))}
+            </div>
+
+            
+         
         </Card.Body>
-      </Card>
+      </Card></div>
+      <div className="col-12 col-lg-3">
+      <div className="card shadow border-0 rounded-4 p-3 w-100">
+              <div className="d-flex justify-content-between align-items-center mb-3">
+                <h6 className="fw-bold mb-0">Birthday This Month</h6>
+                <a
+                  href="#"
+                  className="text-decoration-none small text-primary fw-semibold"
+                >
+                  View All
+                </a>
+              </div>
+
+              <div className="d-flex flex-column gap-3">
+                {birthdays.map((b, index) => (
+                  <div
+                    key={index}
+                    className="rounded-3 d-flex justify-content-between align-items-center p-3"
+                    style={{ backgroundColor: b.bgColor }}
+                  >
+                    <div className="d-flex align-items-center gap-3">
+                      <div className="text-center">
+                        <div className="fw-bold small">{b.date}</div>
+                      </div>
+                      <div>
+                        <div className="fw-bold">{b.name}</div>
+                        <div className="text-secondary small">{b.detail}</div>
+                      </div>
+                    </div>
+                    <a
+                      href="#"
+                      className="text-decoration-none small fw-semibold text-primary"
+                    >
+                      Send Wishes
+                    </a>
+                  </div>
+                ))}
+              </div>
+      </div></div>
+      </div>
 
       {/* 👩‍🎓 Students Table */}
       <Card className="shadow border-0 rounded-3 bg-white">
         <Card.Header className="d-flex justify-content-between align-items-center bg-white border-0 rounded-3 py-3">
           <div className="d-flex gap-2 ms-1">
-            <h5 className="mb-0  fw-semibold">Students</h5>{" "}
+            <h5 className="mb-0  fw-semibold">Students hi </h5>{" "}
             <span
               style={{
                 backgroundColor: "#F7FAFF",
@@ -288,7 +350,16 @@ const Students = () => {
                   </td>
                   <td>{s.teacher}</td>
                   <td>
-                   
+                    {/* <Badge
+                    //  bg={s.fee === "Paid" ? "success" : "danger"}
+                    style={{
+    backgroundColor: feeColors[s.fee]?.bg || "#ccc",
+    color: feeColors[s.fee]?.color || "#000",
+  }}
+                     
+                     >
+                      {s.fee}
+                    </Badge> */}
                     <span
                       style={{
                         display: "inline-block",
@@ -338,6 +409,3 @@ const Students = () => {
 };
 
 export default Students;
-
-
-
