@@ -773,6 +773,20 @@
   }
 }
 
+@media (min-width: 992px) {
+  .left-col {
+    flex: 0 0 19% !important;
+  }
+  .main-col {
+    flex: 0 0 63% !important;
+  }
+  .right-col {
+    flex: 0 0 18% !important;
+  }
+ 
+}
+
+
 /* Motion preference */
 @media (prefers-reduced-motion: reduce) {
   .sidebar-left,
@@ -813,3 +827,5 @@
   background-color: #0d6efd;
   border-radius: 2px;
 }
+
+
