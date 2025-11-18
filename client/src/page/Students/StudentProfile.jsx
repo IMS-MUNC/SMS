@@ -12,6 +12,8 @@ import { FaCircleUser } from "react-icons/fa6";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FiFilter } from "react-icons/fi";
 import { LuCloudDownload } from "react-icons/lu";
+import { FaRegCircleCheck } from "react-icons/fa6";
+
 
 const StudentProfile = () => {
   const [selectedSection, setSelectedSection] = useState("Basic Details");
@@ -23,8 +25,10 @@ const StudentProfile = () => {
         return (
           <>
             {/* MAIN INFORMATION */}
+            <div className="d-flex  justify-content-between gap-4 ">
+            <div className="w-100">
             <Card className="shadow border-0 rounded-4 p-4 h-auto ">
-              <div style={{ marginBottom: "130px" }}>
+              <div style={{ marginBottom: "120px" }}>
                 <Card className=" border-0  rounded-4 p-2 ms-2">
                   <h5 className="fw-semibold mb-4 ">
                     Identification & Basic Information
@@ -95,6 +99,37 @@ const StudentProfile = () => {
                 </Card>
               </div>
             </Card>
+            </div>
+            <div className="w-25">
+             <Card className="shadow border-0 rounded-4 p-3 text-center ">
+            <div>
+              <img
+                src="https://i.pravatar.cc/200?img=8"
+                className=" mb-3 mt-1 p-3 "
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "contain",
+                  borderRadius: "50%",
+                }}
+              />
+            </div>
+            <h5 className="fw-bold fs-5">Neha Pal</h5>
+            <p className="text-secondary">Student ID : ST65432</p>
+
+            <div className="text-start mt-0 px-3">
+              <p className="fw-semibold text-dark mb-1">E-Mail ID</p>
+              <p className="text-secondary">neha.pal@DPS.com</p>
+
+              <p className="fw-semibold text-dark mb-1">Class & Section</p>
+              <p className="text-secondary">Class 5th C</p>
+
+              <p className="fw-semibold text-dark mb-1">Roll No.</p>
+              <p className="text-secondary">63</p>
+            </div>
+          </Card>
+          </div>
+          </div>
           </>
         );
 
@@ -115,6 +150,8 @@ const StudentProfile = () => {
       case "Academic Details":
         return (
           <>
+          <div className="d-flex justify-content-between gap-4 ">
+            <div className="w-100">
             <Card className="shadow border-0 rounded-4 p-4 h-auto ">
               <div className="p-2 ms-3 " style={{ marginBottom: "76px" }}>
                 <h5 className=" mb-4">Academic Details</h5>
@@ -201,7 +238,35 @@ const StudentProfile = () => {
                   </div>
                 </div>
               </div>
-            </Card>
+            </Card></div>
+            <div className="w-25">
+             <Card className="shadow border-0 rounded-4 p-3 text-center ">
+            <div>
+              <img
+                src="https://i.pravatar.cc/200?img=8"
+                className=" mb-3 mt-1 p-3 "
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "contain",
+                  borderRadius: "50%",
+                }}
+              />
+            </div>
+            <h5 className="fw-bold fs-5">Neha Pal</h5>
+            <p className="text-secondary">Student ID : ST65432</p>
+
+            <div className="text-start mt-0 px-3">
+              <p className="fw-semibold text-dark mb-1">E-Mail ID</p>
+              <p className="text-secondary">neha.pal@DPS.com</p>
+
+              <p className="fw-semibold text-dark mb-1">Class & Section</p>
+              <p className="text-secondary">Class 5th C</p>
+
+              <p className="fw-semibold text-dark mb-1">Roll No.</p>
+              <p className="text-secondary">63</p>
+            </div>
+          </Card></div></div>
           </>
         );
 
@@ -291,8 +356,10 @@ const StudentProfile = () => {
         return (
           <>
             <div>
-              <Card className="shadow border-0 rounded-4 p-4 h-auto mb-5 ">
-                <div className="p-2 ms-3">
+              <div className="d-flex  justify-content-between gap-4 ">
+            <div className="w-100">
+              <Card className="shadow border-0 rounded-4 p-4  " >
+                <div className="p-2 ms-3" style={{marginBottom:"90px"}}>
                   <h4 className="fw-semibold mb-4">Fees & Billing Info</h4>
 
                   <div className="ms-3">
@@ -380,16 +447,46 @@ const StudentProfile = () => {
                     </div>
                   </div>
                 </div>
-              </Card>
-              <Card className="shadow border-0 rounded-4 p-4 h-auto">
-                <div className="container my-4">
+              </Card></div>
+              <div className="w-25 mb-3">
+             <Card className="shadow border-0 rounded-4 p-3 text-center ">
+            <div>
+              <img
+                src="https://i.pravatar.cc/200?img=8"
+                className=" mb-3 mt-1 p-3 "
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "contain",
+                  borderRadius: "50%",
+                }}
+              />
+            </div>
+            <h5 className="fw-bold fs-5">Neha Pal</h5>
+            <p className="text-secondary">Student ID : ST65432</p>
+
+            <div className="text-start mt-0 px-3">
+              <p className="fw-semibold text-dark mb-1">E-Mail ID</p>
+              <p className="text-secondary">neha.pal@DPS.com</p>
+
+              <p className="fw-semibold text-dark mb-1">Class & Section</p>
+              <p className="text-secondary">Class 5th C</p>
+
+              <p className="fw-semibold text-dark mb-1">Roll No.</p>
+              <p className="text-secondary">63</p>
+            </div>
+          </Card>
+          </div></div>
+              
+              <Card className="shadow border-0 rounded-4   h-auto">
+                <div className="container ">
                   <h4 className="fw-semibold mb-3">Fees Metrics</h4>
 
                   <div className="d-flex gap-3 flex-wrap">
                     {/* Total Paid Till Date */}
                     <Card
                       className="shadow-sm border-0 p-3 rounded-4"
-                      style={{ width: "220px" }}
+                      style={{ width: "188px" }}
                     >
                       <p className="text-secondary mb-1 fw-semibold">
                         Total Paid Till Date
@@ -400,7 +497,7 @@ const StudentProfile = () => {
                     {/* No. Of Transactions */}
                     <Card
                       className="shadow-sm border-0 p-3 rounded-4"
-                      style={{ width: "220px" }}
+                      style={{ width: "188px" }}
                     >
                       <p className="text-secondary mb-1 fw-semibold">
                         No. Of Transactions
@@ -411,23 +508,24 @@ const StudentProfile = () => {
                     {/* Fees Paid On Time */}
                     <Card
                       className="shadow-sm border-0 p-3 rounded-4"
-                      style={{ width: "220px" }}
+                      style={{ width: "188px" }}
                     >
                       <p className="text-secondary mb-1 fw-semibold">
                         Fees Always Paid On Time
                       </p>
-                      <h4 className="mb-1">85%</h4>
+                      <h4 className="mb-1 ">85%</h4>
                       <ProgressBar
                         now={85}
                         variant="success"
-                        style={{ height: "6px" }}
+                        style={{ width:"85%", height: "6px"}}
+                        className="progrees-bar"
                       />
                     </Card>
 
                     {/* Pending Fees */}
                     <Card
-                      className="shadow-sm border-0 p-3 rounded-4"
-                      style={{ width: "220px" }}
+                      className="shadow border-0 p-3 rounded-4"
+                      style={{ width: "188px" }}
                     >
                       <p className="text-secondary mb-1 fw-semibold">
                         Pending Fees
@@ -441,7 +539,7 @@ const StudentProfile = () => {
                     {/* Next Due Date */}
                     <Card
                       className="shadow-sm border-0 p-3 rounded-4"
-                      style={{ width: "220px" }}
+                      style={{ width: "188px" }}
                     >
                       <p className="text-secondary mb-1 fw-semibold">
                         Next Due Date
@@ -452,7 +550,7 @@ const StudentProfile = () => {
                     {/* Pending Fees Again */}
                     <Card
                       className="shadow-sm border-0 p-3 rounded-4"
-                      style={{ width: "220px" }}
+                      style={{ width: "188px" }}
                     >
                       <p className="text-secondary mb-1 fw-semibold">
                         Pending Fees
@@ -465,13 +563,13 @@ const StudentProfile = () => {
                   </div>
                 </div>
               </Card>
-              <Card className="shadow-sm border-0 p-3 rounded-4 mt-4">
+              <Card className="shadow-sm border-0 p-3 rounded-4 mt-4 ">
                 <div className="d-flex justify-content-between align-items-center mb-3">
                   <h5 className="fw-semibold mb-0">Fees & Billing History</h5>
 
                   <div className="d-flex gap-2">
                     <Button variant="light" className="border rounded-3 px-3">
-                      <LuCloudDownload size={16} className="me-1" /> Export
+                      <LuCloudDownload size={16} className="me-1"  style={{ transform: "rotate(180deg)" }} /> Export
                     </Button>
                     <Button variant="light" className="border rounded-3 px-3">
                       <FiFilter size={16} className="me-1" /> Filter
@@ -479,7 +577,7 @@ const StudentProfile = () => {
                   </div>
                 </div>
 
-                <div className="table-responsive">
+                <div className="table-responsive mb-5">
                   <Table hover className="align-middle">
                     <thead>
                       <tr
@@ -503,8 +601,8 @@ const StudentProfile = () => {
                     <tbody>
                       {rows.map((r, i) => (
                         <tr key={i} style={{ fontSize: "14px" }}>
-                          <td>{i + 1}</td>
-                          <td>{r.year}</td>
+                          <td >{i + 1}</td>
+                          <td >{r.year}</td>
                           <td>{r.cls}</td>
                           <td>{r.plan}</td>
                           <td>{r.fee}</td>
@@ -513,15 +611,18 @@ const StudentProfile = () => {
                           <td>{r.mode}</td>
                           <td>{r.txn}</td>
                           <td>
-                            <Badge
-                              bg="success"
+                            <span
+                              // bg="success"
                               style={{
                                 borderRadius: "20px",
-                                padding: "6px 12px",
+                                padding: "5px 12px",
+                                backgroundColor:"00E31A",
+                                // backgroundColor:"green",
+                                color:"#00B515",
                               }}
                             >
                               Paid
-                            </Badge>
+                            </span>
                           </td>
                           <td>
                             <BsThreeDotsVertical
@@ -542,8 +643,10 @@ const StudentProfile = () => {
       case "RFID & Access Card":
         return (
           <>
+           <div className="d-flex  justify-content-between gap-4 ">
+            <div className="w-100">
             <Card className="shadow border-0 rounded-4 p-4 h-auto ">
-              <div className="p-2">
+              <div className="p-2" style={{ marginBottom: "135px" }}>
                 <h4 className="fw-semibold mb-4">RFID & Access Card Info</h4>
 
                 <div className="ms-3">
@@ -623,12 +726,194 @@ const StudentProfile = () => {
                 </div>
               </div>
             </Card>
+            </div>
+            <div className="w-25">
+             <Card className="shadow border-0 rounded-4 p-3 text-center ">
+            <div>
+              <img
+                src="https://i.pravatar.cc/200?img=8"
+                className=" mb-3 mt-1 p-3 "
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "contain",
+                  borderRadius: "50%",
+                }}
+              />
+            </div>
+            <h5 className="fw-bold fs-5">Neha Pal</h5>
+            <p className="text-secondary">Student ID : ST65432</p>
+
+            <div className="text-start mt-0 px-3">
+              <p className="fw-semibold text-dark mb-1">E-Mail ID</p>
+              <p className="text-secondary">neha.pal@DPS.com</p>
+
+              <p className="fw-semibold text-dark mb-1">Class & Section</p>
+              <p className="text-secondary">Class 5th C</p>
+
+              <p className="fw-semibold text-dark mb-1">Roll No.</p>
+              <p className="text-secondary">63</p>
+            </div>
+          </Card>
+          </div>
+          </div>
+         <Card className="shadow border-0 rounded-4 mt-4 h-auto">
+  <div className="container">
+    <h4 className="fw-semibold mb-3">ID Card Metrics</h4>
+
+    <div className="d-flex gap-3 flex-wrap">
+
+      {/* Last Scan Location */}
+      <Card
+        className="shadow-sm border-0 p-3 rounded-4"
+        style={{ width: "188px" }}
+      >
+        <p className="mb-4 fw-semibold">
+          📍  Last Scan Location
+        </p>
+        <h4 className="mb-0">Main Gate</h4>
+      </Card>
+
+      {/* RFID Status */}
+      <Card
+        className="shadow-sm border-0 p-3 rounded-4"
+        style={{ width: "188px" }}
+      >
+        <p className="mb-4 fw-semibold">
+          🔄️ RFID Status
+        </p>
+        <h4 className="mb-0">Active</h4>
+      </Card>
+
+      {/* Last Used */}
+      <Card
+        className="shadow-sm border-0 p-3 rounded-4"
+        style={{ width: "188px" }}
+      >
+        <p className="mb-1 fw-semibold">
+          🕒 Last Used
+        </p>
+        <h4 className="mt-3">1 hour ago</h4>
+      </Card>
+
+      {/* RFID Card Reissued */}
+      <Card
+        className="shadow-sm border-0 p-3 rounded-4"
+        style={{ width: "188px" }}
+      >
+        <p className="mb-2 fw-semibold small">
+          🧾 RFID Card Reissued
+        </p>
+        <h4 className="mb-0 mt-1">2 Times</h4>
+        <p className="text-secondary fw-semibold small mb-0">(2022, 2024)</p>
+      </Card>
+
+      {/* Average Usage Per Day */}
+      <Card
+        className="shadow-sm border-0 p-3 rounded-4"
+        style={{ width: "188px" }}
+      >
+        <p className="mb-1 small  fw-semibold">
+        📈Average usage per day
+        </p>
+        <h4 className="mb-0">3 scans</h4>
+      </Card>
+
+      {/* Charges Due */}
+      <Card
+        className="shadow-sm border-0 p-3 rounded-4"
+        style={{ width: "188px" }}
+      >
+        <p className="mb-1 fw-semibold">
+          Charges Due
+        </p>
+        <h4 className="text-danger mb-1">₹5000</h4>
+        <p className="text-secondary small fw-semibold mb-0">
+          Last Date 12 June 2025
+        </p>
+      </Card>
+
+    </div>
+  </div>
+</Card>
+<Card className="shadow border-0 rounded-4 p-4 mt-3">
+  <h4 className="fw-semibold mb-4">RFID Usage History (Track Record)</h4>
+
+  <div className="ps border-3 border-start ">
+
+    {timelineData.map((item, index) => (
+      <div key={index} className="d-flex mb-4 position-relative">
+
+        {/* Dot */}
+        <div
+  className="position-absolute top-0 start-0 shadow translate-middle bg-white d-flex justify-content-center align-items-center"
+  style={{
+    width: "27px",
+    height: "27px",
+    border: "2px solid #F9CFFA",
+    borderRadius: "50%"
+  }}
+>
+  <FaRegCircleCheck className="text-success" />
+</div>
+
+
+        {/* Content */}
+        <div className="ms-4 d-flex flex-wrap gap-5">
+
+          {/* Date */}
+          <div>
+            <p className="fw-semibold mb-0">{item.date}</p>
+            <p className="text-secondary small mb-0">{item.time}</p>
+          </div>
+
+          {/* Location */}
+          <div>
+            <p className="fw-semibold mb-0">{item.location}</p>
+            <p className="text-secondary small mb-0">{item.action}</p>
+          </div>
+
+          {/* Status */}
+          <div>
+            <p className="fw-semibold mb-0">Status</p>
+            <p
+              className={`small mb-0 ${
+                item.status === "Success" ? "text-success" : "text-danger"
+              }`}
+            >
+              {item.status}
+            </p>
+          </div>
+
+          {/* Notes */}
+          <div>
+            <p className="fw-semibold mb-0">Notes</p>
+            <p className="text-secondary small mb-0">{item.notes}</p>
+          </div>
+
+        </div>
+      </div>
+    ))}
+
+  </div>
+
+  <div className="text-center mt-3">
+    <Button variant="light" className="rounded-pill px-4">
+      View More
+    </Button>
+  </div>
+
+</Card>
+
+
           </>
         );
 
       case "Transport Details":
         return (
           <>
+         <div className="d-flex  justify-content-between gap-4 ">
+            <div className="w-100">
             <Card className="shadow border-0 rounded-4 p-4 h-auto ">
               <div className="p-2">
                 <h4 className="fw-semibold mb-4">Transport Details</h4>
@@ -742,12 +1027,45 @@ const StudentProfile = () => {
                 </div>
               </div>
             </Card>
+            </div>
+            <div className="w-25">
+             <Card className="shadow border-0 rounded-4 p-3 text-center ">
+            <div>
+              <img
+                src="https://i.pravatar.cc/200?img=8"
+                className=" mb-3 mt-1 p-3 "
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "contain",
+                  borderRadius: "50%",
+                }}
+              />
+            </div>
+            <h5 className="fw-bold fs-5">Neha Pal</h5>
+            <p className="text-secondary">Student ID : ST65432</p>
+
+            <div className="text-start mt-0 px-3">
+              <p className="fw-semibold text-dark mb-1">E-Mail ID</p>
+              <p className="text-secondary">neha.pal@DPS.com</p>
+
+              <p className="fw-semibold text-dark mb-1">Class & Section</p>
+              <p className="text-secondary">Class 5th C</p>
+
+              <p className="fw-semibold text-dark mb-1">Roll No.</p>
+              <p className="text-secondary">63</p>
+            </div>
+          </Card>
+          </div>
+          </div>
           </>
         );
 
       case "Hostel / Dormitory Details":
         return (
           <>
+         <div className="d-flex  justify-content-between gap-4 ">
+            <div className="w-100">
             <Card className="shadow border-0 rounded-4 p-4 h-auto ">
               <div className="p-2">
                 <h4 className="fw-semibold mb-4">Hostel / Dormitory Details</h4>
@@ -924,12 +1242,45 @@ const StudentProfile = () => {
                 </div>
               </div>
             </Card>
+            </div>
+            <div className="w-25">
+             <Card className="shadow border-0 rounded-4 p-3 text-center ">
+            <div>
+              <img
+                src="https://i.pravatar.cc/200?img=8"
+                className=" mb-3 mt-1 p-3 "
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "contain",
+                  borderRadius: "50%",
+                }}
+              />
+            </div>
+            <h5 className="fw-bold fs-5">Neha Pal</h5>
+            <p className="text-secondary">Student ID : ST65432</p>
+
+            <div className="text-start mt-0 px-3">
+              <p className="fw-semibold text-dark mb-1">E-Mail ID</p>
+              <p className="text-secondary">neha.pal@DPS.com</p>
+
+              <p className="fw-semibold text-dark mb-1">Class & Section</p>
+              <p className="text-secondary">Class 5th C</p>
+
+              <p className="fw-semibold text-dark mb-1">Roll No.</p>
+              <p className="text-secondary">63</p>
+            </div>
+          </Card>
+          </div>
+          </div>
           </>
         );
 
       case "Parent/Guardian Info":
         return (
           <>
+           <div className="d-flex  justify-content-between gap-4 ">
+            <div className="w-100">
             <Card className="shadow border-0 rounded-4 p-4 h-auto ">
               <div className="p-2">
                 <h4 className="fw-semibold mb-4">
@@ -1141,13 +1492,45 @@ const StudentProfile = () => {
                   </div>
                 </div>
               </div>
-            </Card>
+            </Card></div>
+             <div className="w-25">
+             <Card className="shadow border-0 rounded-4 p-3 text-center ">
+            <div>
+              <img
+                src="https://i.pravatar.cc/200?img=8"
+                className=" mb-3 mt-1 p-3 "
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "contain",
+                  borderRadius: "50%",
+                }}
+              />
+            </div>
+            <h5 className="fw-bold fs-5">Neha Pal</h5>
+            <p className="text-secondary">Student ID : ST65432</p>
+
+            <div className="text-start mt-0 px-3">
+              <p className="fw-semibold text-dark mb-1">E-Mail ID</p>
+              <p className="text-secondary">neha.pal@DPS.com</p>
+
+              <p className="fw-semibold text-dark mb-1">Class & Section</p>
+              <p className="text-secondary">Class 5th C</p>
+
+              <p className="fw-semibold text-dark mb-1">Roll No.</p>
+              <p className="text-secondary">63</p>
+            </div>
+          </Card>
+          </div>
+            </div>
           </>
         );
 
       case "Additional Info":
         return (
           <>
+         <div className="d-flex  justify-content-between gap-4 ">
+            <div className="w-100">
             <Card className="shadow border-0 rounded-4 p-4 h-auto ">
               <div className="p-2">
                 <h4 className="fw-semibold mb-4">Additional Info</h4>
@@ -1353,6 +1736,37 @@ const StudentProfile = () => {
                 </div>
               </div>
             </Card>
+            </div>
+              <div className="w-25">
+             <Card className="shadow border-0 rounded-4 p-3 text-center ">
+            <div>
+              <img
+                src="https://i.pravatar.cc/200?img=8"
+                className=" mb-3 mt-1 p-3 "
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "contain",
+                  borderRadius: "50%",
+                }}
+              />
+            </div>
+            <h5 className="fw-bold fs-5">Neha Pal</h5>
+            <p className="text-secondary">Student ID : ST65432</p>
+
+            <div className="text-start mt-0 px-3">
+              <p className="fw-semibold text-dark mb-1">E-Mail ID</p>
+              <p className="text-secondary">neha.pal@DPS.com</p>
+
+              <p className="fw-semibold text-dark mb-1">Class & Section</p>
+              <p className="text-secondary">Class 5th C</p>
+
+              <p className="fw-semibold text-dark mb-1">Roll No.</p>
+              <p className="text-secondary">63</p>
+            </div>
+          </Card>
+          </div>
+          </div>
           </>
         );
 
@@ -1420,6 +1834,56 @@ const StudentProfile = () => {
       activeIcon: <FaCircleUser />,
     },
   ];
+  const timelineData = [
+  {
+    date: "17 July 2025",
+    time: "6:30 AM",
+    location: "Main Gate",
+    action: "Attendance",
+    status: "Success",
+    notes: "Morning check-in",
+  },
+  {
+    date: "17 July 2025",
+    time: "6:30 AM",
+    location: "Library Entry",
+    action: "Library Visit",
+    status: "Success",
+    notes: "Book Issued",
+  },
+  {
+    date: "17 July 2025",
+    time: "6:30 AM",
+    location: "Canteen Counter",
+    action: "Canteen Purchase",
+    status: "Success",
+    notes: "Lunch",
+  },
+  {
+    date: "17 July 2025",
+    time: "6:30 AM",
+    location: "Bus Entry",
+    action: "Transport",
+    status: "Success",
+    notes: "Afternoon Drop In",
+  },
+  {
+    date: "17 July 2025",
+    time: "6:30 AM",
+    location: "Main Gate",
+    action: "Attendance",
+    status: "Failed",
+    notes: "RFID Blocked",
+  },
+  {
+    date: "17 July 2025",
+    time: "6:30 AM",
+    location: "Main Gate",
+    action: "Attendance",
+    status: "Success",
+    notes: "Morning check-in",
+  },
+];
 
   return (
     <div
@@ -1429,7 +1893,7 @@ const StudentProfile = () => {
       <div className="row g-4">
         {/* LEFT SIDEBAR */}
         <div className="col-12 col-md-3 col-lg-2 left-col">
-          <Card className="shadow border-0 rounded-4 p-3">
+          <Card className="shadow border-0 rounded-4 p-3 h-100">
             <div className="text-center mb-2">
               <img
                 src="https://i.pravatar.cc/200?img=8"
@@ -1484,12 +1948,13 @@ const StudentProfile = () => {
         </div>
 
         {/* MAIN CONTENT (CHANGES) */}
-        <div className="col-12 col-md-6 col-lg-8 main-col">
+        <div className="col-12 col-md-9 col-lg-10 right-col">
           {renderContent()}
         </div>
+         {/* <div className="col-12 col-md-3 col-lg-2 right-col"> </div> */}
 
         {/* RIGHT SIDEBAR */}
-        <div className="col-12 col-md-3 col-lg-2 right-col">
+        {/* <div className="col-12 col-md-3 col-lg-2 right-col">
           <Card className="shadow border-0 rounded-4 p-3 text-center ">
             <div>
               <img
@@ -1517,7 +1982,7 @@ const StudentProfile = () => {
               <p className="text-secondary">63</p>
             </div>
           </Card>
-        </div>
+        </div> */}
       </div>
     </div>
   );
