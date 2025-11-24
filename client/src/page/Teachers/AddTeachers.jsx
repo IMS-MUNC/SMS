@@ -24,7 +24,7 @@ function AddTeachers() {
     religion: "",
   });
 
-  const [activeTab, setActiveTab] = useState("student-details");
+  const [activeTab, setActiveTab] = useState("teacher-details");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -52,20 +52,20 @@ function AddTeachers() {
   return (
     <div className="p-3 ">
       <div className="container-fluid   bg-white rounded-4 shadow border-0 ">
-        <h3 className="mb-4 pt-3 ps-3 ">Add New Student</h3>
+        <h4 className="mb-4 pt-3 ps-3 ">Add New Teacher</h4>
         <div style={{ borderBottom: "1px solid #EAECF0" }}>
           <ul className="nav nav-tabs student-tabs mb-4 border-0">
             {[
-              { id: "student-details", label: "Teacher Details" },
+              { id: "teacher-details", label: "Teacher Details" },
                { id: "contact-details", label: "Contact Details" },
-              { id: "admission-details", label: "Admission Details" },
+              { id: "professional-details", label: "Professional Details" },
               {
                 id: "parents-guardian-details",
-                label: "Parents/Guardian Details",
+                label: "Salary Details",
               },
              
-              { id: "fees-details", label: "Fees Details" },
-              { id: "facilities-services", label: "Facilities & Services" },
+              { id: "fees-details", label: "Login & Access Details" },
+              
             ].map((tab) => (
               <li className="nav-item" key={tab.id}>
                 <button
@@ -80,11 +80,11 @@ function AddTeachers() {
           </ul>
         </div>
         {/* student details  */}
-        {activeTab === "student-details" && (
+        {activeTab === "teacher-details" && (
           <div className="d-flex text-secondary">
             <div style={{ width: "100%" }}>
               <form onSubmit={handleSubmit} className=" p-4">
-                <h5>Admission ID #0767976</h5>
+                <h5 className="text-dark ">Employee ID #076</h5>
 
                 <div className="row mt-3">
                   <div className="col-md-4">
@@ -230,6 +230,23 @@ function AddTeachers() {
                       />
                     </div>
                   </div>
+                   <div className="col-md-3">
+                    <label className="mb-3">Marital Status</label>
+                    <br />
+                    {["Married", "Unmarried"].map((marritial) => (
+                      <div key={marritial} className="form-check form-check-inline">
+                        <input
+                          className="form-check-input"
+                          type="radio"
+                          name="marritial"
+                          value={marritial}
+                          checked={formData.marritial === marritial}
+                          onChange={handleChange}
+                        />
+                        <label className="form-check-label">{marritial}</label>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 <div className="row mt-3">
@@ -247,32 +264,21 @@ function AddTeachers() {
                     </select>
                   </div>
                   <div className="col-md-4">
-                    <label>Mother Tongue</label>
-                    <input
-                      type="text"
-                      name="motherTongue"
-                      className="form-control"
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="col-md-4">
-                    <label>Blood Group</label>
+                    <label>Religion</label>
                     <select
                       className="form-select"
-                      name="bloodGroup"
+                      name="religion"
                       onChange={handleChange}
                     >
                       <option value="">Select...</option>
-                      <option value="A+">A+</option>
-                      <option value="A-">A-</option>
-                      <option value="B+">B+</option>
-                      <option value="O+">O+</option>
-                      <option value="AB+">AB+</option>
+                      <option value="Hindu">Hindu</option>
+                      <option value="Muslim">Muslim</option>
+                      <option value="Sikh">Sikh</option>
+                      <option value="Christian">Christian</option>
+                      <option value="Other">Other</option>
                     </select>
                   </div>
-                </div>
-
-                <div className="row mt-3">
+                  
                   <div className="col-md-4">
                     <label>Caste</label>
                     <br />
@@ -290,33 +296,46 @@ function AddTeachers() {
                       </div>
                     ))}
                   </div>
+                </div>
 
+                <div className="row mt-3">
                   <div className="col-md-4">
-                    <label>Specially Abled</label>
+                    <label>Blood Group</label>
                     <select
                       className="form-select"
-                      name="speciallyAbled"
+                      name="bloodGroup"
                       onChange={handleChange}
                     >
                       <option value="">Select...</option>
-                      <option value="Yes">Yes</option>
-                      <option value="No">No</option>
+                      <option value="A+">A+</option>
+                      <option value="A-">A-</option>
+                      <option value="B+">B+</option>
+                      <option value="O+">O+</option>
+                      <option value="AB+">AB+</option>
                     </select>
                   </div>
+
                   <div className="col-md-4">
-                    <label>Religion</label>
-                    <select
-                      className="form-select"
-                      name="religion"
+                    <label>Aadhar No.</label>
+                    <input
+                      type="text"
+                      name="lastName"
+                      className="form-control"
+                      value={formData.lastName}
                       onChange={handleChange}
-                    >
-                      <option value="">Select...</option>
-                      <option value="Hindu">Hindu</option>
-                      <option value="Muslim">Muslim</option>
-                      <option value="Sikh">Sikh</option>
-                      <option value="Christian">Christian</option>
-                      <option value="Other">Other</option>
-                    </select>
+                      placeholder="7584 7458 7458"
+                    />
+                  </div>
+                  <div className="col-md-4">
+                    <label>Pan No.</label>
+                    <input
+                      type="text"
+                      name="lastName"
+                      className="form-control"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      placeholder="AFHKG8765W"
+                    />
                   </div>
 
                   {/* <div className="col-md-4">
@@ -337,7 +356,7 @@ function AddTeachers() {
                   // margin: "50px auto",
                 }}
               >
-                <h5 className="fw-semibold mb-3">Attach Documents</h5>
+                <h6 className="fw-semibold text-dark mb-2">Upload Photo</h6>
                 <FaImages size={40} color="#0066ff" className="mb-3" />
                 <p className="mb-2 text-secondary">
                   Drag and Drop Files here or
@@ -523,51 +542,74 @@ function AddTeachers() {
           </div>
         )}
         {/* admission details  */}
-        {activeTab === "admission-details" && (
+        {activeTab === "professional-details" && (
           <div className="d-flex text-secondary">
             <div style={{ width: "100%" }}>
               <form onSubmit={handleSubmit} className=" p-4">
-                {/* <h5>Admission ID #0767976</h5> */}
+                <h5 className="text-dark  mb-3">Employee ID #076</h5>
+                <h5 className="mb-3">Contact & Job Role Details</h5>
+
 
                 <div className="row mt-0">
-                  <div className="col-md-4">
-                    <label>Admission Date</label>
-                    <input
-                      type="Date"
-                      name="firstName"
-                      className="form-control"
-                      value={formData.firstName}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="col-md-4">
-                    <label>Joining Date</label>
-                    <input
-                      type="Date"
-                      name="middleName"
-                      className="form-control"
-                      value={formData.middleName}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="col-md-4">
-                    <label>Admission type </label>
+                   <div className="col-md-4">
+                    <label>Designation</label>
                     <select
                       className="form-select"
                       name="admissiontype"
                       onChange={handleChange}
                     >
-                      <option value="New Admission">New Admission </option>
-                      <option value="Re-Admission">Re-Admission</option>
-                      <option value="Transfer">Transfer</option>
-                      <option value=" Promotion"> Promotion</option>
+                      <option value="New Admission">PGT</option>
+                      <option value="Re-Admission">TGT</option>
+                      <option value="Transfer">Assistant Teacher</option>
+                      {/* <option value=" Promotion"> Promotion</option> */}
+                    </select>
+                  </div>
+                   <div className="col-md-4">
+                    <label>Department/Subject</label>
+                    <select
+                      className="form-select"
+                      name="admissiontype"
+                      onChange={handleChange}
+                    >
+                      <option value="New Admission">Math </option>
+                      <option value="Re-Admission">Science</option>
+                      <option value="Transfer">English</option>
+                      {/* <option value=" Promotion"> Promotion</option> */}
+                    </select>
+                  </div>
+                  <div className="col-md-2">
+                    <label>Assigned Classes</label>
+                    <select
+                      className="form-select"
+                      name="admissiontype"
+                      onChange={handleChange}
+                    >
+                      <option value="New Admission">5th Standard</option>
+                      <option value="Re-Admission">4th Standard</option>
+                      <option value="Transfer">3th Standard</option>
+                      <option value=" Promotion">2th Standard</option>
+                      <option value=" Promotion">1th Standard</option>
+                    </select>
+                  </div>
+                  <div className="col-md-2">
+                    <label>Section</label>
+                    <select
+                      className="form-select"
+                      name="admissiontype"
+                      onChange={handleChange}
+                    >
+                      <option value="New Admission">A</option>
+                      <option value="Re-Admission">B</option>
+                      <option value="Transfer">C</option>
+                      <option value=" Promotion">D</option>
+                      <option value=" Promotion">E</option>
                     </select>
                   </div>
                 </div>
 
                 <div className="row mt-3">
                   <div className="col-md-4">
-                    <label>Admission Category </label>
+                    <label>Reporting Manager </label>
                     <select
                       className="form-select"
                       name="admissionCategory"
@@ -580,189 +622,147 @@ function AddTeachers() {
                       <option value="Others">Others</option>
                     </select>
                   </div>
-                  <div className="col-md-4">
-                    <label>Admission Mode </label>
+                   <div className="col-md-4">
+                    <label>Joining Date</label>
+                    <input
+                      type="Date"
+                      name="middleName"
+                      className="form-control"
+                      value={formData.middleName}
+                      onChange={handleChange}
+                    />
+                  </div>
+                 <div className="col-md-4">
+                    <label>Working Shift</label>
                     <select
                       className="form-select"
-                      name="admissionmode"
+                      name="admissionCategory"
                       onChange={handleChange}
                     >
-                      <option value="Online">Online</option>
-                      <option value="Offline">Offline</option>
-                      <option value="Walk-in">Walk-in</option>
-                      <option value="Referal">Referal</option>
+                      <option value="General">Morning</option>
+                      <option value="Management">Day</option>
+                      <option value="Staff Quota">Evening</option>
+                      {/* <option value="Sibling Quota">Sibling Quota</option>
+                      <option value="Others">Others</option> */}
                     </select>
-                  </div>
-                  <div className="col-md-4">
-                    <label>Reason for Admission</label>
-                    <input
-                      type="text"
-                      name="ReasonforAdmission"
-                      className="form-control"
-                      value={formData.ReasonforAdmission}
-                      onChange={handleChange}
-                      placeholder="Text (relocation, etc.)"
-                    />
                   </div>
                 </div>
 
                 <div className="row mt-3">
-                  <div className="col-md-2">
-                    <label>Class</label>
+                  <div className="col-md-4">
+                    <label>Job Location (branch)</label>
                     <select
                       className="form-select"
                       name="nationality"
                       onChange={handleChange}
                     >
                       <option value="">Select...</option>
-                      <option value="1st">1st</option>
-                      <option value="2nd">2nd</option>
-                      <option value="3rd">3rd</option>
+                      <option value="1st">multi-campus school</option>
+                      <option value="2nd">main branch</option>
+                      <option value="3rd">branch 2</option>
                     </select>
                   </div>
-                  <div className="col-md-2">
-                    <label>Section</label>
+                  <div className="col-md-4">
+                    <label>Work Status</label>
+                    <select
+                      className="form-select"
+                      name="nationality"
+                      onChange={handleChange}
+                    >
+                      <option value="">Select</option>
+                      <option value="Indian">Active</option>
+                      <option value="American">On Leave</option>
+                      <option value="Other">Suspended</option>
+                      <option value="Other">Resigned</option>
+                    </select>
+                  </div>
+                  <div className="col-md-4">
+                    <label>Employment Type</label>
                     <select
                       className="form-select"
                       name="nationality"
                       onChange={handleChange}
                     >
                       <option value="">Select...</option>
-                      <option value="Indian">Indian</option>
-                      <option value="American">American</option>
-                      <option value="Other">Other</option>
+                      <option value="Indian">Full-Time</option>
+                      <option value="American">Part-Time</option>
+                      <option value="Other">Contractual</option>
                     </select>
                   </div>
+                  
+                </div>
+
+                <div className="d-flex gap-2 mt-4">
+                <div><h5 className="">Experience</h5></div>
+                <div className="form-check form-check-inline">
+                        <input
+                          className="form-check-input"
+                          type="radio"
+                          name="gender"
+                          value="Female"
+                          onChange={handleChange}
+                        />
+                        <label className="form-check-label">Fresher</label>
+                      </div>
+                    </div>
+
+                 <div className="row mt-0">
                   <div className="col-md-4">
-                    <label>Academic Year</label>
+                    <label>Company Name</label>
+                    <input
+                      type="text"
+                      name="netPayableFee"
+                      className="form-control"
+                      value={formData.netPayableFee}
+                      onChange={handleChange}
+                      placeholder="Artography Studio"
+                    />
+                  </div>
+                  <div className="col-md-4">
+                    <label>Role & Designation</label>
+                    <input
+                      type="text"
+                      name="netPayableFee"
+                      className="form-control"
+                      value={formData.netPayableFee}
+                      onChange={handleChange}
+                      placeholder="Senior Teacher"
+                    />
+                  </div>
+                    <div className="col-md-2">
+                    <label>Year From</label>
                     <select
                       className="form-select"
                       name="nationality"
                       onChange={handleChange}
                     >
                       <option value="">Select...</option>
-                      <option value="Indian">Indian</option>
-                      <option value="American">American</option>
-                      <option value="Other">Other</option>
+                      <option value="Indian">2015</option>
+                      <option value="Indian">2016</option>
+                      <option value="Indian">2017</option>
+                      <option value="Indian">2018</option>
+                      <option value="Indian">2019</option>
+                      <option value="Indian">2020</option>
+                      
                     </select>
                   </div>
-                  <div className="col-md-4">
-                    <label>Class Teacher Name</label>
-                    <input
-                      type="text"
-                      name="motherTongue"
-                      className="form-control"
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
-
-                <div className="row mt-3">
-                  <div className="col-md-4">
-                    <label>Class Roll Number</label>
-                    <input
-                      type="text"
-                      name="motherTongue"
-                      className="form-control"
-                      onChange={handleChange}
-                    />
-                  </div>
-
-                  <div className="col-md-4">
-                    <label>Education Medium</label>
+                    <div className="col-md-2">
+                    <label>To</label>
                     <select
                       className="form-select"
-                      name="speciallyAbled"
+                      name="nationality"
                       onChange={handleChange}
                     >
                       <option value="">Select...</option>
-                      <option value="english">English</option>
-                      <option value="hindi">Hindi</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-                  <div className="col-md-4">
-                    <label>Stream</label>
-                    <select
-                      className="form-select"
-                      name="religion"
-                      onChange={handleChange}
-                    >
-                      <option value="">Select...</option>
-                      <option value="science">Science</option>
-                      <option value="commerce">Commerce</option>
-                      <option value="arts">Arts</option>
-                    </select>
-                  </div>
-
-                  {/* <div className="col-md-4">
-            <label>Upload Documents</label>
-            <input type="file" multiple className="form-control" />
-          </div> */}
-                </div>
-                <div className="row mt-3">
-                  <div className="col-md-4">
-                    <label>Fee Category</label>
-
-                    <select
-                      className="form-select"
-                      name="speciallyAbled"
-                      onChange={handleChange}
-                    >
-                      <option value="">Select...</option>
-                      <option value="english">English</option>
-                      <option value="hindi">Hindi</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-
-                  <div className="col-md-4">
-                    <label>Previous School Name (If Any)</label>
-                    <input
-                      type="text"
-                      name="motherTongue"
-                      className="form-control"
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="col-md-4">
-                    <label>Transfer Certificate No.</label>
-                    <input
-                      type="text"
-                      name="motherTongue"
-                      className="form-control"
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
-                <div className="row mt-3">
-                  <div className="col-md-4">
-                    <label>Transport Requirement</label>
-
-                    <select
-                      className="form-select"
-                      name="speciallyAbled"
-                      onChange={handleChange}
-                    >
-                      <option value="">Select...</option>
-                      <option value="english">Yes</option>
-                      <option value="hindi">No</option>
-                    </select>
-                  </div>
-
-                  <div className="col-md-4">
-                    <label>Hostel Requirement</label>
-                    <select
-                      className="form-select"
-                      name="speciallyAbled"
-                      onChange={handleChange}
-                    >
-                      <option value="">Select...</option>
-                      <option value="english">Yes</option>
-                      <option value="hindi">No</option>
+                      <option value="Indian">2021</option>
+                      <option value="Indian">2022</option>
+                      <option value="Indian">2023</option>
+                      <option value="Indian">2024</option>
+                      <option value="Indian">2025</option>          
                     </select>
                   </div>
                 </div>
+                
               </form>
 
               <div className="mt-4">
@@ -3125,22 +3125,23 @@ function AddTeachers() {
           <div className="d-flex text-secondary">
             <div style={{ width: "100%" }}>
               <form onSubmit={handleSubmit} className=" p-4">
-                {/* <h5>Basic FeeDetails</h5> */}
+                  <h5 className="text-dark  mb-3">Employee ID #076</h5>
+                <h5 className="mb-3">Contact & Emergency Details</h5>
 
                 <div className="row mt-0">
                   <div className="col-md-4">
-                    <label>Student's Contact No.</label>
+                    <label >Teacher Contact No.</label>
                     <input
                       type="number"
                       name="totalFees"
                       className="form-control"
                       value={formData.fathercontact}
                       onChange={handleChange}
-                      placeholder="N/A"
+                        placeholder="+91 9876543210"
                     />
                   </div>
                   <div className="col-md-4">
-                    <label>Father's Contact No.</label>
+                    <label>Alternative No.</label>
                     <input
                       type="number"
                       name="totalFees"
@@ -3151,21 +3152,21 @@ function AddTeachers() {
                     />
                   </div>
                   <div className="col-md-4">
-                    <label>Mother's Contact No.</label>
+                    <label>Work Email Id</label>
                     <input
-                      type="number"
+                      type="email"
                       name="totalFees"
                       className="form-control"
                       value={formData.fathercontact}
                       onChange={handleChange}
-                      placeholder="+91 9876543210"
+                    placeholder="Rajesh@gmail.com"
                     />
                   </div>
                 </div>
 
                 <div className="row mt-3">
                   <div className="col-md-4">
-                    <label>Father's Email Address</label>
+                    <label>Personal Mail ID</label>
                    <input
                       type="email"
                       name="totalFees"
@@ -3176,25 +3177,25 @@ function AddTeachers() {
                     />
                   </div>
                   <div className="col-md-4">
-                    <label>Mother's Email Address</label>
+                    <label>Emergency Contact Name & Relation</label>
                     <input
-                      type="email"
+                      type="text"
                       name="discountAmount"
                       className="form-control"
                       value={formData.discountAmount}
                       onChange={handleChange}
-                      placeholder="Rajesh@gmail.com"
+                      placeholder="Mangla (Mother)"
                     />
                   </div>
                   <div className="col-md-4">
-                    <label>Guardian's Email Address</label>
+                    <label>Emergency Conatact No.</label>
                     <input
-                      type="email"
+                      type="number"
                       name="netPayableFee"
                       className="form-control"
                       value={formData.netPayableFee}
                       onChange={handleChange}
-                      placeholder="abc@gmail.com"
+                      placeholder="+91 9876543210"
                     />
                   </div>
                 </div>
