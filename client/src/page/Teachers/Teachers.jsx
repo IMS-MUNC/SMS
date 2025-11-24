@@ -338,12 +338,9 @@ const Teachers = () => {
     "attPercent": "59%"
   }
 ]
-
-
 );
   const [showLowAttendance, setShowLowAttendance] = useState(false);
   const [openMenuId, setOpenMenuId] = useState(null);
-
   const overviewCards = [
     { title: "Total Teachers", value: 6000, color: "#c79d7c" },
     { title: "Active Teachers Today", value: 6000, color: "#d8c26a" },
@@ -352,22 +349,13 @@ const Teachers = () => {
     { title: "Class Assigned Teachers", value: 6000, color: "#7fb5f0" },
     { title: "Portal Access Teachers", value: 6000, color: "#ec8a8a" },
   ];
-
   const feeColors = {
     Enabled: { bg: "#ECFDF3", color: "#00B515" },
     Disabled: { bg: "#FDECEC", color: "#911808" },
   };
-
-  const handleCardClick = (title) => {
-    if (title === "Low Attendance Students") {
-      navigate("/studentTable");
-    }
-  };
-  
   const toggleMenu = (id) => {
     setOpenMenuId(openMenuId === id ? null : id);
   };
-
   return (
     <div
       className="container-fluid bg-light p-4"
@@ -384,7 +372,7 @@ const Teachers = () => {
             {overviewCards.map((card, index) => (
               <Card
                 key={index}
-                onClick={() => handleCardClick(card.title)}
+               
                 className="shadow-sm rounded-4 d-flex flex-row align-items-center position-relative"
                 style={{
                   width: "232px",
