@@ -19,18 +19,21 @@ import { MdDelete, MdOutlineDownload } from "react-icons/md";
 import AcadmicPerformace from "../../assets/images/Acadamicperfromace.png";
 import { PiBuildingLight } from "react-icons/pi";
 import { FaSchool } from "react-icons/fa";
+
+import { Smile } from "lucide-react";
+import { Form } from "react-bootstrap";
+import { FaStar, FaUserFriends, FaUserTie } from "react-icons/fa";
 import {
-  ComposedChart,
-  Bar,
-  Line,
+  AreaChart,
+  Area,
   XAxis,
   YAxis,
   CartesianGrid,
+  Tooltip,
   ResponsiveContainer,
-  Cell,
-} from "recharts";
-import { Smile } from "lucide-react";
-import { Form } from "react-bootstrap";
+  LabelList
+} from 'recharts';
+
 
 const TeacherProfile = () => {
   const [selectedSection, setSelectedSection] = useState("Basic & Contact Details");
@@ -323,7 +326,9 @@ const TeacherProfile = () => {
         );
 
       case "Academic Details":
+
         return (
+
           <>
             {/* MAIN INFORMATION */}
             <div className="d-flex  justify-content-between gap-4 ">
@@ -474,169 +479,269 @@ const TeacherProfile = () => {
         );
 
       case "Attendance & Leaves":
+        const cardStyle = {
+          width: "195px",
+          height: "110px",
+          minWidth: "185px", // Prevents crushing on small screens
+        };
 
+        const data = [
+          { name: 'Jan', value: 68 },
+          { name: 'Feb', value: 45 },
+          { name: 'Mar', value: 52 },
+          { name: 'Apr', value: 90, specialLabel: 'Best Teacher Award' },
+          { name: 'May', value: 72 }, // Interpolated value
+          { name: 'Jun', value: 56 },
+          { name: 'Jul', value: 74 },
+          { name: 'Aug', value: 40 },
+          { name: 'Sep', value: 32 },
+          { name: 'Oct', value: 50 },
+          { name: 'Nov', value: 30 },
+          { name: 'Dec', value: 24 },
+        ];
+
+        // Custom Label Component for "Best Teacher Award"
+        const CustomLabel = (props) => {
+          const { x, y, value, index } = props;
+          // Only render for the data point that has the specialLabel (April)
+          if (data[index].specialLabel) {
+            return (
+              <g transform={`translate(${x},${y})`}>
+                {/* Blue Bubble Background */}
+                <path
+                  d="M -60 -45 L 60 -45 L 60 -15 L 5 -15 L 0 -5 L -5 -15 L -60 -15 Z"
+                  fill="#007bff"
+                />
+                {/* Text */}
+                <text
+                  x={0}
+                  y={-25}
+                  textAnchor="middle"
+                  fill="#fff"
+                  fontSize="12px"
+                  fontWeight="500"
+                  dy={4}
+                >
+                  {data[index].specialLabel}
+                </text>
+              </g>
+            );
+          }
+          return null;
+        };
+
+        // Custom Dot Component
+        const CustomDot = (props) => {
+          const { cx, cy, stroke, payload } = props;
+
+          // Hide dot for May (as it seems skipped in the visual but line connects)
+          // or keep it consistent. Let's keep consistent dots except May if desired.
+          // Based on image, every month seems to have a dot except maybe May is hidden.
+          if (payload.name === 'May') return null;
+
+          return (
+            <circle
+              cx={cx}
+              cy={cy}
+              r={5}
+              stroke="green"
+              strokeWidth={2}
+              fill="white"
+            />
+          );
+        };
 
         return (
           <>
             <div className="d-flex  justify-content-between gap-3 ">
               <div className="container-fluid mt-3">
                 {/* ====== SUMMARY CARDS ====== */}
-                <div className="d-flex gap-3 flex-wrap">
 
-                  {/* CARD TEMPLATE */}
-                  <div
-                    className="shadow-sm bg-white"
-                    style={{
-                      width: "182px",
-                      padding: "14px 16px",
-                      borderRadius: "16px",
-                    }}
-                  >
-                    <p className="text-secondary mb-1" style={{ fontSize: "12px" }}>
-                      Over All Rating
-                    </p>
+                <div className="container-fluid bg-light p-0">
 
-                    <div className="d-flex justify-content-between align-items-start">
-                      <h4 className="fw-bold mb-0" style={{ fontSize: "20px", lineHeight: "22px" }}>
-                        4.5<span className="text-secondary" style={{ fontSize: "14px" }}>/5</span>
-                        <div
-                          style={{
-                            width: "40px",
-                            height: "3px",
-                            backgroundColor: "#F6C445",
-                            borderRadius: "30px",
-                            marginTop: "6px",
-                          }}
-                        ></div>
-                      </h4>
+                  <div className="d-flex flex-wrap gap-3">
 
-                      <i
-                        className="bi bi-star-fill"
-                        style={{ fontSize: "22px", color: "#FFC107", marginTop: "2px" }}
-                      ></i>
-                    </div>
-                  </div>
-
-
-                  {/* LAST EVALUATION SCORE */}
-                  <div
-                    className="shadow-sm bg-white"
-                    style={{ width: "182px", padding: "14px 16px", borderRadius: "16px" }}
-                  >
-                    <p className="text-secondary mb-1" style={{ fontSize: "12px" }}>
-                      Last Evaluation Score
-                    </p>
-
-                    <div className="d-flex justify-content-between align-items-start">
-                      <div>
-                        <h4 className="fw-bold mb-0" style={{ fontSize: "20px" }}>89%</h4>
-                        <p className="text-secondary mb-1" style={{ fontSize: "11px" }}>(Dec 2025)</p>
-
-                        <div
-                          style={{
-                            width: "40px",
-                            height: "3px",
-                            backgroundColor: "#7ED957",
-                            borderRadius: "30px",
-                            marginTop: "-2px",
-                          }}
-                        ></div>
-                      </div>
-
-                      <div className="text-end">
-                        <i className="bi bi-building" style={{ fontSize: "24px", color: "#41B34D" }}></i>
-
-                        <span
-                          className="px-2 py-0 rounded-4 d-block mt-1 text-success"
-                          style={{
-                            backgroundColor: "#E6FFE8",
-                            fontSize: "9px",
-                            fontWeight: 600,
-                          }}
-                        >
-                          20% ↑
-                        </span>
+                    {/* --- CARD 1: OVER ALL RATING --- */}
+                    <div className="card border-0 shadow-sm rounded-3 p-3" style={cardStyle}>
+                      <div className="d-flex justify-content-between align-items-center h-100">
+                        <div>
+                          <div className="fw-bold text-dark text-nowrap " style={{ fontSize: "13px" }}>Over All Rating</div>
+                          <div className="fw-bolder text-dark mt-2" style={{ fontSize: "22px", lineHeight: "1.2" }}>4.5/5</div>
+                          <div className="mt-1" style={{ width: "38px", height: "3.2px", backgroundColor: "#FFD700" }}></div>
+                        </div>
+                        <div className=" ps-3" style={{
+                          borderLeft: "2px solid #A1A1A1",
+                          height: "43px",
+                          display: "flex",
+                          alignItems: "center"
+                        }}>
+                          <FaStar size={25} color="#FFD700" style={{ filter: "drop-shadow(0px 7px 1px rgba(0,0,0,0.2))" }} />
+                        </div>
                       </div>
                     </div>
+
+                    {/* --- CARD 2: LAST EVALUATION SCORE --- */}
+                    <div className="card border-0 shadow-sm rounded-3 p-3" style={cardStyle}>
+                      <div className="d-flex justify-content-between align-items-center h-100">
+                        <div>
+                          <div className="fw-semibold text-dark text-nowrap" style={{ fontSize: "12px" }}>Last Evaluation Score</div>
+                          <div className="fw-bolder text-dark mt-2" style={{ fontSize: "22px", lineHeight: "1.2" }}>89%</div>
+                          <div className="text-secondary fw-bold" style={{ fontSize: "11px" }}>(Dec 2025)</div>
+                          <div className="mt-1" style={{ width: "38px", height: "3px", backgroundColor: "#82C96D" }}></div>
+                        </div>
+                        <div className=" ps-3  d-flex flex-column align-items-center" style={{
+                          borderLeft: "2px solid #A1A1A1",
+                          height: "43px",
+                          display: "flex",
+                          alignItems: "center"
+                        }}>
+                          <FaSchool size={30} color="#82C96D" />
+                          <span className="badge mt-2 text-dark p-1 " style={{ backgroundColor: "#DFFFD6", color: "#0C7C0C", fontSize: "10px" }}>
+                            20% ↑
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* --- CARD 3: STUDENT FEEDBACK --- */}
+                    <div className="card border-0 shadow-sm rounded-3 p-3" style={cardStyle}>
+                      <div className="d-flex justify-content-between align-items-center h-100">
+                        <div>
+                          <div className="fw-bold text-dark text-nowrap " style={{ fontSize: "13px" }}>Student Feedback</div>
+                          <div className="fw-bolder text-dark mt-2" style={{ fontSize: "22px", lineHeight: "1.2" }}>4.3/5</div>
+                          <div className="mt-1" style={{ width: "38px", height: "3.2px", backgroundColor: "#FFD700" }}></div>
+                        </div>
+                        <div className=" ps-3" style={{
+                          borderLeft: "2px solid #A1A1A1",
+                          height: "43px",
+                          display: "flex",
+                          alignItems: "center"
+                        }}>
+                          <FaStar size={25} color="#FFD700" style={{ filter: "drop-shadow(0px 7px 1px rgba(0,0,0,0.2))" }} />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* --- CARD 4: RESPONSES --- */}
+                    <div className="card border-0 shadow-sm rounded-3 p-2" style={cardStyle}>
+                      <div className="d-flex align-items-center h-100">
+                        <div className="w-100">
+                          <div className="fw-bold text-dark mb-2" style={{ fontSize: "13px" }}>Responses</div>
+
+                          <div className="d-flex align-items-center mb-1 ">
+                            <FaUserFriends className="text-secondary me-1" size={14} />
+                            <span className="fw-bold text-dark text-nowrap" style={{ fontSize: "13px" }}>125 Student Responses</span>
+                          </div>
+
+                          <div className="d-flex align-items-center">
+                            <FaUserTie className="text-warning me-1" size={14} />
+                            <span className="fw-bold text-dark text-nowrap" style={{ fontSize: "13px" }}>2 Admin Reviews</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* --- CARD 5: ATTENDANCE SCORE --- */}
+                    <div className="card border-0 shadow-sm rounded-3 p-3" style={cardStyle}>
+                      <div className="d-flex justify-content-between align-items-center h-100">
+                        <div>
+                          <div className="fw-bold text-dark text-nowrap mb-2" style={{ fontSize: "13px" }}>Attendance Score</div>
+                          <div className="fw-bolder text-dark" style={{ fontSize: "24px", lineHeight: "1.2" }}>89%</div>
+                          <div className="mt-2" style={{ width: "38px", height: "3px", backgroundColor: "#FDC987" }}></div>
+                        </div>
+                        <div className=" ps-3" style={{
+                          borderLeft: "2px solid #A1A1A1",
+                          height: "43px",
+                          display: "flex",
+                          alignItems: "center"
+                        }}>
+                          <FaSchool size={28} color="#FDC987" />
+                        </div>
+                      </div>
+                    </div>
+
                   </div>
+                </div>
 
-
-                  {/* STUDENT FEEDBACK */}
+                <div className="container-fluid  mt-3">
                   <div
-                    className="shadow-sm bg-white"
-                    style={{ width: "182px", padding: "14px 16px", borderRadius: "16px" }}
+                    className="card shadow-sm border-0 rounded-3 bg-white mx-auto"
+                    style={{ width: '100%', maxWidth: '968px' }}
                   >
-                    <p className="text-secondary mb-1" style={{ fontSize: "12px" }}>
-                      Student Feedback
-                    </p>
+                    <div className="card-body p-3 p-md-4">
+                      {/* Header Section - Responsive Flex wrap */}
+                      <div className="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+                        <h4 className="m-0 fw-normal text-dark">
+                          Evaluation Timeline
+                        </h4>
 
-                    <div className="d-flex justify-content-between align-items-start">
-                      <h4 className="fw-bold mb-0" style={{ fontSize: "20px" }}>
-                        4.3<span className="text-secondary" style={{ fontSize: "14px" }}> /5</span>
-                        <div
-                          style={{
-                            width: "40px",
-                            height: "3px",
-                            backgroundColor: "#FFD85A",
-                            borderRadius: "30px",
-                            marginTop: "6px",
-                          }}
-                        ></div>
-                      </h4>
+                        <div className="btn-group" role="group">
+                          <button type="button" className="btn btn-link text-decoration-none text-muted px-2 px-md-3">3 Months</button>
+                          <button type="button" className="btn btn-link text-decoration-none text-muted px-2 px-md-3">6 Months</button>
+                          <button
+                            type="button"
+                            className="btn btn-outline-primary rounded-pill px-3 px-md-4 py-1"
+                            style={{ fontWeight: '500' }}
+                          >
+                            12 Months
+                          </button>
+                        </div>
+                      </div>
 
-                      <i className="bi bi-star-fill" style={{ fontSize: "22px", color: "#FFC107" }}></i>
+                      {/* Chart Section - Fixed Height, Fluid Width */}
+                      <div style={{ width: '100%', height: '358px' }}>
+                        <ResponsiveContainer width="100%" height="100%">
+                          <AreaChart
+                            data={data}
+                            margin={{ top: 40, right: 10, left: -20, bottom: 0 }}
+                          >
+                            <defs>
+                              <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="5%" stopColor="#e6f2ff" stopOpacity={0.8} />
+                                <stop offset="95%" stopColor="#e6f2ff" stopOpacity={0} />
+                              </linearGradient>
+                            </defs>
+
+                            <CartesianGrid
+                              vertical={false}
+                              strokeDasharray="3 3"
+                              stroke="#e0e0e0"
+                            />
+
+                            <XAxis
+                              dataKey="name"
+                              axisLine={false}
+                              tickLine={false}
+                              tick={{ fill: '#333', fontSize: 12 }}
+                              dy={10}
+                              interval="preserveStartEnd" // Helps prevent overlapping text on mobile
+                            />
+
+                            <YAxis
+                              axisLine={false}
+                              tickLine={false}
+                              ticks={[0, 20, 40, 60, 80, 100]}
+                              tick={{ fill: '#333', fontSize: 12 }}
+                            />
+
+                            <Tooltip />
+
+                            <Area
+                              type="linear"
+                              dataKey="value"
+                              stroke="green"
+                              strokeWidth={2.5}
+                              fillOpacity={1}
+                              fill="url(#colorValue)"
+                              dot={<CustomDot />}
+                            >
+                              <LabelList content={<CustomLabel />} />
+                            </Area>
+                          </AreaChart>
+                        </ResponsiveContainer>
+                      </div>
                     </div>
                   </div>
-
-
-                  {/* RESPONSES */}
-                  <div
-                    className="shadow-sm bg-white"
-                    style={{ width: "182px", padding: "14px 16px", borderRadius: "16px" }}
-                  >
-                    <p className="text-secondary mb-1" style={{ fontSize: "12px" }}>
-                      Responses
-                    </p>
-
-                    <p className="fw-semibold mb-0" style={{ fontSize: "13px" }}>
-                      <i className="bi bi-people-fill text-primary me-1"></i>
-                      125 Student Responses
-                    </p>
-
-                    <p className="fw-semibold mt-1" style={{ fontSize: "13px" }}>
-                      <i className="bi bi-person-badge-fill text-warning me-1"></i>
-                      2 Admin Reviews
-                    </p>
-                  </div>
-
-
-                  {/* ATTENDANCE SCORE */}
-                  <div
-                    className="shadow-sm bg-white"
-                    style={{ width: "182px", padding: "14px 16px", borderRadius: "16px" }}
-                  >
-                    <p className="text-secondary mb-1" style={{ fontSize: "12px" }}>
-                      Attendance Score
-                    </p>
-
-                    <div className="d-flex justify-content-between align-items-start">
-                      <h4 className="fw-bold mb-0" style={{ fontSize: "20px" }}>
-                        89%
-                        <div
-                          style={{
-                            width: "40px",
-                            height: "3px",
-                            backgroundColor: "#F2C88E",
-                            borderRadius: "30px",
-                            marginTop: "6px",
-                          }}
-                        ></div>
-                      </h4>
-
-                      <i className="bi bi-bank2" style={{ fontSize: "24px", color: "#E8A948" }}></i>
-                    </div>
-                  </div>
-
                 </div>
 
 
