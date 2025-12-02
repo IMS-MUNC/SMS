@@ -17,7 +17,13 @@ import porter from "../../assets/images/Harry-Potter-Sorcerer's Stone.jpg";
 import hope from "../../assets/images/HOPE.jpg";
 import four from "../../assets/images/FourBOOKS.jpg";
 import student from "../../assets/images/libraryImg.png";
+import books from "../../assets/images/books.png";
+import yt from "../../assets/images/yt.png";
+import letter from "../../assets/images/letter.png";
 import { GoArrowRight } from "react-icons/go";
+import eva from "../../assets/images/eva.jpg";
+import lady from "../../assets/images/lady.jpg";
+import girl from "../../assets/images/girl.jpg";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 
@@ -152,10 +158,63 @@ const bookCard = [
   },
 ];
 
-function Library() {
+const resourceData = [
+  {
+    img: books,
+    title: "Books-2000",
+    color: "#FEF4F0",
+  },
+  {
+    img: yt,
+    title: "YouTube-2000",
+    color: "#d7fbed",
+  },
+  {
+    img: letter,
+    title: "Letters-2000",
+    color: "#e2d8fc",
+  },
+];
 
-  
-    const [value, setValue] = useState(new Date());
+const activities = [
+  {
+    img: eva,
+    message:
+      "Please ensure the monthly attendance report is accurate before the April 30th deadline",
+    date: "12 july 2025",
+    class: "10th B",
+  },
+  {
+    img: girl,
+    message: "All staff are required to update their timesheets by Friday.",
+    date: "10 oct 2024",
+    class: "9th A",
+  },
+  {
+    img: lady,
+    message: "Meeting scheduled for 2:00 PM regarding new project allocation.",
+    date: "5 may 2024",
+    class: "11th C",
+  },
+];
+
+const students = [
+  {
+    img: eva,
+    name: "Eva Green",
+    time: "10:30 AM",
+    des: "Joined as a new student in 10th grade.",
+  },
+  {
+    img: girl,
+    name: "Sophia Brown",
+    time: "11:00 AM",
+    des: "Enrolled in advanced mathematics course.",
+  },
+];
+
+function Library() {
+  const [value, setValue] = useState(new Date());
 
   return (
     <div>
@@ -181,7 +240,7 @@ function Library() {
             <div className="row">
               {bookCard.map((book, idx) => (
                 <div key={idx} className="col-3 p-3">
-                  <div className="p-4 rounded bg-white">
+                  <div className="book p-4 rounded bg-white">
                     <div className="d-flex">
                       <div className="d-flex align-items-center justify-content-between w-100">
                         <div className="rounded">
@@ -236,80 +295,181 @@ function Library() {
             </div>
           </div>
         </div>
-        <div className="w-25 left-shadow bg-white p-4 rounded">
-          <h5 className="other-library">Other Library Moduels</h5>
-          <div className="mt-4 d-flex justify-content-between align-items-center">
-            <div className="d-flex gap-2">
-              <div className="image">
-              <img src={student} alt="" className="img-student" />
+        <div className="w-25">
+          <div className="left-shadow bg-white p-4 rounded">
+            <h5 className="other-library">Other Library Moduels</h5>
+            <div className="mt-4 d-flex justify-content-between align-items-center">
+              <div className="d-flex gap-2">
+                <div className="image">
+                  <img src={student} alt="" className="img-student" />
+                </div>
+                <div className="d-flex flex-column">
+                  <label className="return-issue">
+                    Book Issue & Return Entries
+                  </label>
+                  <span className="staff">Staff - 20</span>
+                </div>
+              </div>
+              <div>
+                <span className="staff-arrow">
+                  <GoArrowRight />
+                </span>
+              </div>
             </div>
-            <div className="d-flex flex-column">
-              <label className="return-issue">Book Issue & Return Entries</label>
-              <span className="staff">Staff - 20</span>
+            <div className="mt-3 d-flex justify-content-between align-items-center">
+              <div className="d-flex gap-2">
+                <div className="image">
+                  <img src={student} alt="" className="img-student" />
+                </div>
+                <div className="d-flex flex-column">
+                  <label className="return-issue">Library Staff</label>
+                  <span className="staff">Staff - 20</span>
+                </div>
+              </div>
+              <div>
+                <span className="staff-arrow">
+                  <GoArrowRight />
+                </span>
+              </div>
             </div>
+            <div className="mt-3 d-flex justify-content-between align-items-center">
+              <div className="d-flex gap-2">
+                <div className="image">
+                  <img src={student} alt="" className="img-student" />
+                </div>
+                <div className="d-flex flex-column">
+                  <label className="return-issue">
+                    Fine Management & Rules
+                  </label>
+                  <span className="staff">Staff - 20</span>
+                </div>
+              </div>
+              <div>
+                <span className="staff-arrow">
+                  <GoArrowRight />
+                </span>
+              </div>
             </div>
-            <div>
-              <span className="staff-arrow">
-                <GoArrowRight />
-              </span>
+            <div className="mt-3 d-flex justify-content-between align-items-center">
+              <div className="d-flex gap-2">
+                <div className="image">
+                  <img src={student} alt="" className="img-student" />
+                </div>
+                <div className="d-flex flex-column">
+                  <label className="return-issue">Book Maintainances</label>
+                  <span className="staff">Staff - 20</span>
+                </div>
+              </div>
+              <div>
+                <span className="staff-arrow">
+                  <GoArrowRight />
+                </span>
+              </div>
             </div>
-          </div>
-          <div className="mt-3 d-flex justify-content-between align-items-center">
-            <div className="d-flex gap-2">
-              <div className="image">
-              <img src={student} alt="" className="img-student" />
-            </div>
-            <div className="d-flex flex-column">
-              <label className="return-issue">Library Staff</label>
-              <span className="staff">Staff - 20</span>
-            </div>
-            </div>
-            <div>
-              <span className="staff-arrow">
-                <GoArrowRight />
-              </span>
-            </div>
-          </div>
-          <div className="mt-3 d-flex justify-content-between align-items-center">
-            <div className="d-flex gap-2">
-              <div className="image">
-              <img src={student} alt="" className="img-student" />
-            </div>
-            <div className="d-flex flex-column">
-              <label className="return-issue">Fine Management & Rules</label>
-              <span className="staff">Staff - 20</span>
-            </div>
-            </div>
-            <div>
-              <span className="staff-arrow">
-                <GoArrowRight />
-              </span>
-            </div>
-          </div>
-          <div className="mt-3 d-flex justify-content-between align-items-center">
-            <div className="d-flex gap-2">
-              <div className="image">
-              <img src={student} alt="" className="img-student" />
-            </div>
-            <div className="d-flex flex-column">
-              <label className="return-issue">Book Maintainances</label>
-              <span className="staff">Staff - 20</span>
-            </div>
-            </div>
-            <div>
-              <span className="staff-arrow">
-                <GoArrowRight />
-              </span>
-            </div>
-          </div>
 
-          {/* <------------------------------------------ Calender -------------------------------------> */}
-          
+            {/* <------------------------------------------ Calender -------------------------------------> */}
+
             <div className="mt-4">
               <div>
                 <Calendar onChange={setValue} value={value} />
               </div>
             </div>
+            {/* <======================================== Resources ============================================> */}
+            <div className="resource mt-2">
+              <h5 className="other-library">Resources</h5>
+              <div className="mt-4 p-2">
+                <div className="d-flex gap-3 justify-content-between align-items-center">
+                  {resourceData.map((item, index) => (
+                    <div
+                      key={index}
+                      className="d-flex flex-column align-items-center"
+                    >
+                      <div
+                        className="p-4 rounded"
+                        style={{ backgroundColor: item.color }}
+                      >
+                        <img src={item.img} alt={item.title} />
+                      </div>
+                      <h6 className="mt-1 text-center">{item.title}</h6>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* <----------------------------------------- Recent Activities -------------------------------------> */}
+            <div className="mt-2">
+              <div className="d-flex justify-content-between">
+                <span className="holiday fw-bold">Recent Activities</span>
+                <span className="dtpkr btn ">
+                  <button className="btn btn-dark fw-semibold btn-sm px-3">
+                    View All
+                  </button>
+                </span>
+              </div>
+              {activities.map((activity, index) => (
+                <div className="d-flex align-items-center" key={index}>
+                  <div className="w-25 px-2 py-2">
+                    <img
+                      src={activity.img}
+                      className="rounded-circle"
+                      alt=""
+                      style={{ width: "64px", height: "64px" }}
+                    />
+                  </div>
+
+                  <div className="activity w-75">
+                    <div className="time px-2 py-2">
+                      {activity.message}
+                      <br />
+                      <div className="d-flex gap-4 align-items-center">
+                        <span className="recent-activity-time mt-1">
+                          {activity.date}
+                        </span>
+                        <span className="recent-activity-time mt-1">
+                          {activity.class}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* <========================================== Recently Added Students ============================================> */}
+            <div className="mt-2">
+              <div className="d-flex justify-content-between">
+                <span className="holiday fw-bold">Recently Added Students</span>
+                <span className="dtpkr btn ">
+                  <button className="btn btn-dark fw-semibold btn-sm px-3">
+                    View All
+                  </button>
+                </span>
+              </div>
+              {students.map((stud, index) => (
+                <div className="d-flex" key={index}>
+                  <div className="w-25 px-2 py-2">
+                    <img
+                      src={stud.img}
+                      className="rounded-circle"
+                      alt=""
+                      style={{ width: "64px", height: "64px" }}
+                    />
+                  </div>
+                  <div className="w-75 d-flex align-items-center justify-content-between">
+                    <div className="d-flex justifu-content-between align-items-center">
+                      <h5>{stud.name}</h5>
+                        <span>{stud.time}</span>
+                    </div>
+                    <div className="student-des mt-1 ">
+                      <span>{stud.des}</span>
+                    </div>
+                  </div>
+                  <div></div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
