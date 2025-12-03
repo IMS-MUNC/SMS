@@ -1367,7 +1367,7 @@ const Dashboard = () => {
           </div>
 
           {/* <--------------------------------- Recent Activity ------------------------> */}
-          <div className="mt-2">
+          <div className="mt-4">
             <div className="d-flex justify-content-between">
               <span className="holiday fw-bold">Recent Activities</span>
               <span className="dtpkr btn ">
