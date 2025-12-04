@@ -157,70 +157,78 @@ function BookOverview() {
           <FaPlus className="text-white" /> &nbsp; Add
         </button>
       </div>
-      <div className="book-slider d-flex gap-1 overflowY-scroll">
+      {/* <---------------------------------------------- Books-Slider ------------------------------------------------> */}
+      <div className="book-slider">
         {bookCard.map((book, idx) => (
-          <div key={idx} className="p-3">
-            <div className="book p-4 rounded bg-white">
-              <div className="d-flex justify-content-center mb-2" style={{position:'relative'}}>
-                
-                  <div className="rounded img-books-slider">
-                    <img src={book.img} alt="" className="books-slider" />
-                  </div>
-
-                  <div style={{
-                    position:'absolute',
-                    left:'130px',
-                    top:'195px',
-                    backgroundColor:'#eceaea',
-                    boxShadow:'0px 1.92px 4.8px 0px rgb(0, 0, 0, 0.25)',
-                    width:'75px',
-                    
-                  }}
-                    className={`rounded shadow-sm d-flex justify-content-center px-2 py-1  
-                            ${
-                              book.status === "Available"
-                                ? "text-success"
-                                : "text-danger"
-                            }`}
-                  >
-                    <span className="" style={{fontSize:'9px',fontWeight:'600'}}>{book.status}</span>
-                  </div>
-                
+          <div
+            key={idx}
+            className="book-card p-4 rounded bg-white"
+            style={{ width: "260px" }}
+          >
+            {/* Image + Status */}
+            <div
+              className="d-flex justify-content-center"
+              style={{ position: "relative" }}
+            >
+              <div className="rounded">
+                <img src={book.img} alt="" className="books-slider" />
               </div>
 
-              <div className="mt-3 text-center">
-                <h5>{book.name}</h5>
+              <div
+                style={{
+                  position: "absolute",
+                  left: "130px",
+                  top: "195px",
+                  backgroundColor: "#eceaeaec",
+                  width: "75px",
+                }}
+                className={`rounded shadow-sm d-flex justify-content-center px-2 py-1 ${
+                  book.status === "Available" ? "text-success" : "text-danger"
+                }`}
+              >
+                <span style={{ fontSize: "9px", fontWeight: "600" }}>
+                  {book.status}
+                </span>
+              </div>
+            </div>
+
+            {/* Title */}
+            <div className="mt-5 text-center">
+              <h5>{book.name}</h5>
+            </div>
+
+            {/* Copies */}
+            <div className="mt-1">
+              <div className="d-flex justify-content-between book-text">
+                <label>Total Copies</label>
+                <span>{book.totalCopies}</span>
               </div>
 
-              <div className="mt-2">
-                <div className="d-flex justify-content-between book-text">
-                  <label>Total Copies</label>
-                  <span>{book.totalCopies}</span>
-                </div>
-                <div className="d-flex justify-content-between mt-1 book-text">
-                  <label>Issued Copies</label>
-                  <span>{book.issuedCopies}</span>
-                </div>
-                <div className="d-flex justify-content-between mt-1 book-text">
-                  <label>Available Copies</label>
-                  <span>{book.totalCopies - book.issuedCopies}</span>
-                </div>
+              <div className="d-flex justify-content-between mt-1 book-text">
+                <label>Issued Copies</label>
+                <span>{book.issuedCopies}</span>
               </div>
 
-              <div className="mt-3">
-                <div className="d-flex gap-3">
-                  <button className="library-btn btn btn-outline-secondary">
-                    View Details
-                  </button>
-                  <button className="history-btn btn">
-                    View Issued History
-                  </button>
-                </div>
+              <div className="d-flex justify-content-between mt-1 book-text">
+                <label>Available Copies</label>
+                <span>{book.totalCopies - book.issuedCopies}</span>
+              </div>
+            </div>
+
+            {/* Buttons */}
+            <div className="mt-5">
+              <div className="d-flex gap-3">
+                <button className="library-btn btn btn-outline-secondary">
+                  View Details
+                </button>
+
+                <button className="history-btn btn">View Issued History</button>
               </div>
             </div>
           </div>
         ))}
       </div>
+      
     </div>
   );
 }

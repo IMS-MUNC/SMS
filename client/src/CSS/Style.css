@@ -528,17 +528,6 @@
   font-weight: 500;
 }
 
-.book-slider {
-  display: flex;
-  gap: 20px;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  scroll-behavior: smooth;
-  padding: 10px 0;
-}
-.book-slider::-webkit-scrollbar{
-  display: none;
-}
 
 
 
@@ -704,8 +693,12 @@ campush-header {
   width: 23px;
 }
 
+
+
 .book {
   box-shadow: 0px 3.84px 14.39px 0px rgba(0, 0, 0, 0.15);
+  height: 296px;
+  width: 260px;
 }
 
 .student-name {
@@ -714,15 +707,35 @@ campush-header {
   font-weight: 700px;
 }
 
+/* Slider container */
+.book-slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+  scrollbar-width: none; /* Firefox */
+}
+
+.book-slider::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+/* Individual card must not shrink */
+.book-card {
+  flex-shrink: 0;
+}
+
+/* Image */
 .books-slider {
   width: 150px;
   height: 202px;
-  gap: 9px;
+  box-shadow: -13px 12px 11px -4px rgba(0, 0, 0, 0.4);
 }
 
-.img-books-slider {
-  box-shadow: -13px 12px 11px -4px rgb(0, 0, 0, 0.40);
-}
+
+
 
 
 
