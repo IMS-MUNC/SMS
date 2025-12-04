@@ -30,6 +30,7 @@ import AddTeachers from "../page/Teachers/AddTeachers";
 import BuildingOverview from "../page/Campus-Setup/BuildingOverview";
 import FloorOverview from "../page/Campus-Setup/FloorOverview";
 import TeacherProfile from "../page/Teachers/TeacherProfile";
+import BookOverview from "../page/Library/BookOverview";
 
 
 
@@ -67,6 +68,7 @@ function AppRouter() {
           <Route path="account-management" element={<AccountManagement />} />
           <Route path="academic-management" element={<AcademicManagement />} />
           <Route path="library" element={<Library />} />
+            <Route path="book-overview" element={<BookOverview />} />
           <Route path="dormitory" element={<Dormitory />} />
           <Route path="transportation" element={<Transportation />} />
           <Route path="academic-history" element={<AcademicHistory />} />

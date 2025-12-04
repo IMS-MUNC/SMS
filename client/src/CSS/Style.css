@@ -528,6 +528,18 @@
   font-weight: 500;
 }
 
+.book-slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+}
+.book-slider::-webkit-scrollbar{
+  display: none;
+}
+
 
 
 
@@ -646,7 +658,6 @@ campush-header {
 .library-btn,
 .history-btn {
   white-space: nowrap;
-   width: 140px;
   text-align: center; 
 }
 
@@ -656,7 +667,7 @@ campush-header {
 }
 
 .left-shadow {
-  box-shadow: 0px 3.25px 12.2px 0px;
+  box-shadow: 0px 3.25px 12.2px 0px rgba(0, 0, 0, 0.25); 
 }
 
 .image {
@@ -686,6 +697,7 @@ campush-header {
   font-weight: 500;
 }
 
+
 .staff-arrow {
   color: #717376;
   height: 16px;
@@ -694,6 +706,22 @@ campush-header {
 
 .book {
   box-shadow: 0px 3.84px 14.39px 0px rgba(0, 0, 0, 0.15);
+}
+
+.student-name {
+  color: #1C212D;
+  font-size: 13px;
+  font-weight: 700px;
+}
+
+.books-slider {
+  width: 150px;
+  height: 202px;
+  gap: 9px;
+}
+
+.img-books-slider {
+  box-shadow: -13px 12px 11px -4px rgb(0, 0, 0, 0.40);
 }
 
 
