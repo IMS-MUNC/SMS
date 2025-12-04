@@ -256,7 +256,7 @@ function Library() {
                                 : "bg-white text-danger"
                             }`}
                         >
-                          <h6 className="m-0">{book.status}</h6>
+                          <h6 className="">{book.status}</h6>
                         </div>
                       </div>
                     </div>
@@ -280,7 +280,7 @@ function Library() {
                       </div>
                     </div>
 
-                    <div className="mt-3">
+                    <div className="mt-5">
                       <div className="d-flex gap-3">
                         <button className="library-btn btn btn-outline-secondary">
                           View Details

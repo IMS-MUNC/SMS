@@ -734,8 +734,31 @@ campush-header {
   box-shadow: -13px 12px 11px -4px rgba(0, 0, 0, 0.4);
 }
 
+.book-table {
+  border-radius: 8px;
+  border: 1px solid #EAECF0;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
+}
 
+.table-header-book {
+  padding: 16px 24px;
+}
 
+.return-issued {
+  font-weight: 500;
+  color: #1C212D;
+  font-size: 20px;
+}
+
+.table-search-box {
+  width: 250px;
+  padding: 5px 15px;
+  border: 1px solid #ccc;
+  border-radius: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 
 
