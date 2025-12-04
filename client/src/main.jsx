@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
-import './CSS/style.css'
+import './CSS/Style.css'
 
 createRoot(document.getElementById('root')).render(
     <App />,
