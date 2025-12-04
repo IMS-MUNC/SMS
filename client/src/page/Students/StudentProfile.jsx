@@ -42,7 +42,7 @@ const StudentProfile = () => {
         return (
           <>
             {/* MAIN INFORMATION */}
-            <div className="d-flex  justify-content-between gap-4 ">
+            <div className="d-flex  justify-content-between gap-3 flex-wrap flex-lg-nowrap">
               <div className="w-100">
                 <Card className="shadow border-0 rounded-4 p-4 h-auto ">
                   <div style={{ marginBottom: "120px" }}>
@@ -119,7 +119,7 @@ const StudentProfile = () => {
                   </div>
                 </Card>
               </div>
-              <div className="w-25">
+              <div className="w-30">
                 <Card className="shadow border-0 rounded-4 p-3 text-center ">
                   <div>
                     <img
@@ -350,7 +350,7 @@ const StudentProfile = () => {
             <div>
               <img className="img-fluid" src={AcadmicPerformace} alt="no image" />
             </div>
-            <div className="d-flex  justify-content-between gap-3 ">
+            <div className="d-flex  justify-content-between gap-3 flex-wrap flex-lg-nowrap">
               <div className="container-fluid mt-3">
                 {/* ====== SUMMARY CARDS ====== */}
                 <div className="d-flex gap-3 flex-wrap">
@@ -489,7 +489,7 @@ const StudentProfile = () => {
                   </div>
                 </Card>
               </div>
-              <div className="w-25 ">
+              <div className="w-30 ">
                 <Card className="shadow border-0 rounded-4 p-3 text-center  " >
                   <div>
                     <img
@@ -844,7 +844,7 @@ const StudentProfile = () => {
       case "Academic Details":
         return (
           <>
-            <div className="d-flex justify-content-between gap-4 ">
+            <div className="d-flex justify-content-between gap-4 flex-wrap flex-lg-nowrap">
               <div className="w-100">
                 <Card className="shadow border-0 rounded-4 p-4 h-auto ">
                   <div className="p-2 ms-3 " style={{ marginBottom: "76px" }}>
@@ -942,7 +942,7 @@ const StudentProfile = () => {
                   </div>
                 </Card>
               </div>
-              <div className="w-25">
+              <div className="w-30">
                 <Card className="shadow border-0 rounded-4 p-3 text-center ">
                   <div>
                     <img
@@ -1063,7 +1063,7 @@ const StudentProfile = () => {
         return (
           <>
             <div>
-              <div className="d-flex  justify-content-between gap-4 ">
+              <div className="d-flex  justify-content-between gap-4 flex-wrap flex-lg-nowrap">
                 <div className="w-100">
                   <Card className="shadow border-0 rounded-4 p-4  ">
                     <div className="p-2 ms-3" style={{ marginBottom: "90px" }}>
@@ -1164,7 +1164,7 @@ const StudentProfile = () => {
                     </div>
                   </Card>
                 </div>
-                <div className="w-25 mb-3">
+                <div className="w-30 mb-3">
                   <Card className="shadow border-0 rounded-4 p-3 text-center ">
                     <div>
                       <img
@@ -1417,7 +1417,7 @@ const StudentProfile = () => {
         ];
         return (
           <>
-            <div className="d-flex  justify-content-between gap-4 ">
+            <div className="d-flex  justify-content-between gap-4 flex-wrap flex-lg-nowrap">
               <div className="w-100">
                 <Card className="shadow border-0 rounded-4 p-4 h-auto ">
                   <div className="p-2" style={{ marginBottom: "135px" }}>
@@ -1511,7 +1511,7 @@ const StudentProfile = () => {
                   </div>
                 </Card>
               </div>
-              <div className="w-25">
+              <div className="w-30">
                 <Card className="shadow border-0 rounded-4 p-3 text-center ">
                   <div>
                     <img
@@ -1796,7 +1796,7 @@ const StudentProfile = () => {
 
         return (
           <>
-            <div className="d-flex  justify-content-between gap-4 ">
+            <div className="d-flex  justify-content-between gap-4 flex-wrap flex-lg-nowrap">
               <div className="w-100">
                 <Card className="shadow border-0 rounded-4 p-4 h-auto ">
                   <div className="p-2" style={{ marginBottom: "58px" }}>
@@ -1920,7 +1920,7 @@ const StudentProfile = () => {
                   </div>
                 </Card>
               </div>
-              <div className="w-25">
+              <div className="w-30">
                 <Card className="shadow border-0 rounded-4 p-3 text-center ">
                   <div>
                     <img
@@ -2227,7 +2227,7 @@ const StudentProfile = () => {
         ];
         return (
           <>
-            <div className="d-flex  justify-content-between gap-4 ">
+            <div className="d-flex  justify-content-between gap-4 flex-wrap flex-lg-nowrap">
               <div className="w-100">
                 <Card className="shadow border-0 rounded-4 p-4 h-auto ">
                   <div className="p-2">
@@ -2418,7 +2418,7 @@ const StudentProfile = () => {
                   </div>
                 </Card>
               </div>
-              <div className="w-25">
+              <div className="w-30">
                 <Card className="shadow border-0 rounded-4 p-3 text-center ">
                   <div>
                     <img
@@ -2640,7 +2640,7 @@ const StudentProfile = () => {
       case "Parent/Guardian Info":
         return (
           <>
-            <div className="d-flex  justify-content-between gap-4 ">
+            <div className="d-flex  justify-content-between gap-4 flex-wrap flex-lg-nowrap">
               <div className="w-100">
                 <Card className="shadow border-0 rounded-4 p-4 h-auto ">
                   <div className="p-2">
@@ -2881,7 +2881,7 @@ const StudentProfile = () => {
                   </div>
                 </Card>
               </div>
-              <div className="w-25">
+              <div className="w-30">
                 <Card className="shadow border-0 rounded-4 p-3 text-center ">
                   <div>
                     <img
@@ -2929,7 +2929,7 @@ const StudentProfile = () => {
         ];
         return (
           <>
-            <div className="d-flex  justify-content-between gap-4 ">
+            <div className="d-flex  justify-content-between gap-4 flex-wrap flex-lg-nowrap">
               <div className="w-100">
                 <Card className="shadow border-0 rounded-4 p-4 mt-4">
                   <h5 className="fw-semibold mb-4">Documents</h5>
@@ -2973,7 +2973,7 @@ const StudentProfile = () => {
                   </div>
                 </Card>
               </div>
-              <div className="w-25">
+              <div className="w-30">
                 <Card className="shadow border-0 rounded-4 p-3 text-center ">
                   <div>
                     <img
@@ -3011,7 +3011,7 @@ const StudentProfile = () => {
       case "Additional Info":
         return (
           <>
-            <div className="d-flex  justify-content-between gap-4 ">
+            <div className="d-flex  justify-content-between gap-4 flex-wrap flex-lg-nowrap">
               <div className="w-100">
                 <Card className="shadow border-0 rounded-4 p-4 h-auto ">
                   <div className="p-2">
@@ -3241,7 +3241,7 @@ const StudentProfile = () => {
                   </div>
                 </Card>
               </div>
-              <div className="w-25">
+              <div className="w-30">
                 <Card className="shadow border-0 rounded-4 p-3 text-center ">
                   <div>
                     <img
