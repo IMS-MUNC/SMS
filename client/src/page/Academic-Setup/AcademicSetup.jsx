@@ -1,6 +1,6 @@
 import React from 'react'
 
-function AcademicSetup() {
+const AcademicSetup = () => {
   return (
     <div>AcademicSetup</div>
   )
