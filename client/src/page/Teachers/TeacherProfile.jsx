@@ -70,7 +70,7 @@ const TeacherProfile = () => {
         return (
           <>
             {/* MAIN INFORMATION */}
-            <div className="d-flex  justify-content-between gap-4 ">
+            <div className="d-flex  justify-content-between gap-4 flex-wrap flex-lg-nowrap">
               <div className="w-100">
                 <Card className="shadow border-0 rounded-4 p-4 h-auto ">
                   <div>
@@ -248,7 +248,7 @@ const TeacherProfile = () => {
         return (
           <>
             {/* MAIN INFORMATION */}
-            <div className="d-flex  justify-content-between gap-4 ">
+            <div className="d-flex  justify-content-between gap-4 flex-wrap flex-lg-nowrap">
               <div className="w-100">
                 <Card className="shadow border-0 rounded-4 p-4 h-100 ">
                   <div>
@@ -355,7 +355,7 @@ const TeacherProfile = () => {
         return (
           <>
             {/* MAIN INFORMATION */}
-            <div className="d-flex  justify-content-between gap-4 ">
+            <div className="d-flex  justify-content-between gap-4 flex-wrap flex-lg-nowrap">
               <div className="w-100">
                 <Card className="shadow border-0 rounded-4 p-4 h-100 ">
                   <div>
@@ -680,7 +680,7 @@ const TeacherProfile = () => {
         return (
           <>
             {/* MAIN INFORMATION */}
-            <div className="d-flex  justify-content-between gap-4 ">
+            <div className="d-flex  justify-content-between gap-4 flex-wrap flex-lg-nowrap">
               <div className="w-100">
                 <div className="container-fluid bg-light p-0">
                   <div className="d-flex flex-wrap gap-3">
@@ -1501,7 +1501,7 @@ const TeacherProfile = () => {
 
         return (
           <>
-            <div className="d-flex  justify-content-between gap-3 ">
+            <div className="d-flex  justify-content-between gap-3 flex-wrap flex-lg-nowrap">
               <div className="container-fluid p-0  ">
                 {/* ====== SUMMARY CARDS ====== */}
 
@@ -2017,7 +2017,7 @@ const TeacherProfile = () => {
       case "Salary & Bank Details":
         return (
           <>
-            <div className="d-flex  justify-content-between gap-4 ">
+            <div className="d-flex  justify-content-between gap-4 flex-wrap flex-lg-nowrap">
               <div className="w-100">
                 <Card className="shadow border-0 rounded-4 p-4 h-100 ">
                   <div>
@@ -2243,7 +2243,7 @@ const TeacherProfile = () => {
         ];
         return (
           <>
-            <div className="d-flex  justify-content-between gap-4 ">
+            <div className="d-flex  justify-content-between gap-4 flex-wrap flex-lg-nowrap">
               <div className="w-100 ">
                 <Card className="shadow border-0 rounded-4 p-5  ">
                   <h5 className="fw-semibold mb-4">Documents</h5>
@@ -2440,7 +2440,7 @@ const TeacherProfile = () => {
         return (
           <>
             {/* MAIN INFORMATION */}
-            <div className="d-flex  justify-content-between gap-4 ">
+            <div className="d-flex  justify-content-between gap-4 flex-wrap flex-lg-nowrap">
               <div className="w-100 h-100">
                 <div className="container bg-white p-4 rounded-4 shadow-sm ">
                   {/* ---------- LOGIN & ACCESS ---------- */}
