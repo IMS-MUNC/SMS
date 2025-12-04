@@ -9,7 +9,7 @@ import Students from "../page/Students/Students";
 import Teachers from "../page/Teachers/Teachers";
 import AcademicSetup from "../page/Academic-Setup/AcademicSetup";
 import LeadManagementSystem from "../page/Lead-Management-System/LeadManagementSystem";
-import HRManagement from "../page/HR-Management/HRManagement";
+import HRManagement from "../page/HR-Management/HrManagement";
 import AccountManagement from "../page/Account-Management/AccountManagement";
 import AcademicManagement from "../page/Academic-Management/AcademicManagement";
 import Library from "../page/Library/Library";
