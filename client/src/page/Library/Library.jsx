@@ -26,6 +26,7 @@ import lady from "../../assets/images/lady.jpg";
 import girl from "../../assets/images/girl.jpg";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import { Link } from "react-router-dom";
 
 const bookCard = [
   {
@@ -361,9 +362,11 @@ function Library() {
                 </div>
               </div>
               <div>
-                <span className="staff-arrow">
-                  <GoArrowRight />
-                </span>
+                <Link to="/book-overview">
+                  <span className="staff-arrow">
+                    <GoArrowRight />
+                  </span>
+                </Link>
               </div>
             </div>
 
@@ -456,13 +459,13 @@ function Library() {
                       style={{ width: "64px", height: "64px" }}
                     />
                   </div>
-                  <div className="w-75 d-flex align-items-center justify-content-between">
-                    <div className="d-flex justifu-content-between align-items-center">
-                      <h5>{stud.name}</h5>
-                        <span>{stud.time}</span>
-                    </div>
-                    <div className="student-des mt-1 ">
+                  <div className="w-75 d-flex justify-content-between mb-1">
+                    <div className="d-flex flex-column">
+                      <b className="student-name">{stud.name}</b>
                       <span>{stud.des}</span>
+                    </div>
+                    <div className="student-des">
+                      <span>{stud.time}</span>
                     </div>
                   </div>
                   <div></div>
