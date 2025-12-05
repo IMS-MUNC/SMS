@@ -16,7 +16,7 @@ import Library from "../page/Library/Library";
 import Dormitory from "../page/Dormitory/Dormitory";
 import Transportation from "../page/Transportation/Transportation";
 import AcademicHistory from "../page/Academic-History/AcademicHistory";
-import AdminModule from "../page/Admic-Module/AdmicModule";
+import AdminModule from "../page/Acedemic-Module/AdmicModule";
 import Settings from "../page/Settings/Settings";
 import Reports from "../page/Reports/Reports";
 import AddStudent from "../page/Students/AddStudent";
@@ -31,6 +31,7 @@ import BuildingOverview from "../page/Campus-Setup/BuildingOverview";
 import FloorOverview from "../page/Campus-Setup/FloorOverview";
 import TeacherProfile from "../page/Teachers/TeacherProfile";
 import BookOverview from "../page/Library/BookOverview";
+import IssuedReturnHistory from "../page/Library/IssuedReturnHistory";
 
 
 
@@ -69,6 +70,9 @@ function AppRouter() {
           <Route path="academic-management" element={<AcademicManagement />} />
           <Route path="library" element={<Library />} />
             <Route path="book-overview" element={<BookOverview />} />
+            <Route path="history" element={<IssuedReturnHistory />} />
+
+
           <Route path="dormitory" element={<Dormitory />} />
           <Route path="transportation" element={<Transportation />} />
           <Route path="academic-history" element={<AcademicHistory />} />
