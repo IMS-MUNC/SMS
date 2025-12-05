@@ -760,7 +760,16 @@ campush-header {
   align-items: center;
 }
 
+.library-table-head-color th{
+  background-color: #fcfcfd !important;
+}
 
+.book-history {
+  width: 260px;
+  height: 361px;
+  background-color: white;
+  box-shadow: 0px 3.84px 14.39px 0 rgba(0, 0, 0, 0.15);
+}
 
 /* <-------------------------------------- for responsive -----------------------------------------> */
 
@@ -963,6 +972,27 @@ campush-header {
   .top-two-graph {
     display: flex;
     gap: 20px;
+  }
+  .library-overview {
+    display: flex;
+    gap: 10px;
+  }
+  .library-overview-table {
+    width: 75%;
+    margin-bottom: 10px;
+  }
+
+  .library-overview-right {
+    width: 25%;
+  }
+  .library-first {
+    display: flex;
+  }
+  .library-left {
+    width: 75%;
+  }
+  .library-first-right {
+    width: 25%;
   }
 }
 

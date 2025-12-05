@@ -167,7 +167,7 @@ const resourceData = [
   },
   {
     img: yt,
-    title: "YouTube-2000",
+    title: "E-Books",
     color: "#d7fbed",
   },
   {
@@ -225,8 +225,8 @@ function Library() {
           <FaPlus className="text-white" /> &nbsp; Add
         </button>
       </div>
-      <div className="d-flex gap-3 mt-3">
-        <div className="w-75">
+      <div className="library-first gap-3 mt-3">
+        <div className="library-left">
           <div className="d-flex justify-content-evenly gap-4 ">
             <span
               style={{ color: "#717376", fontWeight: "400", fontSize: "20px" }}
@@ -240,29 +240,37 @@ function Library() {
           <div className="mt-3 p-4">
             <div className="row">
               {bookCard.map((book, idx) => (
-                <div key={idx} className="col-3 p-3">
+                <div key={idx} className="col col-sm-6 col-md-4 col-lg-3 p-3">
                   <div className="book p-4 rounded bg-white">
                     <div className="d-flex">
                       <div className="d-flex align-items-center justify-content-between w-100">
                         <div className="rounded">
-                          <img src={book.img} alt="" className="books" />
+                          <img
+                            src={book.img}
+                            alt=""
+                            className="books img-fluid"
+                          />
                         </div>
 
                         <div
                           className={`rounded shadow-sm d-flex justify-content-center align-items-center px-2 mt-1 
-                            ${
-                              book.status === "Available"
-                                ? "bg-white text-success"
-                                : "bg-white text-danger"
-                            }`}
+                ${
+                  book.status === "Available"
+                    ? "bg-white text-success"
+                    : "bg-white text-danger"
+                }`}
                         >
-                          <h6 className="">{book.status}</h6>
+                          <h6>{book.status}</h6>
                         </div>
                       </div>
                     </div>
 
                     <div className="mt-3 text-center">
-                      <h5>{book.name}</h5>
+                      <h5>
+                        {book.name.length > 20
+                          ? book.name.slice(0, 20) + "..."
+                          : book.name}
+                      </h5>
                     </div>
 
                     <div className="mt-2">
@@ -280,14 +288,18 @@ function Library() {
                       </div>
                     </div>
 
+                    {/* <----------------------------------------- button -------------------------------------> */}
                     <div className="mt-5">
                       <div className="d-flex gap-3">
                         <button className="library-btn btn btn-outline-secondary">
                           View Details
                         </button>
-                        <button className="history-btn btn">
-                          View Issued History
-                        </button>
+
+                        <Link to="/history">
+                          <button className="history-btn btn">
+                            View Issued History
+                          </button>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -296,7 +308,9 @@ function Library() {
             </div>
           </div>
         </div>
-        <div className="w-25">
+
+        {/* <======================================================= right Side Code ================================================> */}
+        <div className="library-first-right">
           <div className="left-shadow bg-white p-4 rounded">
             <h5 className="other-library">Other Library Moduels</h5>
             <div className="mt-4 d-flex justify-content-between align-items-center">
@@ -351,24 +365,24 @@ function Library() {
                 </span>
               </div>
             </div>
-            <div className="mt-3 d-flex justify-content-between align-items-center">
-              <div className="d-flex gap-2">
-                <div className="image">
-                  <img src={student} alt="" className="img-student" />
+            <Link to="/book-overview" className="text-white text-decoration-none">
+              <div className="mt-3 d-flex justify-content-between align-items-center">
+                <div className="d-flex gap-2">
+                  <div className="image">
+                    <img src={student} alt="" className="img-student" />
+                  </div>
+                  <div className="d-flex flex-column">
+                    <label className="return-issue">Book Maintainances</label>
+                    <span className="staff">Staff - 20</span>
+                  </div>
                 </div>
-                <div className="d-flex flex-column">
-                  <label className="return-issue">Book Maintainances</label>
-                  <span className="staff">Staff - 20</span>
-                </div>
-              </div>
-              <div>
-                <Link to="/book-overview">
+                <div>
                   <span className="staff-arrow">
                     <GoArrowRight />
                   </span>
-                </Link>
+                </div>
               </div>
-            </div>
+            </Link>
 
             {/* <------------------------------------------ Calender -------------------------------------> */}
 
@@ -386,14 +400,34 @@ function Library() {
                     <div
                       key={index}
                       className="d-flex flex-column align-items-center"
+                      style={{ width: "84px", height: "102px" }}
                     >
                       <div
-                        className="p-4 rounded"
-                        style={{ backgroundColor: item.color }}
+                        className="rounded d-flex justify-content-center align-items-center"
+                        style={{
+                          backgroundColor: item.color,
+                          width: "82px",
+                          height: "80px",
+                          padding: "15px",
+                        }}
                       >
-                        <img src={item.img} alt={item.title} />
+                        <img
+                          src={item.img}
+                          alt={item.title}
+                          className=""
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "contain",
+                          }}
+                        />
                       </div>
-                      <h6 className="mt-1 text-center">{item.title}</h6>
+                      <span
+                        className="mt-1 text-center"
+                        style={{ fontSize: "14px", fontWeight: "400" }}
+                      >
+                        {item.title}
+                      </span>
                     </div>
                   ))}
                 </div>

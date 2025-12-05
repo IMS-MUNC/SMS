@@ -172,12 +172,12 @@ const resourceData = [
   },
   {
     img: yt,
-    title: "YouTube-2000",
+    title: "E-Books",
     color: "#d7fbed",
   },
   {
     img: letter,
-    title: "Letters-2000",
+    title: "Kindle-30",
     color: "#e2d8fc",
   },
 ];
@@ -282,6 +282,67 @@ const issuedBooks = [
   },
 ];
 
+const libraryIssuedBooks = [
+  {
+    id: 1,
+    issuedDate: "2025-01-05",
+    bookName: "Atomic Habits",
+    studentName: "Rahul Kumar",
+    classSection: "10/A",
+    dueDate: "2025-01-15",
+    returnDate: "",
+    status: "Issued",
+  },
+  {
+    id: 2,
+    issuedDate: "2025-01-07",
+    bookName: "The Alchemist",
+    studentName: "Priya Singh",
+    classSection: "9/B",
+    dueDate: "2025-01-17",
+    returnDate: "2025-01-16",
+    status: "Returned",
+  },
+  {
+    id: 3,
+    issuedDate: "2025-01-10",
+    bookName: "Rich Dad Poor Dad",
+    studentName: "Aman Verma",
+    classSection: "11/C",
+    dueDate: "2025-01-20",
+    returnDate: "",
+    status: "Issued",
+  },
+  {
+    id: 4,
+    issuedDate: "2025-01-12",
+    bookName: "Computer Basics",
+    studentName: "Sneha Gupta",
+    classSection: "8/A",
+    dueDate: "2025-01-22",
+    returnDate: "",
+    status: "Returned",
+  },
+  {
+    id: 5,
+    issuedDate: "2025-01-14",
+    bookName: "Science Explorer",
+    studentName: "Vikas Sharma",
+    classSection: "7/C",
+    dueDate: "2025-01-24",
+    returnDate: "2025-01-23",
+    status: "Returned",
+  },
+];
+
+const statusColors = {
+  Returned: { bg: "#DBFFDD", color: "#4CAF50" },
+  // Pending: { bg: "#FDECEC", color: "#911808" },
+  // Overdue: { bg: "#FF9999", color: "#911808" },
+  Issued: { bg: "#FFA500", color: "#FFF1D7" },
+};
+
+
 function BookOverview() {
   const [value, setValue] = useState(new Date());
 
@@ -365,8 +426,8 @@ function BookOverview() {
         ))}
       </div>
 
-      <div className="d-flex gap-4 mt-3">
-        <div className="w-75">
+      <div className="library-overview mt-3">
+        <div className="library-overview-table">
           <div className="d-flex justify-content-evenly gap-4 ">
             <span
               style={{ color: "#717376", fontWeight: "400", fontSize: "20px" }}
@@ -378,7 +439,7 @@ function BookOverview() {
             </span>
           </div>
           {/* <------------------------------------------ Books Issued Table----------------------------------------> */}
-          <div className="book-table bg-white mt-5 p-2">
+          <div className="book-table bg-white mt-3 p-2">
             <div className="table-header-book d-flex justify-content-between align-items-center">
               <div className="d-flex align-items-center gap-3">
                 <span>
@@ -444,9 +505,11 @@ function BookOverview() {
               </div>
             </div>
             <Card.Body>
+              <div className="table-resposive">
+                
               <Table hover responsive className="align-middle mb-0">
                 <thead>
-                  <tr>
+                  <tr className="library-table-head-color">
                     <th></th>
                     <th>S.N.</th>
                     <th>Issued Date</th>
@@ -460,75 +523,93 @@ function BookOverview() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>
-                    <input type="checkbox" name="" id="" />
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td className="position-relative">
-                    <div className="dropdown ">
-                      <PiDotsThreeVertical
-                        className="cursor-pointer"
-                        data-bs-toggle="dropdown"
-                        style={{ cursor: "pointer" }}
-                      />
+                  {libraryIssuedBooks.map((item, index) => (
+                    <tr key={item.id}>
+                      <td>
+                        <input type="checkbox" name="" id="" />
+                      </td>
+                      <td>{index + 1}</td>
+                      <td>{item.issuedDate}</td>
+                      <td>{item.bookName}</td>
+                      <td>{item.studentName}</td>
+                      <td>{item.classSection}</td>
+                      <td>{item.dueDate}</td>
+                      <td>{item.returnDate}</td>
+                      <td>
+                        <span
+                          style={{
+                            display: "inline-block",
+                            backgroundColor: statusColors[item.status]?.bg || "#ccc",
+                            color: statusColors[item.status]?.color || "#000",
+                            padding: "2px 8px",
+                            borderRadius: "8px",
+                            fontWeight: "500",
+                            fontSize: "0.85rem",
+                          }}
+                        >
+                          {item.status}
+                        </span>
+                      </td>
+                      <td className="position-relative">
+                        <div className="dropdown ">
+                          <PiDotsThreeVertical
+                            className="cursor-pointer"
+                            data-bs-toggle="dropdown"
+                            style={{ cursor: "pointer" }}
+                          />
 
-                      <ul
-                        className="dropdown-menu shadow-sm border-0"
-                        style={{ borderRadius: "8px", minWidth: "80px" }}
-                      >
-                        <li>
-                          <button
-                            className="dropdown-item"
-                            style={{ borderRadius: "6px" }}
-                            onMouseEnter={(e) =>
-                              (e.target.style.background = "#cfe2ff")
-                            }
-                            onMouseLeave={(e) =>
-                              (e.target.style.background = "transparent")
-                            }
-                            onMouseDown={(e) =>
-                              (e.target.style.background = "#cfe2ff")
-                            }
+                          <ul
+                            className="dropdown-menu shadow-sm border-0"
+                            style={{ borderRadius: "8px", minWidth: "80px" }}
                           >
-                            Edit
-                          </button>
-                        </li>
+                            <li>
+                              <button
+                                className="dropdown-item"
+                                style={{ borderRadius: "6px" }}
+                                onMouseEnter={(e) =>
+                                  (e.target.style.background = "#cfe2ff")
+                                }
+                                onMouseLeave={(e) =>
+                                  (e.target.style.background = "transparent")
+                                }
+                                onMouseDown={(e) =>
+                                  (e.target.style.background = "#cfe2ff")
+                                }
+                              >
+                                Edit
+                              </button>
+                            </li>
 
-                        <li>
-                          <button
-                            className="dropdown-item"
-                            style={{ borderRadius: "6px" }}
-                            onMouseEnter={(e) =>
-                              (e.target.style.background = "#cfe2ff")
-                            }
-                            onMouseLeave={(e) =>
-                              (e.target.style.background = "transparent")
-                            }
-                            onMouseDown={(e) =>
-                              (e.target.style.background = "#cfe2ff")
-                            }
-                          >
-                            Delete
-                          </button>
-                        </li>
-                      </ul>
-                    </div>
-                  </td>
-                  </tr>
+                            <li>
+                              <button
+                                className="dropdown-item"
+                                style={{ borderRadius: "6px" }}
+                                onMouseEnter={(e) =>
+                                  (e.target.style.background = "#cfe2ff")
+                                }
+                                onMouseLeave={(e) =>
+                                  (e.target.style.background = "transparent")
+                                }
+                                onMouseDown={(e) =>
+                                  (e.target.style.background = "#cfe2ff")
+                                }
+                              >
+                                Delete
+                              </button>
+                            </li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </Table>
+              </div>
             </Card.Body>
           </div>
         </div>
-        <div className="w-25">
+
+        <div className="library-overview-right mt-3">
           <div className="left-shadow bg-white p-4 rounded">
             {/* <------------------------------------------ Calender -------------------------------------> */}
 
@@ -546,14 +627,15 @@ function BookOverview() {
                     <div
                       key={index}
                       className="d-flex flex-column align-items-center"
+                      style={{ width:'84px',height:'102px' }}
                     >
                       <div
-                        className="p-4 rounded"
-                        style={{ backgroundColor: item.color }}
+                        className="rounded d-flex justify-content-center align-items-center"
+                        style={{ backgroundColor: item.color,width:'82px',height:'80px', padding:'15px' }}
                       >
-                        <img src={item.img} alt={item.title} />
+                        <img src={item.img} alt={item.title} className="" style={{width:'100%',height:'100%',objectFit:'contain'}}/>
                       </div>
-                      <h6 className="mt-1 text-center">{item.title}</h6>
+                      <span className="mt-1 text-center" style={{fontSize:'14px',fontWeight:'400'}}>{item.title}</span>
                     </div>
                   ))}
                 </div>
