@@ -45,7 +45,7 @@ const StudentProfile = () => {
             <div className="d-flex  justify-content-between gap-3 flex-wrap flex-lg-nowrap">
               <div className="w-100">
                 <Card className="shadow border-0 rounded-4 p-4 h-auto ">
-                  <div style={{ marginBottom: "120px" }}>
+                  <div style={{ marginBottom: "80px" }}>
                     <Card className=" border-0  rounded-4 p-2 ms-2">
                       <h5 className="fw-semibold mb-4 ">
                         Identification & Basic Information
@@ -421,9 +421,9 @@ const StudentProfile = () => {
 
 
                 {/* ====== MAIN EXAM TABLE ====== */}
-                <Card className="shadow-sm border-0 rounded-4 p-4 mt-3">
+                <Card className="shadow-sm border-0 rounded-4 p-4 mt-3 w-100">
                   <h5 className="fw-semibold mb-2">Exam Scores</h5>
-
+                  <div className="table-responsive">
                   <Table hover className="align-middle">
                     <thead>
                       <tr className="text-secondary" style={{ fontSize: "14px" }}>
@@ -480,7 +480,7 @@ const StudentProfile = () => {
                         <td></td>
                       </tr>
                     </tbody>
-                  </Table>
+                  </Table></div>
 
                   {/* ====== RESULT STATUS ====== */}
                   <div className="d-flex justify-content-between mt-0 px-2">
@@ -521,13 +521,13 @@ const StudentProfile = () => {
                 </Card>
               </div>
             </div>
-            <div className="d-flex justify-content-between gap-3">
+            <div className="d-flex justify-content-between gap-3 flex-wrap flex-md-nowrap flex-lg-nowrap">
 
               {/* ================= LEFT SECTION ================= */}
               <div className="p-3 flex-grow-1 bg-white rounded-4 mt-4 shadow">
                 <h5 className="fw-semibold mb-3">Advanced Academic Metrics</h5>
 
-                <div className="d-flex gap-3">
+                <div className="d-flex gap-3 flex-wrap flex-lg-nowrap">
 
                   {/* LEFT METRICS CARDS */}
                   <div
@@ -656,12 +656,12 @@ const StudentProfile = () => {
 
               <div
                 className="d-flex bg-white p-3 rounded-4 shadow mt-4 flex-wrap gap-3"
-                style={{ width: "395px", height: "auto" }}
+                style={{ width: "auto", height: "auto" }}
               >
 
                 {/* CARD 1 */}
                 <div
-                  className="card shadow border-0 rounded-4 p-3"
+                  className="card shadow-sm border-0 rounded-4 p-3"
                   style={{ width: "170px", height: "168px" }}
                 >
                   <p className="fw-semibold text-secondary mb-1" style={{ fontSize: "0.85rem" }}>Class Rank</p>
@@ -832,12 +832,6 @@ const StudentProfile = () => {
                 </Table>
               </div>
             </Card>
-
-
-
-
-
-
           </>
         );
 
