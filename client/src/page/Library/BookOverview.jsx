@@ -219,69 +219,6 @@ const students = [
   },
 ];
 
-const issuedBooks = [
-  {
-    id: 1,
-    issuedDate: "2025-01-10",
-    bookName: "Harry Potter and the Chamber of Secrets",
-    studentName: "Aarav Sharma",
-    classSection: "7 / B",
-    dueDate: "2025-01-20",
-    returnDate: "2025-01-19",
-    status: "Returned",
-  },
-  {
-    id: 2,
-    issuedDate: "2025-01-12",
-    bookName: "The Alchemist",
-    studentName: "Siya Verma",
-    classSection: "8 / A",
-    dueDate: "2025-01-22",
-    returnDate: "",
-    status: "Pending",
-  },
-  {
-    id: 3,
-    issuedDate: "2025-01-08",
-    bookName: "Mathematics Class 10",
-    studentName: "Rohan Mehta",
-    classSection: "10 / C",
-    dueDate: "2025-01-18",
-    returnDate: "2025-01-21",
-    status: "Late",
-  },
-  {
-    id: 4,
-    issuedDate: "2025-01-14",
-    bookName: "Wings of Fire",
-    studentName: "Neha Gupta",
-    classSection: "9 / A",
-    dueDate: "2025-01-24",
-    returnDate: "",
-    status: "Pending",
-  },
-  {
-    id: 5,
-    issuedDate: "2025-01-05",
-    bookName: "The Power of Subconscious Mind",
-    studentName: "Kunal Rai",
-    classSection: "11 / Commerce",
-    dueDate: "2025-01-15",
-    returnDate: "2025-01-17",
-    status: "Returned",
-  },
-  {
-    id: 6,
-    issuedDate: "2025-01-11",
-    bookName: "Rich Dad Poor Dad",
-    studentName: "Aditya Singh",
-    classSection: "12 / Science",
-    dueDate: "2025-01-21",
-    returnDate: "",
-    status: "Overdue",
-  },
-];
-
 const libraryIssuedBooks = [
   {
     id: 1,
