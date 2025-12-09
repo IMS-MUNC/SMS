@@ -80,7 +80,7 @@ function AddStudent() {
         </div>
         {/* student details  */}
         {activeTab === "student-details" && (
-          <div className="d-flex text-secondary">
+          <div className="d-flex flex-lg-nowrap flex-wrap text-secondary">
             <div style={{ width: "100%" }}>
               <form onSubmit={handleSubmit} className=" p-4">
                 <h5>Admission ID #0767976</h5>
@@ -523,7 +523,7 @@ function AddStudent() {
         )}
         {/* admission details  */}
         {activeTab === "admission-details" && (
-          <div className="d-flex text-secondary">
+          <div className="d-flex flex-lg-nowrap flex-wrap text-secondary">
             <div style={{ width: "100%" }}>
               <form onSubmit={handleSubmit} className=" p-4">
                 {/* <h5>Admission ID #0767976</h5> */}
@@ -1180,7 +1180,7 @@ function AddStudent() {
         )}
         {/* parents guardian details  */}
         {activeTab === "parents-guardian-details" && (
-          <div className="d-flex text-secondary">
+          <div className="d-flex flex-lg-nowrap flex-wrap text-secondary">
             <div style={{ width: "100%" }}>
               <form onSubmit={handleSubmit} className=" p-4">
                 {/* <h5>Admission ID #0767976</h5> */}
@@ -1680,7 +1680,7 @@ function AddStudent() {
           </div>
         )}
         {activeTab === "fees-details" && (
-          <div className="d-flex text-secondary">
+          <div className="d-flex flex-lg-nowrap flex-wrap text-secondary">
             <div style={{ width: "100%" }}>
               <form onSubmit={handleSubmit} className=" p-4">
                 <h5>Basic FeeDetails</h5>
@@ -2249,12 +2249,12 @@ function AddStudent() {
           </div>
         )}
         {activeTab === "facilities-services" && (
-          <div className="d-flex text-secondary">
+          <div className="d-flex flex-lg-nowrap flex-wrap text-secondary">
             <div style={{ width: "100%" }}>
               <form onSubmit={handleSubmit} className=" p-4">
                 <div className="d-flex gap-3">
-               <div> <h5>RFID Card Services Provided </h5> </div>
-                <div class="form-check form-switch  fs-5">
+                  <div> <h5>RFID Card Services Provided </h5> </div>
+                  <div class="form-check form-switch  fs-5">
                     <input
                       class="form-check-input"
                       type="checkbox"
@@ -2381,9 +2381,9 @@ function AddStudent() {
                   </div>
                 </div>
                 <div className="d-flex mt-4 gap-3 ">
-              <div>
-                <h5 >Transport Service Opted</h5></div>
-                <div class="form-check form-switch  fs-5">
+                  <div>
+                    <h5 >Transport Service Opted</h5></div>
+                  <div class="form-check form-switch  fs-5">
                     <input
                       class="form-check-input"
                       type="checkbox"
@@ -3165,7 +3165,7 @@ function AddStudent() {
                 <div className="row mt-3">
                   <div className="col-md-4">
                     <label>Father's Email Address</label>
-                   <input
+                    <input
                       type="email"
                       name="totalFees"
                       className="form-control"
@@ -3198,7 +3198,7 @@ function AddStudent() {
                   </div>
                 </div>
 
-                
+
 
                 <h5 className="mt-4">Current Address</h5>
 
@@ -3274,19 +3274,19 @@ function AddStudent() {
                   </div>
                 </div>
                 <div className="d-flex gap-2 mt-4">
-                <div><h5 className="">Permanent Address</h5></div>
-                <div className="form-check form-check-inline">
-                        <input
-                          className="form-check-input"
-                          type="radio"
-                          name="gender"
-                          value="Female"
-                          onChange={handleChange}
-                        />
-                        <label className="form-check-label">Same as Above</label>
-                      </div></div>
+                  <div><h5 className="">Permanent Address</h5></div>
+                  <div className="form-check form-check-inline">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      name="gender"
+                      value="Female"
+                      onChange={handleChange}
+                    />
+                    <label className="form-check-label">Same as Above</label>
+                  </div></div>
 
-                 <div className="row mt-0">
+                <div className="row mt-0">
                   <div className="col-md-4">
                     <label>Current Address</label>
                     <input
@@ -3358,46 +3358,46 @@ function AddStudent() {
                 </div>
 
                 <div
-                className="d-flex gap-3 mb-3 justify-content-end "
-                style={{ marginTop: "20rem" }}
-              >
-                <div className="mt-4 text-end ">
-                  <button
-                    type="submit"
-                    className="btn btn-outline-secondary "
-                    style={{ width: "95px" }}
-                  >
-                    Cancel
-                  </button>
+                  className="d-flex gap-3 mb-3 justify-content-end "
+                  style={{ marginTop: "20rem" }}
+                >
+                  <div className="mt-4 text-end ">
+                    <button
+                      type="submit"
+                      className="btn btn-outline-secondary "
+                      style={{ width: "95px" }}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                  <div className="mt-4 text-end">
+                    <button
+                      type="submit"
+                      className="btn btn-outline-primary"
+                      style={{ width: "95px" }}
+                    >
+                      Save
+                    </button>
+                  </div>
+                  <div className="mt-4 text-end">
+                    <button
+                      type="submit"
+                      className="btn btn-primary"
+                      style={{ width: "95px" }}
+                    >
+                      Next
+                    </button>
+                  </div>
                 </div>
-                <div className="mt-4 text-end">
-                  <button
-                    type="submit"
-                    className="btn btn-outline-primary"
-                    style={{ width: "95px" }}
-                  >
-                    Save
-                  </button>
-                </div>
-                <div className="mt-4 text-end">
-                  <button
-                    type="submit"
-                    className="btn btn-primary"
-                    style={{ width: "95px" }}
-                  >
-                    Next
-                  </button>
-                </div>
-              </div>
 
-                
 
-               
+
+
               </form>
 
-              
+
             </div>
-            
+
           </div>
         )}
       </div>

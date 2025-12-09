@@ -31,7 +31,6 @@ import {
 } from "recharts";
 import { Smile } from "lucide-react";
 
-
 const StudentProfile = () => {
   const [selectedSection, setSelectedSection] = useState("Basic Details");
 
@@ -424,63 +423,63 @@ const StudentProfile = () => {
                 <Card className="shadow-sm border-0 rounded-4 p-4 mt-3 w-100">
                   <h5 className="fw-semibold mb-2">Exam Scores</h5>
                   <div className="table-responsive">
-                  <Table hover className="align-middle">
-                    <thead>
-                      <tr className="text-secondary" style={{ fontSize: "14px" }}>
-                        <th>S.N</th>
-                        <th>Subject Name</th>
-                        <th className="text-center">
-                          <span className="text-secondary">10 Jul 24</span> <br />
-                          <small>Term 1</small>
-                        </th>
-                        <th className="text-center">
-                          <span className="text-secondary"> 10 Oct 24</span><br />
-                          <small>Term 2</small>
-                        </th>
-                        <th className="text-center">
-                          <span className="text-secondary"> 10 Feb 25</span><br />
-                          <small>Term 3</small>
-                        </th>
-                        <th>Total</th>
-                        <th>%</th>
-                        <th>Grade</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-
-                    <tbody>
-                      {examData.map((r, i) => (
-                        <tr key={i} style={{ fontSize: "14px" }}>
-                          <td>{i + 1}</td>
-                          <td>{r.subject}</td>
-                          <td className="text-center">{r.t1}</td>
-                          <td className="text-center">{r.t2}</td>
-                          <td className="text-center">{r.t3}</td>
-                          <td>{r.total}</td>
-                          <td>{r.percent}</td>
-                          <td>{r.grade}</td>
-                          <td>
-                            <BsThreeDotsVertical
-                              size={18}
-                              className="text-secondary"
-                            />
-                          </td>
+                    <Table hover className="align-middle">
+                      <thead>
+                        <tr className="text-secondary" style={{ fontSize: "14px" }}>
+                          <th>S.N</th>
+                          <th>Subject Name</th>
+                          <th className="text-center">
+                            <span className="text-secondary">10 Jul 24</span> <br />
+                            <small>Term 1</small>
+                          </th>
+                          <th className="text-center">
+                            <span className="text-secondary"> 10 Oct 24</span><br />
+                            <small>Term 2</small>
+                          </th>
+                          <th className="text-center">
+                            <span className="text-secondary"> 10 Feb 25</span><br />
+                            <small>Term 3</small>
+                          </th>
+                          <th>Total</th>
+                          <th>%</th>
+                          <th>Grade</th>
+                          <th></th>
                         </tr>
-                      ))}
+                      </thead>
 
-                      {/* ====== RESULT ROW ====== */}
-                      <tr className="fw-bold">
-                        <td colSpan={2}>Result</td>
-                        <td className="text-center">629</td>
-                        <td className="text-center">643</td>
-                        <td className="text-center">672</td>
-                        <td>1944</td>
-                        <td>81%</td>
-                        <td>B+</td>
-                        <td></td>
-                      </tr>
-                    </tbody>
-                  </Table></div>
+                      <tbody>
+                        {examData.map((r, i) => (
+                          <tr key={i} style={{ fontSize: "14px" }}>
+                            <td>{i + 1}</td>
+                            <td>{r.subject}</td>
+                            <td className="text-center">{r.t1}</td>
+                            <td className="text-center">{r.t2}</td>
+                            <td className="text-center">{r.t3}</td>
+                            <td>{r.total}</td>
+                            <td>{r.percent}</td>
+                            <td>{r.grade}</td>
+                            <td>
+                              <BsThreeDotsVertical
+                                size={18}
+                                className="text-secondary"
+                              />
+                            </td>
+                          </tr>
+                        ))}
+
+                        {/* ====== RESULT ROW ====== */}
+                        <tr className="fw-bold">
+                          <td colSpan={2}>Result</td>
+                          <td className="text-center">629</td>
+                          <td className="text-center">643</td>
+                          <td className="text-center">672</td>
+                          <td>1944</td>
+                          <td>81%</td>
+                          <td>B+</td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </Table></div>
 
                   {/* ====== RESULT STATUS ====== */}
                   <div className="d-flex justify-content-between mt-0 px-2">
@@ -521,243 +520,258 @@ const StudentProfile = () => {
                 </Card>
               </div>
             </div>
-            <div className="d-flex justify-content-between gap-3 flex-wrap flex-md-nowrap flex-lg-nowrap">
+            {/* <div className="d-flex justify-content-between gap-3 flex-wrap  flex-lg-nowrap"> */}
+            <div className="row g-3 mt-4">
+
 
               {/* ================= LEFT SECTION ================= */}
-              <div className="p-3 flex-grow-1 bg-white rounded-4 mt-4 shadow">
-                <h5 className="fw-semibold mb-3">Advanced Academic Metrics</h5>
+              {/* <div className="p-3 flex-grow-1 bg-white rounded-4 mt-4 shadow"> */}
+              <div className="col-12 col-lg-8">
+                <div className="p-3 bg-white rounded-4 shadow mt-4">
+                  <h5 className="fw-semibold mb-3">Advanced Academic Metrics</h5>
 
-                <div className="d-flex gap-3 flex-wrap flex-lg-nowrap">
+                  <div className="d-flex gap-3 flex-wrap flex-lg-nowrap">
+                    {/* <div className="row g-3"> */}
 
-                  {/* LEFT METRICS CARDS */}
-                  <div
-                    className="d-flex flex-wrap gap-3"
-                    style={{ width: "380px" }}
-                  >
 
-                    {/* CARD */}
+                    {/* LEFT METRICS CARDS */}
                     <div
-                      className="card rounded-4 border-0 bg-white p-3 shadow"
-                      style={{ width: "180px" }}
+                      className="d-flex flex-wrap gap-2"
+                      style={{ width: "380px" }}
                     >
-                      <h6 className="fw-bold mb-1" style={{ fontSize: "0.85rem" }}>
-                        Homework Completion Rate
-                      </h6>
-                      <h2 className="fw-bold mb-2">85%</h2>
-
-                      <div className="progress" style={{ height: 8 }}>
-                        <div className="progress-bar bg-success" style={{ width: "85%" }}></div>
-                      </div>
-                    </div>
-
-                    {/* CARD */}
-                    <div
-                      className="card rounded-4 border-0 bg-white p-3 shadow"
-                      style={{ width: "180px" }}
-                    >
-                      <h6 className="fw-bold mb-1" style={{ fontSize: "0.85rem" }}>
-                        Practical Scores
-                      </h6>
-                      <h2 className="fw-bold mb-2">78%</h2>
-
-                      <div className="progress" style={{ height: 8 }}>
-                        <div className="progress-bar bg-success" style={{ width: "78%" }}></div>
-                      </div>
-                    </div>
-
-                    {/* CARD */}
-                    <div
-                      className="card rounded-4 border-0 bg-white p-3 shadow"
-                      style={{ width: "180px" }}
-                    >
-                      <h6 className="fw-bold mb-1" style={{ fontSize: "0.85rem" }}>
-                        Exam Improvement
-                      </h6>
-                      <h2 className="fw-bold mb-2">15%</h2>
-
-                      <div className="progress" style={{ height: 8 }}>
-                        <div className="progress-bar bg-success" style={{ width: "15%" }}></div>
-                      </div>
-                    </div>
-
-                    {/* CARD */}
-                    <div
-                      className="card rounded-4 border-0 bg-white p-3 shadow"
-                      style={{ width: "180px" }}
-                    >
-                      <h6 className="fw-bold mb-1" style={{ fontSize: "0.85rem" }}>
-                        Sports
-                      </h6>
-                      <p className="text-secondary mb-1" style={{ fontSize: "0.75rem" }}>
-                        State Level
-                      </p>
-
-                      <h2 className="fw-bold mb-2">
-                        85% <span style={{ fontSize: "1.2rem" }}>Cricket</span>
-                      </h2>
-
-                      <div className="progress" style={{ height: 8 }}>
-                        <div className="progress-bar bg-success" style={{ width: "85%" }}></div>
-                      </div>
-                    </div>
-                  </div>
+                      {/* <div className="col-12 col-md-5 col-lg-4 d-flex flex-wrap gap-3"> */}
 
 
-                  {/* ================= CHART CARD ================= */}
-                  <div className="card rounded-4 border-0 bg-white p-4 shadow-sm flex-grow-1" style={{ height: "320px", width: "390px" }}>
+                      {/* CARD */}
+                      <div
+                        className="card rounded-4 border-0 bg-white p-3 shadow"
+                        style={{ width: "180px" }}
+                      >
+                        <h6 className="fw-bold mb-1" style={{ fontSize: "0.85rem" }}>
+                          Homework Completion Rate
+                        </h6>
+                        <h2 className="fw-bold mb-2">85%</h2>
 
-
-                    <div className="position-relative mb-4">
-                      <h6 className="fw-bold text-dark">Performance Trend</h6>
-
-                      <div className="d-flex align-items-center gap-3 bg-white border rounded-3 px-3 py-2 shadow-sm position-absolute end-0 top-0">
-                        <div className="bg-success rounded-circle d-flex justify-content-center align-items-center" style={{ width: 24, height: 24 }}>
-                          <Smile className="text-white" size={16} />
+                        <div className="progress" style={{ height: 8 }}>
+                          <div className="progress-bar bg-success" style={{ width: "85%" }}></div>
                         </div>
-                        <div className="lh-1">
-                          <div className="fw-bold text-success" style={{ fontSize: "0.9rem" }}>98%</div>
-                          <div className="text-secondary" style={{ fontSize: "0.7rem" }}>Term 3, Feb'2025</div>
+                      </div>
+
+                      {/* CARD */}
+                      <div
+                        className="card rounded-4 border-0 bg-white p-3 shadow"
+                        style={{ width: "180px" }}
+                      >
+                        <h6 className="fw-bold mb-1" style={{ fontSize: "0.85rem" }}>
+                          Practical Scores
+                        </h6>
+                        <h2 className="fw-bold mb-2">78%</h2>
+
+                        <div className="progress" style={{ height: 8 }}>
+                          <div className="progress-bar bg-success" style={{ width: "78%" }}></div>
+                        </div>
+                      </div>
+
+                      {/* CARD */}
+                      <div
+                        className="card rounded-4 border-0 bg-white p-3 shadow"
+                        style={{ width: "180px" }}
+                      >
+                        <h6 className="fw-bold mb-1" style={{ fontSize: "0.85rem" }}>
+                          Exam Improvement
+                        </h6>
+                        <h2 className="fw-bold mb-2">15%</h2>
+
+                        <div className="progress" style={{ height: 8 }}>
+                          <div className="progress-bar bg-success" style={{ width: "15%" }}></div>
+                        </div>
+                      </div>
+
+                      {/* CARD */}
+                      <div
+                        className="card rounded-4 border-0 bg-white p-3 shadow"
+                        style={{ width: "180px" }}
+                      >
+                        <h6 className="fw-bold mb-1" style={{ fontSize: "0.85rem" }}>
+                          Sports
+                        </h6>
+                        <p className="text-secondary mb-1" style={{ fontSize: "0.75rem" }}>
+                          State Level
+                        </p>
+
+                        <h2 className="fw-bold mb-2">
+                          85% <span style={{ fontSize: "1.2rem" }}>Cricket</span>
+                        </h2>
+
+                        <div className="progress" style={{ height: 8 }}>
+                          <div className="progress-bar bg-success" style={{ width: "85%" }}></div>
                         </div>
                       </div>
                     </div>
 
 
-                    <div style={{ height: 300 }}>
-                      <ResponsiveContainer width="100%" height="100%">
-                        <ComposedChart data={data} margin={{ top: 20, right: 0, bottom: 0, left: -25 }}>
-                          <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
-                          <XAxis dataKey="subject" dy={10} tick={{ fill: "#64748b", fontSize: 12 }} tickLine={false} axisLine={false} />
-                          <YAxis ticks={[0, 50, 100]} tick={{ fill: "#64748b", fontSize: 12 }} tickLine={false} axisLine={false} />
-                          <Bar dataKey="score" barSize={26} radius={[4, 4, 4, 4]}>
-                            {data.map((entry, i) => (
-                              <Cell key={i} fill={entry.fill || (entry.isLow ? "#fee2e2" : "#9ca3af")} fillOpacity={entry.isLow ? 1 : 0.7} />
-                            ))}
-                          </Bar>
-                          <Line type="monotone" dataKey="trend" stroke="#008000" strokeWidth={2}
-                            dot={{ r: 3, fill: "white", stroke: "#008000", strokeWidth: 2 }} />
-                        </ComposedChart>
-                      </ResponsiveContainer>
-                    </div>
+                    {/* ================= CHART CARD ================= */}
+                    <div className="card rounded-4 border-0 bg-white p-4 shadow-sm flex-grow-1" style={{ height: "320px", width: "390px" }}>
+                      {/* <div className="col-12 col-md-7 col-lg-8"> */}
 
 
-                    <div className="mt-4">
-                      <h6 className="fw-bold mb-2">Teacher Remarks</h6>
-                      <div className="d-flex gap-2">
-                        <h3 className="fw-bold mb-0">30%</h3>
-                        <p className="text-secondary mb-0">Academic performance improved,<br /> compared to the previous term.</p>
+
+                      <div className="position-relative mb-4 ">
+                        <h6 className="fw-bold text-dark">Performance Trend</h6>
+
+                        <div className="d-flex align-items-center gap-3 bg-white border rounded-3 px-3 py-2 shadow-sm position-absolute end-0 top-0">
+                          <div className="bg-success rounded-circle d-flex justify-content-center align-items-center" style={{ width: 24, height: 24 }}>
+                            <Smile className="text-white" size={16} />
+                          </div>
+                          <div className="lh-1">
+                            <div className="fw-bold text-success" style={{ fontSize: "0.9rem" }}>98%</div>
+                            <div className="text-secondary" style={{ fontSize: "0.7rem" }}>Term 3, Feb'2025</div>
+                          </div>
+                        </div>
                       </div>
-                    </div>
 
+
+                      <div style={{ height: 300 }}>
+                        <ResponsiveContainer width="100%" height="100%">
+                          <ComposedChart data={data} margin={{ top: 20, right: 0, bottom: 0, left: -25 }}>
+                            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+                            <XAxis dataKey="subject" dy={10} tick={{ fill: "#64748b", fontSize: 12 }} tickLine={false} axisLine={false} />
+                            <YAxis ticks={[0, 50, 100]} tick={{ fill: "#64748b", fontSize: 12 }} tickLine={false} axisLine={false} />
+                            <Bar dataKey="score" barSize={26} radius={[4, 4, 4, 4]}>
+                              {data.map((entry, i) => (
+                                <Cell key={i} fill={entry.fill || (entry.isLow ? "#fee2e2" : "#9ca3af")} fillOpacity={entry.isLow ? 1 : 0.7} />
+                              ))}
+                            </Bar>
+                            <Line type="monotone" dataKey="trend" stroke="#008000" strokeWidth={2}
+                              dot={{ r: 3, fill: "white", stroke: "#008000", strokeWidth: 2 }} />
+                          </ComposedChart>
+                        </ResponsiveContainer>
+                      </div>
+
+
+                      <div className="mt-4">
+                        <h6 className="fw-bold mb-2">Teacher Remarks</h6>
+                        <div className="d-flex gap-2">
+                          <h3 className="fw-bold mb-0">30%</h3>
+                          <p className="text-secondary mb-0">Academic performance improved,<br /> compared to the previous term.</p>
+                        </div>
+                      </div>
+
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* ================= RIGHT SECTION ================= */}
 
-              <div
+              {/* <div
                 className="d-flex bg-white p-3 rounded-4 shadow mt-4 flex-wrap gap-3"
                 style={{ width: "auto", height: "auto" }}
-              >
+              > */}
+              <div className="col-12 col-lg-4">
+                <div className="bg-white rounded-4 shadow p-3 d-flex flex-wrap gap-3 mt-4">
 
-                {/* CARD 1 */}
-                <div
-                  className="card shadow-sm border-0 rounded-4 p-3"
-                  style={{ width: "170px", height: "168px" }}
-                >
-                  <p className="fw-semibold text-secondary mb-1" style={{ fontSize: "0.85rem" }}>Class Rank</p>
-                  <h3 className="fw-bold mb-0" style={{ fontSize: "1.5rem" }}>15th</h3>
-                  <p className="text-secondary mb-2" style={{ fontSize: "0.75rem" }}>out of 56 students</p>
 
-                  <div className="d-flex flex-column gap-1">
-                    <div className="d-flex align-items-center gap-2">
-                      <div style={{ width: 8, height: 8, background: "#fde68a" }}></div>
-                      <p className="mb-0 text-secondary" style={{ fontSize: "0.75rem" }}>Term 1 : 19th</p>
+
+                  {/* CARD 1 */}
+                  <div
+                    className="card shadow-sm border-0 rounded-4 p-3"
+                    style={{ width: "170px", height: "168px" }}
+                  >
+                    <p className="fw-semibold text-secondary mb-1" style={{ fontSize: "0.85rem" }}>Class Rank</p>
+                    <h3 className="fw-bold mb-0" style={{ fontSize: "1.5rem" }}>15th</h3>
+                    <p className="text-secondary mb-2" style={{ fontSize: "0.75rem" }}>out of 56 students</p>
+
+                    <div className="d-flex flex-column gap-1">
+                      <div className="d-flex align-items-center gap-2">
+                        <div style={{ width: 8, height: 8, background: "#fde68a" }}></div>
+                        <p className="mb-0 text-secondary" style={{ fontSize: "0.75rem" }}>Term 1 : 19th</p>
+                      </div>
+                      <div className="d-flex align-items-center gap-2">
+                        <div style={{ width: 8, height: 8, background: "#fcd34d" }}></div>
+                        <p className="mb-0 text-secondary" style={{ fontSize: "0.75rem" }}>Term 2 : 10th</p>
+                      </div>
+                      <div className="d-flex align-items-center gap-2">
+                        <div style={{ width: 8, height: 8, background: "#fbbf24" }}></div>
+                        <p className="mb-0 text-secondary" style={{ fontSize: "0.75rem" }}>Term 3 : 5th</p>
+                      </div>
                     </div>
-                    <div className="d-flex align-items-center gap-2">
-                      <div style={{ width: 8, height: 8, background: "#fcd34d" }}></div>
-                      <p className="mb-0 text-secondary" style={{ fontSize: "0.75rem" }}>Term 2 : 10th</p>
+                  </div>
+
+                  {/* CARD 2 */}
+                  <div
+                    className="card shadow border-0 rounded-4 p-3"
+                    style={{ width: "170px", height: "168px" }}
+                  >
+                    <p className="fw-semibold text-secondary mb-1" style={{ fontSize: "0.85rem" }}>GPA/Grade</p>
+                    <h3 className="fw-bold mb-2" style={{ fontSize: "1.5rem" }}>8.5/A</h3>
+
+                    <div className="d-flex flex-column gap-1">
+                      <div className="d-flex align-items-center gap-2">
+                        <div style={{ width: 8, height: 8, background: "#fde68a" }}></div>
+                        <p className="mb-0 text-secondary" style={{ fontSize: "0.75rem" }}>Term 1 : 87%</p>
+                      </div>
+                      <div className="d-flex align-items-center gap-2">
+                        <div style={{ width: 8, height: 8, background: "#fcd34d" }}></div>
+                        <p className="mb-0 text-secondary" style={{ fontSize: "0.75rem" }}>Term 2 : 90%</p>
+                      </div>
+                      <div className="d-flex align-items-center gap-2">
+                        <div style={{ width: 8, height: 8, background: "#fbbf24" }}></div>
+                        <p className="mb-0 text-secondary" style={{ fontSize: "0.75rem" }}>Term 3 : 95%</p>
+                      </div>
                     </div>
-                    <div className="d-flex align-items-center gap-2">
-                      <div style={{ width: 8, height: 8, background: "#fbbf24" }}></div>
-                      <p className="mb-0 text-secondary" style={{ fontSize: "0.75rem" }}>Term 3 : 5th</p>
+                  </div>
+
+                  {/* CARD 3 */}
+                  <div
+                    className="card shadow border-0 rounded-4 p-3"
+                    style={{ width: "170px", height: "168px" }}
+                  >
+                    <p className="fw-semibold text-success mb-1" style={{ fontSize: "0.85rem" }}>Best Subject</p>
+                    <h3 className="fw-bold mb-0" style={{ fontSize: "1.5rem" }}>Art</h3>
+                    <p className="text-secondary mb-2" style={{ fontSize: "0.75rem" }}>Scored 99%</p>
+
+                    <div className="d-flex flex-column gap-1">
+                      <div className="d-flex align-items-center gap-2">
+                        <div style={{ width: 8, height: 8, background: "#fde68a" }}></div>
+                        <p className="mb-0 text-secondary" style={{ fontSize: "0.75rem" }}>Term 1 : 19th</p>
+                      </div>
+                      <div className="d-flex align-items-center gap-2">
+                        <div style={{ width: 8, height: 8, background: "#fcd34d" }}></div>
+                        <p className="mb-0 text-secondary" style={{ fontSize: "0.75rem" }}>Term 2 : 10th</p>
+                      </div>
+                      <div className="d-flex align-items-center gap-2">
+                        <div style={{ width: 8, height: 8, background: "#fbbf24" }}></div>
+                        <p className="mb-0 text-secondary" style={{ fontSize: "0.75rem" }}>Term 3 : 5th</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* CARD 4 */}
+                  <div
+                    className="card shadow border-0 rounded-4 p-3"
+                    style={{ width: "170px", height: "168px" }}
+                  >
+                    <p className="fw-semibold text-danger mb-1" style={{ fontSize: "0.85rem" }}>Weakest Subject</p>
+                    <h3 className="fw-bold mb-0" style={{ fontSize: "1.5rem" }}>Computer</h3>
+                    <p className="text-secondary mb-2" style={{ fontSize: "0.75rem" }}>Scored 62%</p>
+
+                    <div className="d-flex flex-column gap-1">
+                      <div className="d-flex align-items-center gap-2">
+                        <div style={{ width: 8, height: 8, background: "#fde68a" }}></div>
+                        <p className="mb-0 text-secondary" style={{ fontSize: "0.75rem" }}>Term 1 : 87%</p>
+                      </div>
+                      <div className="d-flex align-items-center gap-2">
+                        <div style={{ width: 8, height: 8, background: "#fcd34d" }}></div>
+                        <p className="mb-0 text-secondary" style={{ fontSize: "0.75rem" }}>Term 2 : 90%</p>
+                      </div>
+                      <div className="d-flex align-items-center gap-2">
+                        <div style={{ width: 8, height: 8, background: "#fbbf24" }}></div>
+                        <p className="mb-0 text-secondary" style={{ fontSize: "0.75rem" }}>Term 3 : 95%</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-
-                {/* CARD 2 */}
-                <div
-                  className="card shadow border-0 rounded-4 p-3"
-                  style={{ width: "170px", height: "168px" }}
-                >
-                  <p className="fw-semibold text-secondary mb-1" style={{ fontSize: "0.85rem" }}>GPA/Grade</p>
-                  <h3 className="fw-bold mb-2" style={{ fontSize: "1.5rem" }}>8.5/A</h3>
-
-                  <div className="d-flex flex-column gap-1">
-                    <div className="d-flex align-items-center gap-2">
-                      <div style={{ width: 8, height: 8, background: "#fde68a" }}></div>
-                      <p className="mb-0 text-secondary" style={{ fontSize: "0.75rem" }}>Term 1 : 87%</p>
-                    </div>
-                    <div className="d-flex align-items-center gap-2">
-                      <div style={{ width: 8, height: 8, background: "#fcd34d" }}></div>
-                      <p className="mb-0 text-secondary" style={{ fontSize: "0.75rem" }}>Term 2 : 90%</p>
-                    </div>
-                    <div className="d-flex align-items-center gap-2">
-                      <div style={{ width: 8, height: 8, background: "#fbbf24" }}></div>
-                      <p className="mb-0 text-secondary" style={{ fontSize: "0.75rem" }}>Term 3 : 95%</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* CARD 3 */}
-                <div
-                  className="card shadow border-0 rounded-4 p-3"
-                  style={{ width: "170px", height: "168px" }}
-                >
-                  <p className="fw-semibold text-success mb-1" style={{ fontSize: "0.85rem" }}>Best Subject</p>
-                  <h3 className="fw-bold mb-0" style={{ fontSize: "1.5rem" }}>Art</h3>
-                  <p className="text-secondary mb-2" style={{ fontSize: "0.75rem" }}>Scored 99%</p>
-
-                  <div className="d-flex flex-column gap-1">
-                    <div className="d-flex align-items-center gap-2">
-                      <div style={{ width: 8, height: 8, background: "#fde68a" }}></div>
-                      <p className="mb-0 text-secondary" style={{ fontSize: "0.75rem" }}>Term 1 : 19th</p>
-                    </div>
-                    <div className="d-flex align-items-center gap-2">
-                      <div style={{ width: 8, height: 8, background: "#fcd34d" }}></div>
-                      <p className="mb-0 text-secondary" style={{ fontSize: "0.75rem" }}>Term 2 : 10th</p>
-                    </div>
-                    <div className="d-flex align-items-center gap-2">
-                      <div style={{ width: 8, height: 8, background: "#fbbf24" }}></div>
-                      <p className="mb-0 text-secondary" style={{ fontSize: "0.75rem" }}>Term 3 : 5th</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* CARD 4 */}
-                <div
-                  className="card shadow border-0 rounded-4 p-3"
-                  style={{ width: "170px", height: "168px" }}
-                >
-                  <p className="fw-semibold text-danger mb-1" style={{ fontSize: "0.85rem" }}>Weakest Subject</p>
-                  <h3 className="fw-bold mb-0" style={{ fontSize: "1.5rem" }}>Computer</h3>
-                  <p className="text-secondary mb-2" style={{ fontSize: "0.75rem" }}>Scored 62%</p>
-
-                  <div className="d-flex flex-column gap-1">
-                    <div className="d-flex align-items-center gap-2">
-                      <div style={{ width: 8, height: 8, background: "#fde68a" }}></div>
-                      <p className="mb-0 text-secondary" style={{ fontSize: "0.75rem" }}>Term 1 : 87%</p>
-                    </div>
-                    <div className="d-flex align-items-center gap-2">
-                      <div style={{ width: 8, height: 8, background: "#fcd34d" }}></div>
-                      <p className="mb-0 text-secondary" style={{ fontSize: "0.75rem" }}>Term 2 : 90%</p>
-                    </div>
-                    <div className="d-flex align-items-center gap-2">
-                      <div style={{ width: 8, height: 8, background: "#fbbf24" }}></div>
-                      <p className="mb-0 text-secondary" style={{ fontSize: "0.75rem" }}>Term 3 : 95%</p>
-                    </div>
-                  </div>
-                </div>
-
               </div>
 
             </div>
@@ -1191,7 +1205,7 @@ const StudentProfile = () => {
                 </div>
               </div>
 
-              <Card className="shadow border-0 rounded-4   h-auto">
+              <Card className="shadow border-0 rounded-4 mt-4  h-auto">
                 <div className="container ">
                   <h4 className="fw-semibold mb-3">Fees Metrics</h4>
 
@@ -3444,7 +3458,7 @@ const StudentProfile = () => {
         </div>
         {/* <div className="col-12 col-md-3 col-lg-2 right-col"> </div> */}
 
-        
+
       </div>
     </div>
   );

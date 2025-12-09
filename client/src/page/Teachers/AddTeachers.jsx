@@ -64,14 +64,14 @@ function AddTeachers() {
     { name: "Fees", create: true, view: false, update: false, delete: false, approve: false },
   ]);
 
-   const toggleCheckbox = (index, field) => {
+  const toggleCheckbox = (index, field) => {
     const updated = [...modules];
     updated[index][field] = !updated[index][field];
     setModules(updated);
   };
 
   return (
-    
+
     <div className="p-3 ">
       <div className="container-fluid   bg-white rounded-4 shadow border-0 ">
         <h4 className="mb-4 pt-3 ps-3 ">Add New Teacher</h4>
@@ -102,7 +102,7 @@ function AddTeachers() {
         </div>
 
         {activeTab === "teacher-details" && (
-          <div className="d-flex text-secondary">
+          <div className="d-flex flex-lg-nowrap flex-wrap text-secondary">
             <div style={{ width: "100%" }}>
               <form onSubmit={handleSubmit} className=" p-4">
                 <h5 className="text-dark ">Employee ID #076</h5>
@@ -566,7 +566,7 @@ function AddTeachers() {
           </div>
         )}
         {activeTab === "contact-details" && (
-          <div className="d-flex text-secondary">
+          <div className="d-flex  text-secondary">
             <div style={{ width: "100%" }}>
               <form onSubmit={handleSubmit} className=" p-4">
                 <h5 className="text-dark  mb-3">Employee ID #076</h5>
@@ -842,7 +842,7 @@ function AddTeachers() {
         )}
 
         {activeTab === "professional-details" && (
-          <div className="d-flex text-secondary">
+          <div className="d-flex flex-lg-nowrap flex-wrap text-secondary">
             <div style={{ width: "100%" }}>
               <form onSubmit={handleSubmit} className=" p-4">
                 <h5 className="text-dark  mb-3">Employee ID #076</h5>
@@ -1608,10 +1608,10 @@ function AddTeachers() {
               <form onSubmit={handleSubmit} className=" p-4">
                 <h5 className="text-dark mb-3">Employee ID #076</h5>
                 <div className="row mt-0">
-                  <div className="col-md-4">
+                  <div className="col-12 col-md-4">
                     <div className="d-flex justify-content-between">
                       <div>
-                        
+
                         <p>System Access Required </p>{" "}
                       </div>
                       <div class="form-check form-switch  fs-4">
@@ -1624,7 +1624,7 @@ function AddTeachers() {
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-4">
+                  <div className="col-12 col-md-4">
                     <div className="d-flex justify-content-between">
                       <div className="fw-semibold">
                         {" "}
@@ -1640,7 +1640,7 @@ function AddTeachers() {
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-4">
+                  <div className="col-12 col-md-4">
                     <div className="d-flex justify-content-between">
                       <div className="fs-5 fw-bold">
                         {" "}
@@ -1659,7 +1659,7 @@ function AddTeachers() {
                 </div>
 
                 <div className="row mt-0">
-                  <div className="col-md-4">
+                  <div className="col-12 col-md-4">
                     <label>Log In Role</label>
                     <select
                       className="form-select"
@@ -1673,7 +1673,7 @@ function AddTeachers() {
                       <option value="Transfer">Admin</option>
                     </select>
                   </div>
-                  <div className="col-md-4">
+                  <div className="col-12 col-md-4">
                     <label>User name Id</label>
                     <input
                       type="number"
@@ -1684,7 +1684,7 @@ function AddTeachers() {
                       placeholder="Usually auto-generated (e.g., fiestname.testname@school.com)"
                     />
                   </div>
-                  <div className="col-md-4">
+                  <div className="col-12 col-md-4">
                     <label>Temporary Password</label>
                     <input
                       type="text"
@@ -1698,7 +1698,7 @@ function AddTeachers() {
                 </div>
 
                 <div className="row mt-3">
-                  <div className="col-md-4">
+                  <div className="col-12 col-md-4">
                     <label>Password Reset Link Sent</label>
                     <select
                       className="form-select"
@@ -1712,7 +1712,7 @@ function AddTeachers() {
                       </option>
                     </select>
                   </div>
-                  <div className="col-md-4">
+                  <div className="col-12 col-md-4">
                     <label>Mobile App Access Enabled</label>
                     <select
                       className="form-select"
@@ -1723,7 +1723,7 @@ function AddTeachers() {
                       <option value="Re-Admission">No</option>
                     </select>
                   </div>
-                  <div className="col-md-4">
+                  <div className="col-12 col-md-4">
                     <label>Log In Status</label>
                     <input
                       type="text"
@@ -1737,7 +1737,7 @@ function AddTeachers() {
                 </div>
 
                 <div className="row mt-3">
-                  <div className="col-md-4">
+                  <div className="col-12 col-md-4">
                     <label>Multi-Factor Auth (MFA)</label>
                     <select
                       className="form-select"
@@ -1749,42 +1749,44 @@ function AddTeachers() {
                     </select>
                   </div>
                 </div>
-  <Container className="mt-2  ms-0 w-50">
-      <h5 className="mb-3 text-dark fw-bold">Module Access</h5>
-<div >
-      <Table  hover responsive >
-        <thead className="table-bordered" >
-          <tr >
-            <th>S.N.</th>
-            <th>Module Name</th>
-            <th>Create</th>
-            <th>View</th>
-            <th>Update</th>
-            <th>Delete</th>
-            <th>Approve</th>
-          </tr>
-        </thead>
+                <div className="col-12 col-md-6 col-lg-6">
+                  <Container className="mt-2  ms-0 ">
+                    <h5 className="mb-3 text-dark fw-bold">Module Access</h5>
+                    <div >
+                      <Table hover responsive >
+                        <thead className="table-bordered" >
+                          <tr >
+                            <th>S.N.</th>
+                            <th>Module Name</th>
+                            <th>Create</th>
+                            <th>View</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                            <th>Approve</th>
+                          </tr>
+                        </thead>
 
-        <tbody >
-          {modules.map((mod, index) => (
-            <tr key={index} >
-              <td>{index + 1}</td>
-              <td>{mod.name}</td>
+                        <tbody >
+                          {modules.map((mod, index) => (
+                            <tr key={index} >
+                              <td>{index + 1}</td>
+                              <td>{mod.name}</td>
 
-              {["create", "view", "update", "delete", "approve"].map((field) => (
-                <td key={field} className="text-center">
-                  <Form.Check
-                    type="checkbox"
-                    checked={mod[field]}
-                    onChange={() => toggleCheckbox(index, field)}
-                  />
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </Table></div>
-    </Container>
+                              {["create", "view", "update", "delete", "approve"].map((field) => (
+                                <td key={field} className="text-center">
+                                  <Form.Check
+                                    type="checkbox"
+                                    checked={mod[field]}
+                                    onChange={() => toggleCheckbox(index, field)}
+                                  />
+                                </td>
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </Table></div>
+                  </Container>
+                </div>
                 <div
                   className="d-flex gap-3 mb-3 justify-content-end "
                   style={{ marginTop: "20rem" }}
@@ -1817,9 +1819,9 @@ function AddTeachers() {
                     </button>
                   </div>
                 </div>
-              
+
               </form>
-              
+
             </div>
           </div>
         )}
