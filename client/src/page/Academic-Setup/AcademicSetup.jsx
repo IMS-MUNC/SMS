@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Table, Badge, Button, Form, Card } from "react-bootstrap";
 import * as d3 from "d3";
@@ -12,8 +12,26 @@ import { TfiFilter } from "react-icons/tfi";
 import { LuCloudDownload } from "react-icons/lu";
 import { TiPlus } from "react-icons/ti";
 import { PiDotsThreeVertical } from "react-icons/pi";
+import img1 from "../../assets/images/house.png";
+import img2 from "../../assets/images/classroom.png";
+import img3 from "../../assets/images/subject.png";
+import img4 from "../../assets/images/table.png";
+import img5 from "../../assets/images/campus.png";
+import img6 from "../../assets/images/moniter.png";
+import student from "../../assets/images/libraryImg.png";
+import { GoArrowRight } from "react-icons/go";
 
 const AcademicSetup = () => {
+  const subjectData = {
+    Maths: 40,
+    Arts: 55,
+    English: 75,
+    History: 20,
+    Biology: 90,
+  };
+  const [selectedSubject, setSelectedSubject] = useState("Maths");
+  const [percentage, setPercentage] = useState(subjectData["Maths"]);
+
   const date = new Date();
   const months = [
     "JAN",
@@ -163,15 +181,44 @@ const AcademicSetup = () => {
     },
   ];
 
+  const acedemicModules = [
+    {
+      img:student,
+      title:'Class & Section Setup',
+      des:'staff- 20',
+    },
+    {
+      img:student,
+      title:'Subject Setup',
+      des:'staff- 20',
+    },
+    {
+      img:student,
+      title:'Timetable Setup',
+      des:'staff- 20',
+    },
+    {
+      img:student,
+      title:'Exam Pattern Setup',
+      des:'staff- 20',
+    },
+    {
+      img:student,
+      title:'Grading System Setup',
+      des:'staff- 20',
+    },
+  ]
+
   const slotColors = {
     Full: { color: "#D32F2F" }, // red theme
     Available: { color: "#2E7D32" }, // green theme
   };
 
-  {/* <=============================== Speed meter ============================> */}
+  {
+    /* <=============================== Speed meter ============================> */
+  }
 
   const gaugeRef = useRef();
-  const percentage = 40; // CHANGE VALUE HERE
 
   useEffect(() => {
     drawGauge(percentage);
@@ -195,9 +242,8 @@ const AcademicSetup = () => {
     const angleScale = d3
       .scaleLinear()
       .domain([0, 100])
-      .range([-Math.PI / 2, Math.PI / 2]); // -90deg to +90deg
+      .range([-Math.PI / 2, Math.PI / 2]);
 
-    // Background arc (light gray)
     const backgroundArc = d3
       .arc()
       .innerRadius(radius - 20)
@@ -207,7 +253,6 @@ const AcademicSetup = () => {
 
     svg.append("path").attr("d", backgroundArc).attr("fill", "#E6E8EB");
 
-    // Filled blue arc
     const filledArc = d3
       .arc()
       .innerRadius(radius - 20)
@@ -217,24 +262,482 @@ const AcademicSetup = () => {
 
     svg.append("path").attr("d", filledArc).attr("fill", "#366BFF");
 
-    // Needle
-    const angle = angleScale(value);
-    svg
-      .append("line")
-      .attr("x1", 0)
-      .attr("y1", 0)
-      .attr("x2", (radius - 30) * Math.cos(angle))
-      .attr("y2", (radius - 30) * Math.sin(angle))
-      .attr("stroke", "#366BFF")
-      .attr("stroke-width", 3);
+    const midAngle = (-Math.PI / 2 + angleScale(value)) / 2;
+    const textRadius = radius - 100;
 
-    svg.append("circle").attr("r", 4).attr("fill", "#366BFF");
+    svg
+      .append("text")
+      .attr("x", textRadius * Math.cos(midAngle))
+      .attr("y", textRadius * Math.sin(midAngle) + 8)
+      .attr("text-anchor", "middle")
+      .attr("font-size", "34px")
+      .attr("font-weight", "700")
+      .attr("fill", "#404040")
+      .text(value + "%");
   };
 
   const getStatusText = (val) => {
     if (val < 40) return "Low Coverage";
     if (val < 70) return "Partial Coverage";
     return "Good Coverage";
+  };
+
+  {
+    /* <-------------------------------------------- pipe Graph -----------------------------------------------> */
+  }
+
+  const chartRef = useRef();
+
+  const data = [
+    { name: "1st", gpa: 30, marks: 20, grade: 20 },
+    { name: "2nd", gpa: 20, marks: 35, grade: 30 },
+    { name: "3rd", gpa: 25, marks: 55, grade: 20 },
+    { name: "4th", gpa: 30, marks: 50, grade: 20 },
+    { name: "5th", gpa: 28, marks: 10, grade: 60 },
+    { name: "6th", gpa: 27, marks: 13, grade: 40 },
+    { name: "7th", gpa: 29, marks: 20, grade: 40 },
+    { name: "8th", gpa: 10, marks: 40, grade: 40 },
+    { name: "9th", gpa: 26, marks: 4, grade: 40 },
+    { name: "10th", gpa: 50, marks: 20, grade: 30 },
+    { name: "11th", gpa: 28, marks: 12, grade: 40 },
+    { name: "12th", gpa: 27, marks: 53, grade: 10 },
+  ];
+
+  const keys = ["grade", "marks", "gpa"];
+
+  useEffect(() => {
+    drawChart();
+  }, []);
+
+  const drawChart = () => {
+    const svgEl = d3.select(chartRef.current);
+    svgEl.selectAll("*").remove();
+
+    const width = 500;
+    const height = 300;
+    const margin = { top: 30, right: 20, bottom: 60, left: 40 };
+
+    const svg = svgEl.attr("width", width).attr("height", height);
+
+    const x = d3
+      .scaleBand()
+      .domain(data.map((d) => d.name))
+      .range([margin.left, width - margin.right])
+      .padding(0.55);
+
+    const y = d3
+      .scaleLinear()
+      .domain([0, 100])
+      .nice()
+      .range([height - margin.bottom, margin.top]);
+
+    const color = {
+      grade: "#F39C12",
+      marks: "#F8BBD0",
+      gpa: "#276EF1",
+    };
+
+    const stackedData = d3.stack().keys(keys)(data);
+
+    // Draw stacks
+    svg
+      .selectAll("g.layer")
+      .data(stackedData)
+      .join("g")
+      .attr("class", "layer")
+      .attr("fill", (d) => color[d.key])
+      .selectAll("rect")
+      .data((d) => d)
+      .join("rect")
+      .attr("x", (d) => x(d.data.name))
+      .attr("y", (d) => y(d[1]))
+      .attr("height", (d) => y(d[0]) - y(d[1]))
+      .attr("width", x.bandwidth())
+      .attr("rx", 0)
+      .attr("ry", 0);
+
+    // X-axis
+    svg
+      .append("g")
+      .attr("transform", `translate(0, ${height - margin.bottom})`)
+      .call(d3.axisBottom(x));
+
+    // Y-axis
+    svg
+      .append("g")
+      .attr("transform", `translate(${margin.left}, 0)`)
+      .call(d3.axisLeft(y).ticks(6));
+
+    // Remove axis outer border lines
+    svg.selectAll(".domain").remove();
+
+    // Legend
+    const legend = svg
+      .append("g")
+      .attr("transform", `translate(180, ${height - 20})`);
+
+    const legendItems = [
+      { label: "GPA", color: "#344BFD" },
+      { label: "Marks", color: "#F4A1AF" },
+      { label: "Grade", color: "#EE902C" },
+    ];
+
+    legendItems.forEach((item, i) => {
+      legend
+        .append("circle")
+        .attr("cx", i * 65) // horizontal spacing
+        .attr("cy", 6) // vertical position
+        .attr("r", 6) // circle radius
+        .attr("fill", item.color);
+
+      legend
+        .append("text")
+        .attr("x", i * 60 + 18)
+        .attr("y", 10)
+        .text(item.label)
+        .attr("font-size", "12px")
+        .attr("fill", "#767676");
+    });
+  };
+
+  {
+    /* <-------------------------------------------------------- tree -------------------------------------------------------------> */
+  }
+
+  const scheduleRef = useRef();
+
+  const timetableData = [
+    {
+      className: "1st Class",
+      schedule: [
+        [1, 0, 0, 1, 1, 0, 0],
+        [0, 1, 1, 0, 1, 0, 1],
+        [1, 1, 0, 1, 0, 1, 0],
+        [0, 0, 1, 1, 1, 0, 0],
+        [1, 0, 1, 0, 1, 0, 1],
+        [1, 1, 0, 0, 1, 1, 0],
+        [0, 1, 0, 1, 0, 1, 0],
+      ],
+    },
+    {
+      className: "2nd Class",
+      schedule: [
+        [1, 0, 0, 1, 1, 0, 0],
+        [0, 1, 1, 0, 1, 0, 1],
+        [1, 1, 0, 1, 0, 1, 0],
+        [0, 0, 1, 1, 1, 0, 0],
+        [1, 0, 1, 0, 1, 0, 1],
+        [1, 1, 0, 0, 1, 1, 0],
+        [0, 1, 0, 1, 0, 1, 0],
+      ],
+    },
+    {
+      className: "3rd Class",
+      schedule: [
+        [1, 0, 0, 1, 1, 0, 0],
+        [0, 1, 1, 0, 1, 0, 1],
+        [1, 1, 0, 1, 0, 1, 0],
+        [0, 0, 1, 1, 1, 0, 0],
+        [1, 0, 1, 0, 1, 0, 1],
+        [1, 1, 0, 0, 1, 1, 0],
+        [0, 1, 0, 1, 0, 1, 0],
+      ],
+    },
+    {
+      className: "4th Class",
+      schedule: [
+        [1, 0, 0, 1, 1, 0, 0],
+        [0, 1, 1, 0, 1, 0, 1],
+        [1, 1, 0, 1, 0, 1, 0],
+        [0, 0, 1, 1, 1, 0, 0],
+        [1, 0, 1, 0, 1, 0, 1],
+        [1, 1, 0, 0, 1, 1, 0],
+        [0, 1, 0, 1, 0, 1, 0],
+      ],
+    },
+    {
+      className: "5st Class",
+      schedule: [
+        [1, 0, 0, 1, 1, 0, 0],
+        [0, 1, 1, 0, 1, 0, 1],
+        [1, 1, 0, 1, 0, 1, 0],
+        [0, 0, 1, 1, 1, 0, 0],
+        [1, 0, 1, 0, 1, 0, 1],
+        [1, 1, 0, 0, 1, 1, 0],
+        [0, 1, 0, 1, 0, 1, 0],
+      ],
+    },
+    {
+      className: "6st Class",
+      schedule: [
+        [1, 0, 0, 1, 1, 0, 0],
+        [0, 1, 1, 0, 1, 0, 1],
+        [1, 1, 0, 1, 0, 1, 0],
+        [0, 0, 1, 1, 1, 0, 0],
+        [1, 0, 1, 0, 1, 0, 1],
+        [1, 1, 0, 0, 1, 1, 0],
+        [0, 1, 0, 1, 0, 1, 0],
+      ],
+    },
+    {
+      className: "7st Class",
+      schedule: [
+        [1, 0, 0, 1, 1, 0, 0],
+        [0, 1, 1, 0, 1, 0, 1],
+        [1, 1, 0, 1, 0, 1, 0],
+        [0, 0, 1, 1, 1, 0, 0],
+        [1, 0, 1, 0, 1, 0, 1],
+        [1, 1, 0, 0, 1, 1, 0],
+        [0, 1, 0, 1, 0, 1, 0],
+      ],
+    },
+    {
+      className: "8st Class",
+      schedule: [
+        [1, 0, 0, 1, 1, 0, 0],
+        [0, 1, 1, 0, 1, 0, 1],
+        [1, 1, 0, 1, 0, 1, 0],
+        [0, 0, 1, 1, 1, 0, 0],
+        [1, 0, 1, 0, 1, 0, 1],
+        [1, 1, 0, 0, 1, 1, 0],
+        [0, 1, 0, 1, 0, 1, 0],
+      ],
+    },
+    {
+      className: "9st Class",
+      schedule: [
+        [1, 0, 0, 1, 1, 0, 0],
+        [0, 1, 1, 0, 1, 0, 1],
+        [1, 1, 0, 1, 0, 1, 0],
+        [0, 0, 1, 1, 1, 0, 0],
+        [1, 0, 1, 0, 1, 0, 1],
+        [1, 1, 0, 0, 1, 1, 0],
+        [0, 1, 0, 1, 0, 1, 0],
+      ],
+    },
+    {
+      className: "10st Class",
+      schedule: [
+        [1, 0, 0, 1, 1, 0, 0],
+        [0, 1, 1, 0, 1, 0, 1],
+        [1, 1, 0, 1, 0, 1, 0],
+        [0, 0, 1, 1, 1, 0, 0],
+        [1, 0, 1, 0, 1, 0, 1],
+        [1, 1, 0, 0, 1, 1, 0],
+        [0, 1, 0, 1, 0, 1, 0],
+      ],
+    },
+    {
+      className: "11st Class",
+      schedule: [
+        [1, 0, 0, 1, 1, 0, 0],
+        [0, 1, 1, 0, 1, 0, 1],
+        [1, 1, 0, 1, 0, 1, 0],
+        [0, 0, 1, 1, 1, 0, 0],
+        [1, 0, 1, 0, 1, 0, 1],
+        [1, 1, 0, 0, 1, 1, 0],
+        [0, 1, 0, 1, 0, 1, 0],
+      ],
+    },
+    {
+      className: "12st Class",
+      schedule: [
+        [1, 1, 1, 1, 1, 1, 1],
+        [1, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 1],
+        [1, 1, 1, 1, 1, 1, 1],
+      ],
+    },
+  ];
+
+  useEffect(() => {
+    drawGrid();
+  }, []);
+
+  const drawGrid = () => {
+    const svgEl = d3.select(scheduleRef.current);
+    svgEl.selectAll("*").remove();
+
+    const width = 1100;
+    const height = 500;
+    const cellSize = 18;
+    const rowHeight = 200;
+    const days = ["M", "T", "W", "T", "F", "S", "S"];
+
+    const svg = svgEl.attr("width", width).attr("height", height);
+
+    // ⭐ Draw day labels for each row
+    for (let row = 0; row < 2; row++) {
+      days.forEach((d, i) => {
+        svg
+          .append("text")
+          .attr("x", 20)
+          .attr("y", 65 + row * rowHeight + i * 23)
+          .attr("text-anchor", "middle")
+          .attr("font-size", "15px")
+          .attr("fill", "#1C212D")
+          .attr("font-weight", 400)
+          .text(d);
+      });
+    }
+
+    // ⭐ Draw class grids
+    timetableData.forEach((cls, idx) => {
+      const gridX = (idx % 6) * 170 + 40;
+      const gridY = Math.floor(idx / 6) * rowHeight + 50;
+
+      // Class title
+      svg
+        .append("text")
+        .attr("x", gridX + 80)
+        .attr("y", gridY - 12)
+        .attr("text-anchor", "middle")
+        .attr("font-size", "14px")
+        .attr("font-weight", "600")
+        .text(cls.className);
+
+      // Grid cells
+      cls.schedule.forEach((row, r) => {
+        row.forEach((value, c) => {
+          svg
+            .append("rect")
+            .attr("x", gridX + c * (cellSize + 5))
+            .attr("y", gridY + r * (cellSize + 5))
+            .attr("width", 20)
+            .attr("height", 20)
+            .attr("rx", 3)
+            .attr("ry", 3)
+            .attr("fill", value === 1 ? "#F49092" : "#C4EBD0");
+        });
+      });
+    });
+
+    // Legend
+    svg
+      .append("rect")
+      .attr("x", 930)
+      .attr("y", height - 30)
+      .attr("width", 20)
+      .attr("height", 20)
+      .attr("fill", "#CDEECC")
+      .attr("rx", 4)
+      .attr("ry", 4);
+
+    svg
+      .append("text")
+      .attr("x", 960)
+      .attr("y", height - 15)
+      .text("Available")
+      .attr("font-size", "15px")
+      .attr("fill", "#1C212D");
+
+    svg
+      .append("rect")
+      .attr("x", 900)
+      .attr("y", height - 30)
+      .attr("width", 20)
+      .attr("height", 20)
+      .attr("fill", "#F49092")
+      .attr("rx", 4)
+      .attr("ry", 4);
+    svg
+      .append("text")
+      .attr("x", 840)
+      .attr("y", height - 15)
+      .text("Booked")
+      .attr("font-size", "15px")
+      .attr("fill", "#1C212D");
+  };
+
+  {
+    /* <---------------------------------------------------- Progress Bar -------------------------------------------------------------> */
+  }
+
+  const svgRef = useRef();
+
+  const progressData = [
+    { label: "Academic Session Created", value: 10, img: img1 },
+    { label: "Classes & Sections Added", value: 10, img: img2 },
+    { label: "Subjects Assigned", value: 10, img: img3 },
+    { label: "Examinations Scheduled", value: 80, img: img4 },
+    { label: "Student Enrollment Completed", value: 10, img: img5 },
+    { label: "Teachers Mapped", value: 10, img: img6 },
+    { label: "Curriculum Updated", value: 10, img: img4 },
+    { label: "Timetable Defined", value: 10, img: img4 },
+  ];
+
+  useEffect(() => {
+    drawProgress();
+  }, []);
+
+  const drawProgress = () => {
+    const svg = d3.select(svgRef.current);
+    svg.selectAll("*").remove();
+
+    const width = 380;
+    const rowHeight = 53;
+    const barWidth = 220;
+    const barHeight = 6;
+    const startY = 30;
+
+    svg.attr("width", width).attr("height", progressData.length * rowHeight);
+
+    progressData.forEach((d, i) => {
+      const y = startY + i * rowHeight;
+
+      svg
+        .append("image")
+        .attr("href", d.img)
+        .attr("x", 1)
+        .attr("y", y - 15)
+        .attr("width", 40)
+        .attr("height", 32);
+
+      // LABEL
+      svg
+        .append("text")
+        .attr("x", 50)
+        .attr("y", y)
+        .attr("font-size", "14px")
+        .attr("fill", "#AEAEAE")
+        .attr("font-weight", 400)
+        .text(d.label);
+
+      // % VALUE
+      svg
+        .append("text")
+        .attr("x", width - 90)
+        .attr("y", y)
+        .attr("font-size", "20px")
+        .attr("fill", "#000000")
+        .attr("font-weight", 400)
+        .text(d.value + "%");
+
+      // BACKGROUND BAR (grey)
+      svg
+        .append("rect")
+        .attr("x", 50)
+        .attr("y", y + 10)
+        .attr("width", barWidth)
+        .attr("height", barHeight)
+        .attr("fill", "#F4F9FC")
+        .attr("rx", 3)
+        .attr("ry", 3);
+
+      // BLUE BAR (progress)
+      svg
+        .append("rect")
+        .attr("x", 50)
+        .attr("y", y + 10)
+        .attr("width", (barWidth * d.value) / 100)
+        .attr("height", 5)
+        .attr("fill", "#007aff")
+        .attr("rx", 3)
+        .attr("ry", 3);
+    });
   };
 
   return (
@@ -324,7 +827,7 @@ const AcademicSetup = () => {
           <div className="d-flex gap-4">
             {/* TABLE AREA */}
             <div className="w-75">
-              <div className="bg-white p-4 rounded shadow">
+              <div className="table-left-progress-bar bg-white p-4 rounded shadow">
                 <div className="table-header-book d-flex justify-content-between align-items-center">
                   <div className="d-flex align-items-center gap-3">
                     <span className="return-issued">
@@ -490,38 +993,107 @@ const AcademicSetup = () => {
               </div>
 
               {/* <--------------------------------------------- 4 graph -------------------------------------------> */}
-              <div className="mt-3">
-                <div className="four-graph bg-white rounded">
-                  <div className="bg-white p-4 rounded shadow-sm">
+              <div className="d-flex gap-4 mt-4">
+                <div className="top-two-library w-50 bg-white rounded p-4 shadow">
+                  <div className="">
                     <h4>Subject Coverage Status</h4>
 
                     {/* GAUGE */}
-                    <svg ref={gaugeRef}></svg>
-
-                    {/* % VALUE */}
-                    <h2 className="text-center mt-2">{percentage}%</h2>
+                    <svg className="mt-5" ref={gaugeRef}></svg>
 
                     {/* STATUS */}
-                    <p className="text-center fw-bold text-secondary mt-2">
+                    <p className="pecentage-text text-center mt-2 ">
                       {getStatusText(percentage)}
                     </p>
 
                     {/* SUBJECT TABS */}
-                    <div className="d-flex justify-content-between px-5 mt-3">
-                      <span>Maths</span>
-                      <span>Arts</span>
-                      <span className="text-primary fw-bold">English</span>
-                      <span>History</span>
-                      <span>Biology</span>
+                    <div className="d-flex justify-content-between px-5 mt-4">
+                      {Object.keys(subjectData).map((sub) => (
+                        <span
+                          key={sub}
+                          onClick={() => {
+                            setSelectedSubject(sub);
+                            setPercentage(subjectData[sub]);
+                          }}
+                          style={{
+                            cursor: "pointer",
+                            fontWeight: selectedSubject === sub ? "700" : "400",
+                            color:
+                              selectedSubject === sub ? "#007AFF" : "#717376",
+                            fontSize: selectedSubject === sub ? "15px" : "15px",
+                          }}
+                        >
+                          {sub}
+                        </span>
+                      ))}
                     </div>
                   </div>
+                </div>
+                {/* <--------------------------------------------pipe graph ---------------------------------------------> */}
+                <div className="w-50 bg-white rounded p-4 shadow">
+                  <div>
+                    <h4> Grade Performance Distribution</h4>
+                  </div>
+                  <div
+                    style={{
+                      width: "100%",
+                      overflow: "hidden",
+                      marginTop: "12px",
+                    }}
+                  >
+                    <svg ref={chartRef}></svg>
+                  </div>
+                </div>
+              </div>
+
+              {/* <----------------------------------- git hub tree design -----------------------------------------> */}
+              <div className="bg-white rounded shadow mt-3 p-4">
+                <div>
+                  <h4>Time Table Coverage</h4>
+                </div>
+                <div
+                  style={{
+                    width: "100%",
+                    overflow: "hidden",
+                    marginTop: "12px",
+                  }}
+                >
+                  <svg ref={scheduleRef}></svg>
                 </div>
               </div>
             </div>
 
             {/* GRAPH AREA */}
-            <div className="w-25">
-              <div className="bg-white p-4 rounded shadow">graph</div>
+            <div className="w-25 ">
+              <div className="table-left-progress-bar bg-white p-4 rounded shadow">
+                <h4>Setup Progress</h4>
+                <div>
+                  <svg ref={svgRef}></svg>
+                </div>
+              </div>
+              <div className="top-two-library bg-white rounded mt-4 p-4">
+                <h4 className="other-library">Other Acedemic Modules</h4>
+                {acedemicModules.map((item, index) => (
+                  <div key={index} className="mt-4 d-flex justify-content-between align-items-center">
+                  <div className="d-flex gap-2">
+                    <div className="image">
+                      <img src={item.img} alt="" className="img-student" />
+                    </div>
+                    <div className="d-flex flex-column">
+                      <label className="return-issue">
+                        {item.title}
+                      </label>
+                      <span className="staff">{item.des}</span>
+                    </div>
+                  </div>
+                  <div>
+                    <span className="staff-arrow">
+                      <GoArrowRight />
+                    </span>
+                  </div>
+                </div>
+                ))}  
+              </div>
             </div>
           </div>
         </Card.Body>

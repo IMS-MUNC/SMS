@@ -823,6 +823,20 @@ campush-header {
   height: 417px;
 }
 
+.pecentage-text {
+  font-weight: 700;
+  font-size: 20px;
+  color: #404040;
+}
+
+.table-left-progress-bar {
+  height: 497px;
+}
+
+.top-two-library {
+  height: 417px;
+  
+}
 
 
 /* <-------------------------------------- for responsive -----------------------------------------> */
