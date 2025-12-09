@@ -14,331 +14,331 @@ import { FaChevronRight } from "react-icons/fa";
 const Teachers = () => {
   const navigate = useNavigate();
   const [students] = useState(
- [
-  {
-    "sn": 1,
-    "photo": "https://i.pravatar.cc/40?img=1",
-    "teacherName": "Mr. Sumit Sharma",
-    "assignedClass": "6",
-    "assignedSection": "C",
-    "department": "Science",
-    "employeeId": "ws454353424",
-    "contactNo": "8786 765 765",
-    "status": "Active",
-    "doj": "15th June 2013",
-    "portalAccess": "Enabled",
-    "attPercent": "59%"
-  },
-  {
-    "sn": 2,
-    "photo": "https://i.pravatar.cc/40?img=2",
-    "teacherName": "Mrs. Shalini Mehta",
-    "assignedClass": "12",
-    "assignedSection": "B",
-    "department": "Arts",
-    "employeeId": "ws454353424",
-    "contactNo": "9123456780",
-    "status": "Resigned",
-    "doj": "15th July 2013",
-    "portalAccess": "Enabled",
-    "attPercent": "59%"
-  },
-  {
-    "sn": 3,
-    "photo": "https://i.pravatar.cc/40?img=3",
-    "teacherName": "Mrs. Riya Sharma",
-    "assignedClass": "7",
-    "assignedSection": "A",
-    "department": "Chemistry",
-    "employeeId": "ws454353424",
-    "contactNo": "9811122333",
-    "status": "On Leave",
-    "doj": "15th June 2013",
-    "portalAccess": "Disabled",
-    "attPercent": "58%"
-  },
-  {
-    "sn": 4,
-    "photo": "https://i.pravatar.cc/40?img=4",
-    "teacherName": "Mrs. Ananya Nair",
-    "assignedClass": "NA",
-    "assignedSection": "NA",
-    "department": "Biology",
-    "employeeId": "ws454353424",
-    "contactNo": "9765432109",
-    "status": "Active",
-    "doj": "15th June 2013",
-    "portalAccess": "Enabled",
-    "attPercent": "59%"
-  },
-  {
-    "sn": 5,
-    "photo": "https://i.pravatar.cc/40?img=5",
-    "teacherName": "Mrs. Poonam Verma",
-    "assignedClass": "4",
-    "assignedSection": "B",
-    "department": "Physics",
-    "employeeId": "ws454353424",
-    "contactNo": "9090909090",
-    "status": "Active",
-    "doj": "15th June 2013",
-    "portalAccess": "Enabled",
-    "attPercent": "59%"
-  },
-  {
-    "sn": 6,
-    "photo": "https://i.pravatar.cc/40?img=6",
-    "teacherName": "Mrs. Kavya Iyer",
-    "assignedClass": "1",
-    "assignedSection": "A",
-    "department": "Maths",
-    "employeeId": "ws454353424",
-    "contactNo": "9898989898",
-    "status": "Active",
-    "doj": "15th June 2013",
-    "portalAccess": "Enabled",
-    "attPercent": "59%"
-  },
-  {
-    "sn": 7,
-    "photo": "https://i.pravatar.cc/40?img=7",
-    "teacherName": "Mrs. Kavita Joshi",
-    "assignedClass": "2",
-    "assignedSection": "D",
-    "department": "English",
-    "employeeId": "ws454353424",
-    "contactNo": "9823234455",
-    "status": "Active",
-    "doj": "15th June 2013",
-    "portalAccess": "Enabled",
-    "attPercent": "59%"
-  },
-  {
-    "sn": 8,
-    "photo": "https://i.pravatar.cc/40?img=8",
-    "teacherName": "Mr. Manoj Batra",
-    "assignedClass": "9",
-    "assignedSection": "C",
-    "department": "Junior",
-    "employeeId": "ws454353424",
-    "contactNo": "9933445566",
-    "status": "Active",
-    "doj": "15th June 2013",
-    "portalAccess": "Enabled",
-    "attPercent": "59%"
-  },
-  {
-    "sn": 9,
-    "photo": "https://i.pravatar.cc/40?img=9",
-    "teacherName": "Mrs. Radhika Sen",
-    "assignedClass": "9",
-    "assignedSection": "C",
-    "department": "Hindi/Regional Lang",
-    "employeeId": "ws454353424",
-    "contactNo": "9001122333",
-    "status": "Active",
-    "doj": "15th June 2013",
-    "portalAccess": "Enabled",
-    "attPercent": "59%"
-  },
-  {
-    "sn": 10,
-    "photo": "https://i.pravatar.cc/40?img=10",
-    "teacherName": "Mrs. Anjali Desai",
-    "assignedClass": "9",
-    "assignedSection": "C",
-    "department": "History",
-    "employeeId": "ws454353424",
-    "contactNo": "9856741230",
-    "status": "Active",
-    "doj": "15th June 2013",
-    "portalAccess": "Enabled",
-    "attPercent": "59%"
-  },
-  {
-    "sn": 11,
-    "photo": "https://i.pravatar.cc/40?img=11",
-    "teacherName": "Mrs. Megha Pillai",
-    "assignedClass": "9",
-    "assignedSection": "C",
-    "department": "Home Science",
-    "employeeId": "ws454353424",
-    "contactNo": "9786543210",
-    "status": "Active",
-    "doj": "15th June 2013",
-    "portalAccess": "Enabled",
-    "attPercent": "59%"
-  },
-  {
-    "sn": 12,
-    "photo": "https://i.pravatar.cc/40?img=12",
-    "teacherName": "Mr. Karan Malhotra",
-    "assignedClass": "9",
-    "assignedSection": "C",
-    "department": "Sycology",
-    "employeeId": "ws454353424",
-    "contactNo": "9129876546",
-    "status": "Active",
-    "doj": "15th June 2013",
-    "portalAccess": "Enabled",
-    "attPercent": "59%"
-  },
-  {
-    "sn": 13,
-    "photo": "https://i.pravatar.cc/40?img=13",
-    "teacherName": "Mrs. Neelam Gupta",
-    "assignedClass": "9",
-    "assignedSection": "C",
-    "department": "Commerce",
-    "employeeId": "ws454353424",
-    "contactNo": "9965677888",
-    "status": "Active",
-    "doj": "15th June 2013",
-    "portalAccess": "Enabled",
-    "attPercent": "50%"
-  },
-  {
-    "sn": 14,
-    "photo": "https://i.pravatar.cc/40?img=14",
-    "teacherName": "Mrs. Ishita Choudhary",
-    "assignedClass": "9",
-    "assignedSection": "C",
-    "department": "Law",
-    "employeeId": "ws454353424",
-    "contactNo": "9956677888",
-    "status": "Active",
-    "doj": "15th June 2013",
-    "portalAccess": "Enabled",
-    "attPercent": "59%"
-  },
-  {
-    "sn": 15,
-    "photo": "https://i.pravatar.cc/40?img=15",
-    "teacherName": "Mrs. Priya Menon",
-    "assignedClass": "9",
-    "assignedSection": "C",
-    "department": "Accounts",
-    "employeeId": "ws454353424",
-    "contactNo": "9123456788",
-    "status": "Active",
-    "doj": "15th June 2013",
-    "portalAccess": "Enabled",
-    "attPercent": "59%"
-  },
-  {
-    "sn": 16,
-    "photo": "https://i.pravatar.cc/40?img=16",
-    "teacherName": "Mr. Ramesh Joshi",
-    "assignedClass": "9",
-    "assignedSection": "C",
-    "department": "Economics",
-    "employeeId": "ws454353424",
-    "contactNo": "9890011223",
-    "status": "Active",
-    "doj": "15th June 2013",
-    "portalAccess": "Enabled",
-    "attPercent": "59%"
-  },
-  {
-    "sn": 17,
-    "photo": "https://i.pravatar.cc/40?img=17",
-    "teacherName": "Mrs. Tanvi Kapoor",
-    "assignedClass": "9",
-    "assignedSection": "C",
-    "department": "Social Science",
-    "employeeId": "ws454353424",
-    "contactNo": "9776655443",
-    "status": "Active",
-    "doj": "15th June 2013",
-    "portalAccess": "Enabled",
-    "attPercent": "59%"
-  },
-  {
-    "sn": 18,
-    "photo": "https://i.pravatar.cc/40?img=18",
-    "teacherName": "Mr. Sanjay D’Souza",
-    "assignedClass": "9",
-    "assignedSection": "C",
-    "department": "Computer",
-    "employeeId": "ws454353424",
-    "contactNo": "9023456789",
-    "status": "Active",
-    "doj": "15th June 2013",
-    "portalAccess": "Enabled",
-    "attPercent": "59%"
-  },
-  {
-    "sn": 19,
-    "photo": "https://i.pravatar.cc/40?img=19",
-    "teacherName": "Mrs. Meera Kulkarni",
-    "assignedClass": "9",
-    "assignedSection": "C",
-    "department": "Humanities",
-    "employeeId": "ws454353424",
-    "contactNo": "9911223344",
-    "status": "Active",
-    "doj": "15th June 2013",
-    "portalAccess": "Enabled",
-    "attPercent": "59%"
-  },
-  {
-    "sn": 20,
-    "photo": "https://i.pravatar.cc/40?img=20",
-    "teacherName": "Mr. Vikram Rao",
-    "assignedClass": "9",
-    "assignedSection": "C",
-    "department": "Environmental studies",
-    "employeeId": "ws454353424",
-    "contactNo": "9887766554",
-    "status": "Active",
-    "doj": "15th June 2013",
-    "portalAccess": "Enabled",
-    "attPercent": "59%"
-  },
-  {
-    "sn": 21,
-    "photo": "https://i.pravatar.cc/40?img=21",
-    "teacherName": "Mrs. Aarti Chhabra",
-    "assignedClass": "9",
-    "assignedSection": "C",
-    "department": "Physical Education",
-    "employeeId": "ws454353424",
-    "contactNo": "9877001122",
-    "status": "Active",
-    "doj": "15th June 2013",
-    "portalAccess": "Enabled",
-    "attPercent": "59%"
-  },
-  {
-    "sn": 22,
-    "photo": "https://i.pravatar.cc/40?img=22",
-    "teacherName": "Mr. Harish Patel",
-    "assignedClass": "9",
-    "assignedSection": "C",
-    "department": "Music",
-    "employeeId": "ws454353424",
-    "contactNo": "9810098765",
-    "status": "Active",
-    "doj": "15th June 2013",
-    "portalAccess": "Enabled",
-    "attPercent": "59%"
-  },
-  {
-    "sn": 23,
-    "photo": "https://i.pravatar.cc/40?img=23",
-    "teacherName": "Mrs. Sneha Pillai",
-    "assignedClass": "9",
-    "assignedSection": "C",
-    "department": "Dance",
-    "employeeId": "ws454353424",
-    "contactNo": "9933221100",
-    "status": "Active",
-    "doj": "15th June 2013",
-    "portalAccess": "Enabled",
-    "attPercent": "59%"
-  }
-]
-);
+    [
+      {
+        "sn": 1,
+        "photo": "https://i.pravatar.cc/40?img=1",
+        "teacherName": "Mr. Sumit Sharma",
+        "assignedClass": "6",
+        "assignedSection": "C",
+        "department": "Science",
+        "employeeId": "ws454353424",
+        "contactNo": "8786 765 765",
+        "status": "Active",
+        "doj": "15th June 2013",
+        "portalAccess": "Enabled",
+        "attPercent": "59%"
+      },
+      {
+        "sn": 2,
+        "photo": "https://i.pravatar.cc/40?img=2",
+        "teacherName": "Mrs. Shalini Mehta",
+        "assignedClass": "12",
+        "assignedSection": "B",
+        "department": "Arts",
+        "employeeId": "ws454353424",
+        "contactNo": "9123456780",
+        "status": "Resigned",
+        "doj": "15th July 2013",
+        "portalAccess": "Enabled",
+        "attPercent": "59%"
+      },
+      {
+        "sn": 3,
+        "photo": "https://i.pravatar.cc/40?img=3",
+        "teacherName": "Mrs. Riya Sharma",
+        "assignedClass": "7",
+        "assignedSection": "A",
+        "department": "Chemistry",
+        "employeeId": "ws454353424",
+        "contactNo": "9811122333",
+        "status": "On Leave",
+        "doj": "15th June 2013",
+        "portalAccess": "Disabled",
+        "attPercent": "58%"
+      },
+      {
+        "sn": 4,
+        "photo": "https://i.pravatar.cc/40?img=4",
+        "teacherName": "Mrs. Ananya Nair",
+        "assignedClass": "NA",
+        "assignedSection": "NA",
+        "department": "Biology",
+        "employeeId": "ws454353424",
+        "contactNo": "9765432109",
+        "status": "Active",
+        "doj": "15th June 2013",
+        "portalAccess": "Enabled",
+        "attPercent": "59%"
+      },
+      {
+        "sn": 5,
+        "photo": "https://i.pravatar.cc/40?img=5",
+        "teacherName": "Mrs. Poonam Verma",
+        "assignedClass": "4",
+        "assignedSection": "B",
+        "department": "Physics",
+        "employeeId": "ws454353424",
+        "contactNo": "9090909090",
+        "status": "Active",
+        "doj": "15th June 2013",
+        "portalAccess": "Enabled",
+        "attPercent": "59%"
+      },
+      {
+        "sn": 6,
+        "photo": "https://i.pravatar.cc/40?img=6",
+        "teacherName": "Mrs. Kavya Iyer",
+        "assignedClass": "1",
+        "assignedSection": "A",
+        "department": "Maths",
+        "employeeId": "ws454353424",
+        "contactNo": "9898989898",
+        "status": "Active",
+        "doj": "15th June 2013",
+        "portalAccess": "Enabled",
+        "attPercent": "59%"
+      },
+      {
+        "sn": 7,
+        "photo": "https://i.pravatar.cc/40?img=7",
+        "teacherName": "Mrs. Kavita Joshi",
+        "assignedClass": "2",
+        "assignedSection": "D",
+        "department": "English",
+        "employeeId": "ws454353424",
+        "contactNo": "9823234455",
+        "status": "Active",
+        "doj": "15th June 2013",
+        "portalAccess": "Enabled",
+        "attPercent": "59%"
+      },
+      {
+        "sn": 8,
+        "photo": "https://i.pravatar.cc/40?img=8",
+        "teacherName": "Mr. Manoj Batra",
+        "assignedClass": "9",
+        "assignedSection": "C",
+        "department": "Junior",
+        "employeeId": "ws454353424",
+        "contactNo": "9933445566",
+        "status": "Active",
+        "doj": "15th June 2013",
+        "portalAccess": "Enabled",
+        "attPercent": "59%"
+      },
+      {
+        "sn": 9,
+        "photo": "https://i.pravatar.cc/40?img=9",
+        "teacherName": "Mrs. Radhika Sen",
+        "assignedClass": "9",
+        "assignedSection": "C",
+        "department": "Hindi/Regional Lang",
+        "employeeId": "ws454353424",
+        "contactNo": "9001122333",
+        "status": "Active",
+        "doj": "15th June 2013",
+        "portalAccess": "Enabled",
+        "attPercent": "59%"
+      },
+      {
+        "sn": 10,
+        "photo": "https://i.pravatar.cc/40?img=10",
+        "teacherName": "Mrs. Anjali Desai",
+        "assignedClass": "9",
+        "assignedSection": "C",
+        "department": "History",
+        "employeeId": "ws454353424",
+        "contactNo": "9856741230",
+        "status": "Active",
+        "doj": "15th June 2013",
+        "portalAccess": "Enabled",
+        "attPercent": "59%"
+      },
+      {
+        "sn": 11,
+        "photo": "https://i.pravatar.cc/40?img=11",
+        "teacherName": "Mrs. Megha Pillai",
+        "assignedClass": "9",
+        "assignedSection": "C",
+        "department": "Home Science",
+        "employeeId": "ws454353424",
+        "contactNo": "9786543210",
+        "status": "Active",
+        "doj": "15th June 2013",
+        "portalAccess": "Enabled",
+        "attPercent": "59%"
+      },
+      {
+        "sn": 12,
+        "photo": "https://i.pravatar.cc/40?img=12",
+        "teacherName": "Mr. Karan Malhotra",
+        "assignedClass": "9",
+        "assignedSection": "C",
+        "department": "Sycology",
+        "employeeId": "ws454353424",
+        "contactNo": "9129876546",
+        "status": "Active",
+        "doj": "15th June 2013",
+        "portalAccess": "Enabled",
+        "attPercent": "59%"
+      },
+      {
+        "sn": 13,
+        "photo": "https://i.pravatar.cc/40?img=13",
+        "teacherName": "Mrs. Neelam Gupta",
+        "assignedClass": "9",
+        "assignedSection": "C",
+        "department": "Commerce",
+        "employeeId": "ws454353424",
+        "contactNo": "9965677888",
+        "status": "Active",
+        "doj": "15th June 2013",
+        "portalAccess": "Enabled",
+        "attPercent": "50%"
+      },
+      {
+        "sn": 14,
+        "photo": "https://i.pravatar.cc/40?img=14",
+        "teacherName": "Mrs. Ishita Choudhary",
+        "assignedClass": "9",
+        "assignedSection": "C",
+        "department": "Law",
+        "employeeId": "ws454353424",
+        "contactNo": "9956677888",
+        "status": "Active",
+        "doj": "15th June 2013",
+        "portalAccess": "Enabled",
+        "attPercent": "59%"
+      },
+      {
+        "sn": 15,
+        "photo": "https://i.pravatar.cc/40?img=15",
+        "teacherName": "Mrs. Priya Menon",
+        "assignedClass": "9",
+        "assignedSection": "C",
+        "department": "Accounts",
+        "employeeId": "ws454353424",
+        "contactNo": "9123456788",
+        "status": "Active",
+        "doj": "15th June 2013",
+        "portalAccess": "Enabled",
+        "attPercent": "59%"
+      },
+      {
+        "sn": 16,
+        "photo": "https://i.pravatar.cc/40?img=16",
+        "teacherName": "Mr. Ramesh Joshi",
+        "assignedClass": "9",
+        "assignedSection": "C",
+        "department": "Economics",
+        "employeeId": "ws454353424",
+        "contactNo": "9890011223",
+        "status": "Active",
+        "doj": "15th June 2013",
+        "portalAccess": "Enabled",
+        "attPercent": "59%"
+      },
+      {
+        "sn": 17,
+        "photo": "https://i.pravatar.cc/40?img=17",
+        "teacherName": "Mrs. Tanvi Kapoor",
+        "assignedClass": "9",
+        "assignedSection": "C",
+        "department": "Social Science",
+        "employeeId": "ws454353424",
+        "contactNo": "9776655443",
+        "status": "Active",
+        "doj": "15th June 2013",
+        "portalAccess": "Enabled",
+        "attPercent": "59%"
+      },
+      {
+        "sn": 18,
+        "photo": "https://i.pravatar.cc/40?img=18",
+        "teacherName": "Mr. Sanjay D’Souza",
+        "assignedClass": "9",
+        "assignedSection": "C",
+        "department": "Computer",
+        "employeeId": "ws454353424",
+        "contactNo": "9023456789",
+        "status": "Active",
+        "doj": "15th June 2013",
+        "portalAccess": "Enabled",
+        "attPercent": "59%"
+      },
+      {
+        "sn": 19,
+        "photo": "https://i.pravatar.cc/40?img=19",
+        "teacherName": "Mrs. Meera Kulkarni",
+        "assignedClass": "9",
+        "assignedSection": "C",
+        "department": "Humanities",
+        "employeeId": "ws454353424",
+        "contactNo": "9911223344",
+        "status": "Active",
+        "doj": "15th June 2013",
+        "portalAccess": "Enabled",
+        "attPercent": "59%"
+      },
+      {
+        "sn": 20,
+        "photo": "https://i.pravatar.cc/40?img=20",
+        "teacherName": "Mr. Vikram Rao",
+        "assignedClass": "9",
+        "assignedSection": "C",
+        "department": "Environmental studies",
+        "employeeId": "ws454353424",
+        "contactNo": "9887766554",
+        "status": "Active",
+        "doj": "15th June 2013",
+        "portalAccess": "Enabled",
+        "attPercent": "59%"
+      },
+      {
+        "sn": 21,
+        "photo": "https://i.pravatar.cc/40?img=21",
+        "teacherName": "Mrs. Aarti Chhabra",
+        "assignedClass": "9",
+        "assignedSection": "C",
+        "department": "Physical Education",
+        "employeeId": "ws454353424",
+        "contactNo": "9877001122",
+        "status": "Active",
+        "doj": "15th June 2013",
+        "portalAccess": "Enabled",
+        "attPercent": "59%"
+      },
+      {
+        "sn": 22,
+        "photo": "https://i.pravatar.cc/40?img=22",
+        "teacherName": "Mr. Harish Patel",
+        "assignedClass": "9",
+        "assignedSection": "C",
+        "department": "Music",
+        "employeeId": "ws454353424",
+        "contactNo": "9810098765",
+        "status": "Active",
+        "doj": "15th June 2013",
+        "portalAccess": "Enabled",
+        "attPercent": "59%"
+      },
+      {
+        "sn": 23,
+        "photo": "https://i.pravatar.cc/40?img=23",
+        "teacherName": "Mrs. Sneha Pillai",
+        "assignedClass": "9",
+        "assignedSection": "C",
+        "department": "Dance",
+        "employeeId": "ws454353424",
+        "contactNo": "9933221100",
+        "status": "Active",
+        "doj": "15th June 2013",
+        "portalAccess": "Enabled",
+        "attPercent": "59%"
+      }
+    ]
+  );
   const [showLowAttendance, setShowLowAttendance] = useState(false);
   const [openMenuId, setOpenMenuId] = useState(null);
   const overviewCards = [
@@ -372,7 +372,7 @@ const Teachers = () => {
             {overviewCards.map((card, index) => (
               <Card
                 key={index}
-               
+
                 className="shadow-sm rounded-4 d-flex flex-row align-items-center position-relative"
                 style={{
                   width: "232px",
@@ -445,8 +445,10 @@ const Teachers = () => {
               40
             </span>
           </div>
-          <div className="d-flex gap-3  ">
-             <Button
+          {/* <div className="d-flex gap-3  "> */}
+          <div className="d-flex flex-lg-nowrap flex-wrap gap-3 justify-content-end">
+
+            <Button
               className="rounded-3 "
               variant="outline-secondary"
               size="sm"
@@ -458,10 +460,10 @@ const Teachers = () => {
               />{" "}
               &nbsp; Export
             </Button>
-            
-            <input  className="rounded-3 text-secondary"  variant="outline-secondary" type="date" size="sm"
+
+            <input className="rounded-3 text-secondary" variant="outline-secondary" type="date" size="sm"
               style={{ padding: "4px 14px", border: "1px solid #1C1C1C29" }} />
-           
+
             <Button
               className="rounded-3 "
               variant="outline-secondary"
@@ -512,10 +514,10 @@ const Teachers = () => {
                 <th>Att %</th>
                 <th></th>
               </tr>
-            </thead> 
+            </thead>
             <tbody>
               {students.map((s) => (
-                <tr key={s.id} onClick={()=>navigate(`/teachersProfile/${s.id}`)} >
+                <tr key={s.id} onClick={() => navigate(`/teachersProfile/${s.id}`)} >
                   <td>
                     <input type="checkbox" name="" id="" />
                   </td>

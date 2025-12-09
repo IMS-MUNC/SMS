@@ -198,17 +198,8 @@ const Students = () => {
         <Card.Header className="d-flex justify-content-between align-items-center bg-white border-0 rounded-3 py-3">
           <div className="d-flex gap-2 ms-1">
             <h5 className="mb-0  fw-semibold">Students</h5>{" "}
-            {/* <span
-              style={{
-                backgroundColor: "#F7FAFF",
-                color: "#0070FF",
-                marginTop: "2px",
-              }}
-            >
-              40
-            </span> */}
           </div>
-          <div className="d-flex gap-3  ">
+          <div className="d-flex flex-lg-nowrap flex-wrap gap-3 justify-content-end">
             <Form.Select
               size="sm"
               className="rounded-3 text-secondary"
