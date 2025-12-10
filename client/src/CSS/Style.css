@@ -830,7 +830,7 @@ campush-header {
 }
 
 .table-left-progress-bar {
-  height: 497px;
+  height: 515px;
 }
 
 .top-two-library {
@@ -882,6 +882,7 @@ campush-header {
   .bottom-two-graph {
     width: 100%;
   }
+  
 }
 
 @media (min-width: 768px) {
@@ -961,6 +962,10 @@ campush-header {
   .campus-right {
     gap:10px;
   }
+  .speed-pipe {
+   display: flex; 
+   gap: 28px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -1018,6 +1023,11 @@ campush-header {
   }
   .occupancy-chart {
     width: 100%;
+  }
+
+  .academic-left-right {
+    display: flex;
+    gap: 28px;
   }
 }
 

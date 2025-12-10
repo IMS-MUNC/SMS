@@ -56,7 +56,7 @@ function BuildingSetup() {
   const [showRoomsInputs, setShowRoomsInputs] = useState(false);
   const [roomsSaved, setRoomsSaved] = useState(false);
 
-  // Toggle function
+  
   const toggleFloorInputs = () => {
     setShowFloorInputs((prev) => !prev);
   };
@@ -67,8 +67,8 @@ function BuildingSetup() {
   };
 
   const handleSaveFloor = () => {
-    setFloorSaved(true); // show table
-    setShowFloorInputs(false); // hide inputs
+    setFloorSaved(true); 
+    setShowFloorInputs(false); 
   };
 
   const handelCancelRooms = () => {
