@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 function AcademicManagement() {
   return (
-    <div>AcademicManagement</div>
-  )
+    <>
+      <div>AcademicManagement kk </div>
+    </>
+  );
 }
 
-export default AcademicManagement
+export default AcademicManagement;
