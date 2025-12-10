@@ -19,9 +19,18 @@ import img4 from "../../assets/images/table.png";
 import img5 from "../../assets/images/campus.png";
 import img6 from "../../assets/images/moniter.png";
 import student from "../../assets/images/libraryImg.png";
+import jitu from "../../assets/images/jitu.jpg";
+import eva from "../../assets/images/eva.jpg";
+import girl from "../../assets/images/girl.jpg";
+import man from "../../assets/images/man.jpg";
+import lady from "../../assets/images/lady.jpg";
 import { GoArrowRight } from "react-icons/go";
 
 const AcademicSetup = () => {
+
+  const [showPopup, setShowPopup ] = useState(false);
+
+
   const subjectData = {
     Maths: 40,
     Arts: 55,
@@ -48,7 +57,7 @@ const AcademicSetup = () => {
     "DEC",
   ];
 
-  const cadrDummyData = [
+  const cardDummyData = [
     {
       title: "Total Class",
       number: "15",
@@ -183,36 +192,68 @@ const AcademicSetup = () => {
 
   const acedemicModules = [
     {
-      img:student,
-      title:'Class & Section Setup',
-      des:'staff- 20',
+      img: student,
+      title: "Class & Section Setup",
+      des: "staff- 20",
     },
     {
-      img:student,
-      title:'Subject Setup',
-      des:'staff- 20',
+      img: student,
+      title: "Subject Setup",
+      des: "staff- 20",
     },
     {
-      img:student,
-      title:'Timetable Setup',
-      des:'staff- 20',
+      img: student,
+      title: "Timetable Setup",
+      des: "staff- 20",
     },
     {
-      img:student,
-      title:'Exam Pattern Setup',
-      des:'staff- 20',
+      img: student,
+      title: "Exam Pattern Setup",
+      des: "staff- 20",
     },
     {
-      img:student,
-      title:'Grading System Setup',
-      des:'staff- 20',
+      img: student,
+      title: "Grading System Setup",
+      des: "staff- 20",
     },
-  ]
+  ];
 
   const slotColors = {
     Full: { color: "#D32F2F" }, // red theme
     Available: { color: "#2E7D32" }, // green theme
   };
+
+  {
+    /* <------------------------------------- Highlight of Timetable ---------------------------> */
+  }
+
+  const highlightsOfTimetable = [
+    {
+      img: jitu,
+      highlights: "Class 7B has only 4 periods on Tuesday",
+      status: "Mr.sunita has 40% of Workload",
+    },
+    {
+      img: eva,
+      highlights: "Class 7B has only 4 periods on Tuesday",
+      status: "Mr.sunita has 40% of Workload",
+    },
+    {
+      img: girl,
+      highlights: "Class 7B has only 4 periods on Tuesday & monday",
+      status: "Mr.sunita has 40% of Workload",
+    },
+    {
+      img: man,
+      highlights: "Class 7B has only 4 periods on Tuesday",
+      status: "Mr.sunita has 40% of Workload",
+    },
+    {
+      img: lady,
+      highlights: "Class 7B has only 4 periods on Tuesday",
+      status: "Mr.sunita has 40% of Workload",
+    },
+  ];
 
   {
     /* <=============================== Speed meter ============================> */
@@ -221,12 +262,20 @@ const AcademicSetup = () => {
   const gaugeRef = useRef();
 
   useEffect(() => {
+    const handleResize = () => drawGauge(percentage);
+    window.addEventListener("resize", handleResize);
+
     drawGauge(percentage);
+
+    return () => window.removeEventListener("resize", handleResize);
   }, [percentage]);
 
   const drawGauge = (value) => {
-    const width = 500;
-    const height = 160;
+    const container = gaugeRef.current.parentElement;
+    const containerWidth = container.offsetWidth;
+
+    const width = containerWidth; // Full responsive width
+    const height = containerWidth * 0.35; // Scale height proportionally
 
     const svgEl = d3.select(gaugeRef.current);
     svgEl.selectAll("*").remove();
@@ -235,9 +284,9 @@ const AcademicSetup = () => {
       .attr("width", width)
       .attr("height", height)
       .append("g")
-      .attr("transform", `translate(${width / 2}, ${height * 0.75})`);
+      .attr("transform", `translate(${width / 2}, ${height * 0.8})`);
 
-    const radius = 120;
+    const radius = width * 0.25; // Dynamic radius
 
     const angleScale = d3
       .scaleLinear()
@@ -246,7 +295,7 @@ const AcademicSetup = () => {
 
     const backgroundArc = d3
       .arc()
-      .innerRadius(radius - 20)
+      .innerRadius(radius - radius * 0.2)
       .outerRadius(radius)
       .startAngle(-Math.PI / 2)
       .endAngle(Math.PI / 2);
@@ -255,7 +304,7 @@ const AcademicSetup = () => {
 
     const filledArc = d3
       .arc()
-      .innerRadius(radius - 20)
+      .innerRadius(radius - radius * 0.2)
       .outerRadius(radius)
       .startAngle(-Math.PI / 2)
       .endAngle(angleScale(value));
@@ -263,14 +312,14 @@ const AcademicSetup = () => {
     svg.append("path").attr("d", filledArc).attr("fill", "#366BFF");
 
     const midAngle = (-Math.PI / 2 + angleScale(value)) / 2;
-    const textRadius = radius - 100;
+    const textRadius = radius * 0.45;
 
     svg
       .append("text")
-      .attr("x", textRadius * Math.cos(midAngle))
-      .attr("y", textRadius * Math.sin(midAngle) + 8)
+      .attr("x", textRadius * Math.cos(midAngle) - 15)
+      .attr("y", textRadius * Math.sin(midAngle) + 25)
       .attr("text-anchor", "middle")
-      .attr("font-size", "34px")
+      .attr("font-size", width * 0.1) // Responsive text size
       .attr("font-weight", "700")
       .attr("fill", "#404040")
       .text(value + "%");
@@ -307,15 +356,23 @@ const AcademicSetup = () => {
 
   useEffect(() => {
     drawChart();
+
+    const handleResize = () => drawChart();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const drawChart = () => {
-    const svgEl = d3.select(chartRef.current);
-    svgEl.selectAll("*").remove();
+    const container = chartRef.current.parentElement;
+    const containerWidth = container.offsetWidth;
 
-    const width = 500;
+    const width = containerWidth; // Responsive width
     const height = 300;
     const margin = { top: 30, right: 20, bottom: 60, left: 40 };
+
+    const svgEl = d3.select(chartRef.current);
+    svgEl.selectAll("*").remove();
 
     const svg = svgEl.attr("width", width).attr("height", height);
 
@@ -352,29 +409,30 @@ const AcademicSetup = () => {
       .attr("x", (d) => x(d.data.name))
       .attr("y", (d) => y(d[1]))
       .attr("height", (d) => y(d[0]) - y(d[1]))
-      .attr("width", x.bandwidth())
-      .attr("rx", 0)
-      .attr("ry", 0);
+      .attr("width", x.bandwidth());
 
     // X-axis
     svg
       .append("g")
       .attr("transform", `translate(0, ${height - margin.bottom})`)
-      .call(d3.axisBottom(x));
+      .call(d3.axisBottom(x).tickSize(0).tickPadding(10))
+      .selectAll("text")
+      .attr("font-size", width * 0.025); // Responsive font size
 
     // Y-axis
     svg
       .append("g")
       .attr("transform", `translate(${margin.left}, 0)`)
-      .call(d3.axisLeft(y).ticks(6));
+      .call(d3.axisLeft(y).ticks(5).tickSize(0))
+      .selectAll("text")
+      .attr("font-size", width * 0.022);
 
-    // Remove axis outer border lines
     svg.selectAll(".domain").remove();
 
     // Legend
     const legend = svg
       .append("g")
-      .attr("transform", `translate(180, ${height - 20})`);
+      .attr("transform", `translate(${width * 0.25}, ${height - 25})`);
 
     const legendItems = [
       { label: "GPA", color: "#344BFD" },
@@ -383,19 +441,21 @@ const AcademicSetup = () => {
     ];
 
     legendItems.forEach((item, i) => {
+      const spacing = width * 0.15;
+
       legend
         .append("circle")
-        .attr("cx", i * 65) // horizontal spacing
-        .attr("cy", 6) // vertical position
-        .attr("r", 6) // circle radius
+        .attr("cx", i * spacing)
+        .attr("cy", 6)
+        .attr("r", width * 0.012)
         .attr("fill", item.color);
 
       legend
         .append("text")
-        .attr("x", i * 60 + 18)
+        .attr("x", i * spacing + 15)
         .attr("y", 10)
         .text(item.label)
-        .attr("font-size", "12px")
+        .attr("font-size", width * 0.022)
         .attr("fill", "#767676");
     });
   };
@@ -671,15 +731,23 @@ const AcademicSetup = () => {
 
   useEffect(() => {
     drawProgress();
+
+    const handleResize = () => drawProgress();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const drawProgress = () => {
     const svg = d3.select(svgRef.current);
     svg.selectAll("*").remove();
 
-    const width = 380;
-    const rowHeight = 53;
-    const barWidth = 220;
+    const container = svgRef.current.parentElement;
+    const containerWidth = container.offsetWidth;
+
+    const width = containerWidth; // Responsive width
+    const rowHeight = 53; // Keep same height
+    const barWidth = width * 0.55; // Bar scales with container width
     const barHeight = 6;
     const startY = 30;
 
@@ -688,6 +756,7 @@ const AcademicSetup = () => {
     progressData.forEach((d, i) => {
       const y = startY + i * rowHeight;
 
+      // Icon
       svg
         .append("image")
         .attr("href", d.img)
@@ -696,27 +765,25 @@ const AcademicSetup = () => {
         .attr("width", 40)
         .attr("height", 32);
 
-      // LABEL
+      // Label
       svg
         .append("text")
         .attr("x", 50)
         .attr("y", y)
         .attr("font-size", "14px")
         .attr("fill", "#AEAEAE")
-        .attr("font-weight", 400)
         .text(d.label);
 
-      // % VALUE
+      // Percentage text
       svg
         .append("text")
-        .attr("x", width - 90)
+        .attr("x", width - 70) // Adjusts based on width
         .attr("y", y)
-        .attr("font-size", "20px")
-        .attr("fill", "#000000")
-        .attr("font-weight", 400)
+        .attr("font-size", "16px")
+        .attr("fill", "#000")
         .text(d.value + "%");
 
-      // BACKGROUND BAR (grey)
+      // Background bar
       svg
         .append("rect")
         .attr("x", 50)
@@ -724,19 +791,17 @@ const AcademicSetup = () => {
         .attr("width", barWidth)
         .attr("height", barHeight)
         .attr("fill", "#F4F9FC")
-        .attr("rx", 3)
-        .attr("ry", 3);
+        .attr("rx", 3);
 
-      // BLUE BAR (progress)
+      // Progress bar
       svg
         .append("rect")
         .attr("x", 50)
         .attr("y", y + 10)
         .attr("width", (barWidth * d.value) / 100)
-        .attr("height", 5)
+        .attr("height", barHeight)
         .attr("fill", "#007aff")
-        .attr("rx", 3)
-        .attr("ry", 3);
+        .attr("rx", 3);
     });
   };
 
@@ -752,15 +817,17 @@ const AcademicSetup = () => {
       <Card.Body>
         <div
           className="d-flex gap-4 overflow-auto hide-scrollbar flex-nowrap"
-          style={{ zIndex: "999999", padding: "0px 0px 25px 0px" }}
+          style={{ zIndex: "999999", padding: "0px 0px 25px 0px",}}
         >
-          {/* Active Year Card */}
+          {/* <-------------------------------------------------- Active Year Card ------------------------------------------------> */}
           <div
+            onClick={() => setShowPopup(true)}
             className="bg-white d-flex justify-content-between align-items-center p-3 rounded shadow flex-wrap"
             style={{
               width: "240px",
               height: "134px",
               flex: "0 0 auto",
+              cursor: "pointer"
             }}
           >
             <div className="w-75 d-flex flex-column flex-wrap">
@@ -797,7 +864,7 @@ const AcademicSetup = () => {
           </div>
 
           {/* MAPPED CARDS */}
-          {cadrDummyData.map((item, index) => (
+          {cardDummyData.map((item, index) => (
             <div key={index} className="bg-white p-3 rounded shadow card-item">
               {/* LEFT SIDE */}
               <div className="w-75 d-flex flex-column">
@@ -821,13 +888,19 @@ const AcademicSetup = () => {
         </div>
       </Card.Body>
 
+      {showPopup && (
+        <div className="popup-overlay">
+          hii
+        </div>
+      )}
+
       {/* <======================================== Left Side code ====================================> */}
       <Card className="border-0 shadow-none bg-transparent">
         <Card.Body className="bg-transparent p-3">
-          <div className="d-flex gap-4">
+          <div className="academic-left-right gap-4 ">
             {/* TABLE AREA */}
-            <div className="w-75">
-              <div className="table-left-progress-bar bg-white p-4 rounded shadow">
+            <div className="">
+              <div className=" bg-white p-4 rounded shadow mt-3">
                 <div className="table-header-book d-flex justify-content-between align-items-center">
                   <div className="d-flex align-items-center gap-3">
                     <span className="return-issued">
@@ -885,7 +958,7 @@ const AcademicSetup = () => {
                 </div>
                 {/* <-------------------------------------- Table ------------------------------------> */}
                 <Card.Body>
-                  <div className="table-resposive">
+                  <div className="table-responsive">
                     <Table hover responsive className="align-middle mb-0">
                       <thead>
                         <tr className="library-table-head-color">
@@ -992,69 +1065,79 @@ const AcademicSetup = () => {
                 </Card.Body>
               </div>
 
-              {/* <--------------------------------------------- 4 graph -------------------------------------------> */}
-              <div className="d-flex gap-4 mt-4">
-                <div className="top-two-library w-50 bg-white rounded p-4 shadow">
-                  <div className="">
-                    <h4>Subject Coverage Status</h4>
+              {/* <--------------------------------------------- 2 graph -------------------------------------------> */}
+              <div className="speed-pipe mt-2">
+                {/* <---------------------------------------------- speed meter graph ----------------------------------------> */}
+                <div className="top-two-library w-100 bg-white rounded p-4 shadow mt-3">
+                  <h4>Subject Coverage Status</h4>
 
-                    {/* GAUGE */}
-                    <svg className="mt-5" ref={gaugeRef}></svg>
+                  {/* Responsive container */}
+                  <div
+                    style={{ width: "100%", height: "auto", marginTop: "50px" }}
+                  >
+                    <svg
+                      ref={gaugeRef}
+                      style={{ width: "100%", height: "100%" }}
+                    ></svg>
+                  </div>
 
-                    {/* STATUS */}
-                    <p className="pecentage-text text-center mt-2 ">
-                      {getStatusText(percentage)}
-                    </p>
+                  <p className="pecentage-text text-center mt-2">
+                    {getStatusText(percentage)}
+                  </p>
 
-                    {/* SUBJECT TABS */}
-                    <div className="d-flex justify-content-between px-5 mt-4">
-                      {Object.keys(subjectData).map((sub) => (
-                        <span
-                          key={sub}
-                          onClick={() => {
-                            setSelectedSubject(sub);
-                            setPercentage(subjectData[sub]);
-                          }}
-                          style={{
-                            cursor: "pointer",
-                            fontWeight: selectedSubject === sub ? "700" : "400",
-                            color:
-                              selectedSubject === sub ? "#007AFF" : "#717376",
-                            fontSize: selectedSubject === sub ? "15px" : "15px",
-                          }}
-                        >
-                          {sub}
-                        </span>
-                      ))}
-                    </div>
+                  <div className="d-flex justify-content-between px-3 mt-4 flex-wrap">
+                    {Object.keys(subjectData).map((sub) => (
+                      <span
+                        key={sub}
+                        onClick={() => {
+                          setSelectedSubject(sub);
+                          setPercentage(subjectData[sub]);
+                        }}
+                        style={{
+                          cursor: "pointer",
+                          fontWeight: selectedSubject === sub ? "700" : "400",
+                          color:
+                            selectedSubject === sub ? "#007AFF" : "#717376",
+                          fontSize: "15px",
+                          margin: "6px 10px",
+                        }}
+                      >
+                        {sub}
+                      </span>
+                    ))}
                   </div>
                 </div>
+
                 {/* <--------------------------------------------pipe graph ---------------------------------------------> */}
-                <div className="top-two-library w-50 bg-white rounded p-4 shadow">
+                <div className="top-two-library w-100 bg-white rounded p-4 shadow mt-3">
                   <div>
-                    <h4> Grade Performance Distribution</h4>
+                    <h4>Grade Performance Distribution</h4>
                   </div>
+
                   <div
                     style={{
                       width: "100%",
-                      overflow: "hidden",
+                      overflowX: "auto",
                       marginTop: "12px",
                     }}
                   >
-                    <svg ref={chartRef}></svg>
+                    <svg
+                      ref={chartRef}
+                      style={{ width: "100%", height: "100%" }}
+                    ></svg>
                   </div>
                 </div>
               </div>
 
               {/* <----------------------------------- git hub tree design -----------------------------------------> */}
-              <div className="bg-white rounded shadow mt-3 p-4">
+              <div className="tree-highlights bg-white rounded shadow mt-4 p-4">
                 <div>
                   <h4>Time Table Coverage</h4>
                 </div>
                 <div
                   style={{
                     width: "100%",
-                    overflow: "hidden",
+                    overflow: "auto",
                     marginTop: "12px",
                   }}
                 >
@@ -1063,37 +1146,67 @@ const AcademicSetup = () => {
               </div>
             </div>
 
-            {/* GRAPH AREA */}
-            <div className="w-25 ">
+            {/* <----------------------------------------------------- GRAPH AREA -------------------------------------------------> */}
+            <div className=" mt-3">
               <div className="table-left-progress-bar bg-white p-4 rounded shadow">
                 <h4>Setup Progress</h4>
-                <div>
-                  <svg ref={svgRef}></svg>
+
+                <div style={{ width: "100%", overflowX: "auto" }}>
+                  <svg ref={svgRef} style={{ width: "100%" }}></svg>
                 </div>
               </div>
-              <div className="top-two-library bg-white rounded mt-4 p-4">
+
+              {/* <============================================== Other Acedmic modules ====================================================> */}
+              <div className="top-two-library bg-white rounded mt-4 p-4 shadow">
                 <h4 className="other-library">Other Acedemic Modules</h4>
                 {acedemicModules.map((item, index) => (
-                  <div key={index} className="mt-4 d-flex justify-content-between align-items-center">
-                  <div className="d-flex gap-2">
-                    <div className="image">
-                      <img src={item.img} alt="" className="img-student" />
+                  <div
+                    key={index}
+                    className="mt-4 d-flex justify-content-between align-items-center"
+                  >
+                    <div className="d-flex gap-2">
+                      <div className="image">
+                        <img src={item.img} alt="" className="img-student" />
+                      </div>
+                      <div className="d-flex flex-column">
+                        <label className="return-issue">{item.title}</label>
+                        <span className="staff">{item.des}</span>
+                      </div>
                     </div>
-                    <div className="d-flex flex-column">
-                      <label className="return-issue">
-                        {item.title}
-                      </label>
-                      <span className="staff">{item.des}</span>
+                    <div>
+                      <span className="staff-arrow">
+                        <GoArrowRight />
+                      </span>
                     </div>
                   </div>
-                  <div>
-                    <span className="staff-arrow">
-                      <GoArrowRight />
-                    </span>
-                  </div>
-                </div>
-                ))}  
+                ))}
               </div>
+              {/* <============================================== Highlight of Timetable ===================================================> */}
+              <div className="tree-highlights bg-white rounded mt-4 p-4 shadow">
+                <h4>Highlight Of Timetable</h4>
+                <div className="mt-4">
+                  {highlightsOfTimetable.map((time, index) => (
+                    <div className="d-flex align-items-center" key={index}>
+                      <div className="w-25 px-2 py-2">
+                        <img
+                          src={time.img}
+                          className="rounded-circle"
+                          alt=""
+                          style={{ width: "64px", height: "64px" }}
+                        />
+                      </div>
+
+                      <div className="w-75 d-flex justify-content-between">
+                        <div className="d-flex flex-column">
+                          <b className="student-name">{time.highlights}</b>
+                          <span>{time.status}</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
             </div>
           </div>
         </Card.Body>
