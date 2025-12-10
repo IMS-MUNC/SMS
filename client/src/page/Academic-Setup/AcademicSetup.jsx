@@ -27,9 +27,7 @@ import lady from "../../assets/images/lady.jpg";
 import { GoArrowRight } from "react-icons/go";
 
 const AcademicSetup = () => {
-
-  const [showPopup, setShowPopup ] = useState(false);
-
+  const [showPopup, setShowPopup] = useState(false);
 
   const subjectData = {
     Maths: 40,
@@ -817,7 +815,7 @@ const AcademicSetup = () => {
       <Card.Body>
         <div
           className="d-flex gap-4 overflow-auto hide-scrollbar flex-nowrap"
-          style={{ zIndex: "999999", padding: "0px 0px 25px 0px",}}
+          style={{ zIndex: "999999", padding: "0px 0px 25px 0px" }}
         >
           {/* <-------------------------------------------------- Active Year Card ------------------------------------------------> */}
           <div
@@ -827,7 +825,7 @@ const AcademicSetup = () => {
               width: "240px",
               height: "134px",
               flex: "0 0 auto",
-              cursor: "pointer"
+              cursor: "pointer",
             }}
           >
             <div className="w-75 d-flex flex-column flex-wrap">
@@ -887,12 +885,6 @@ const AcademicSetup = () => {
           ))}
         </div>
       </Card.Body>
-
-      {showPopup && (
-        <div className="popup-overlay">
-          hii
-        </div>
-      )}
 
       {/* <======================================== Left Side code ====================================> */}
       <Card className="border-0 shadow-none bg-transparent">
@@ -1206,11 +1198,69 @@ const AcademicSetup = () => {
                   ))}
                 </div>
               </div>
-
             </div>
           </div>
         </Card.Body>
       </Card>
+
+      {showPopup && (
+        <div
+          className=""
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0,0,0,0.4)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 9999,
+          }}
+        >
+          <div
+            className="popup-box bg-white p-5 rounded shadow"
+            style={{
+              width: "771px",
+              animation: "fadeIn 0.3s ease",
+            }}
+          >
+            <h4 className="">Academic Year Details 2024-25</h4>
+            <div className="d-flex gap-5 align-items-center justify-content-center mt-4">
+              <div className="d-flex flex-column w-50  justify-content-center px-5">
+                <span className="popup-title">Starting Date</span>
+                <span>1st April 2024</span>
+              </div>
+              <div className="d-flex flex-column w-50 justify-content-center  ">
+                <span className="popup-title">End Date</span>
+                <span>1st March 2025</span>
+              </div>
+            </div>
+
+            <div className="d-flex gap-5 align-items-center justify-content-center mt-4">
+              <div className="d-flex flex-column w-50  justify-content-center px-5">
+                <span className="popup-title">Duration</span>
+                <span>1st April 2024</span>
+              </div>
+              <div className="d-flex flex-column w-50 justify-content-center  ">
+                <span className="popup-title">Status</span>
+                <span>Active</span>
+              </div>
+            </div>
+
+
+            <div className="d-flex justify-content-end mt-4">
+              <button
+                onClick={() => setShowPopup(false)}
+                className="btn btn-primary"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

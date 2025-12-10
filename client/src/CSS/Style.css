@@ -841,6 +841,11 @@ campush-header {
   height: 561px;
 }
 
+.popup-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1C212D;
+}
 
 /* <-------------------------------------- for responsive -----------------------------------------> */
 
