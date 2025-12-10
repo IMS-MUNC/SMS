@@ -1030,7 +1030,7 @@ const AcademicSetup = () => {
                   </div>
                 </div>
                 {/* <--------------------------------------------pipe graph ---------------------------------------------> */}
-                <div className="w-50 bg-white rounded p-4 shadow">
+                <div className="top-two-library w-50 bg-white rounded p-4 shadow">
                   <div>
                     <h4> Grade Performance Distribution</h4>
                   </div>
